@@ -32,7 +32,7 @@ export function Clients() {
         </h3>
         
         <div className="relative">
-          <div className="flex animate-marquee gap-8">
+          <div className="flex animate-marquee gap-8 hover:[animation-play-state:paused]">
             {[...clients, ...clients].map((client, idx) => (
               <div
                 key={idx}
@@ -47,22 +47,6 @@ export function Clients() {
         </div>
       </div>
       
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   )
 }
