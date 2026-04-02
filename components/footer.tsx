@@ -41,7 +41,7 @@ export function Footer() {
                 width={140} 
                 height={40}
                 className="brightness-0 invert"
-                style={{ width: 'auto', height: '40px' }}
+                style={{ width: 'auto', height: 'auto' }}
               />
             </Link>
             <p className="text-background/60 text-sm leading-relaxed">

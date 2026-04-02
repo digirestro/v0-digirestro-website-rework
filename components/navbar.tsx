@@ -19,7 +19,7 @@ export function Navbar() {
               alt="DigiRestro" 
               width={140} 
               height={40}
-              style={{ width: 'auto', height: '40px' }}
+              style={{ width: 'auto', height: 'auto' }}
             />
           </Link>
 
