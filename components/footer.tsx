@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const footerLinks = {
   product: [
@@ -33,13 +34,15 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-background/10">
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">D</span>
-              </div>
-              <span className="font-[family-name:var(--font-display)] font-bold text-xl text-background">
-                DigiRestro
-              </span>
+            <Link href="/" className="flex items-center mb-4">
+              <Image 
+                src="/images/digirestro-logo.png" 
+                alt="DigiRestro" 
+                width={140} 
+                height={40}
+                className="brightness-0 invert"
+                style={{ width: 'auto', height: '40px' }}
+              />
             </Link>
             <p className="text-background/60 text-sm leading-relaxed">
               The perfect AI-powered POS system for modern restaurants.
