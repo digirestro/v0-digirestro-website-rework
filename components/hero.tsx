@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 
@@ -27,6 +28,21 @@ export function Hero() {
             <Button size="lg" variant="outline" className="text-base px-8">
               Explore Features
             </Button>
+          </div>
+        </div>
+
+        {/* POS Dashboard Screenshot */}
+        <div className="mt-16 relative">
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
+            <Image
+              src="/images/pos-dashboard.png"
+              alt="DigiRestro POS Dashboard"
+              width={1536}
+              height={974}
+              className="w-full h-auto"
+              priority
+            />
           </div>
         </div>
 

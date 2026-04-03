@@ -1,42 +1,35 @@
-import { 
-  Brain, 
-  BarChart3, 
-  Zap, 
-  Puzzle, 
-  HeadphonesIcon, 
-  Smartphone 
-} from "lucide-react"
+import Image from "next/image"
 
 const features = [
   {
-    icon: Brain,
+    image: "/images/feature-ai.png",
     title: "AI-Enabled Features",
     description: "AI utilizes your historic data and helps you make crucial business decisions with smart insights."
   },
   {
-    icon: BarChart3,
-    title: "360 Degree Solutions",
-    description: "End-to-end technology experience for your restaurant and customers with comprehensive tools."
+    image: "/images/feature-billing.webp",
+    title: "Point of Sale & Billing",
+    description: "End-to-end technology experience for your restaurant and customers with comprehensive billing tools."
   },
   {
-    icon: Zap,
-    title: "User-Friendly Interface",
+    image: "/images/feature-easy.webp",
+    title: "Easy to Operate",
     description: "Easy to navigate billing screen designed with a layman-centric approach for busy hours."
   },
   {
-    icon: Puzzle,
+    image: "/images/feature-integration.webp",
     title: "Seamless Integrations",
     description: "Manage online orders directly on POS with Zomato, Swiggy, and accounting system integrations."
   },
   {
-    icon: HeadphonesIcon,
+    image: "/images/feature-support.webp",
     title: "24/7 Live Support",
     description: "Real humans hearing your complaints and requests. We provide personalized support round the clock."
   },
   {
-    icon: Smartphone,
-    title: "Mobile App",
-    description: "Real-time sales tracking and management on the go with our powerful mobile application."
+    image: "/images/feature-inventory.webp",
+    title: "Inventory Management",
+    description: "Real-time inventory tracking and management to reduce waste and optimize your stock levels."
   }
 ]
 
@@ -57,10 +50,15 @@ export function Features() {
           {features.map((feature) => (
             <div 
               key={feature.title}
-              className="bg-card p-8 rounded-2xl border border-border hover:border-primary/30 transition-colors group"
+              className="bg-card p-6 rounded-2xl border border-border hover:border-primary/30 transition-colors group"
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="w-6 h-6 text-primary" />
+              <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden bg-muted/50">
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  fill
+                  className="object-contain p-4"
+                />
               </div>
               <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold text-foreground mb-3">
                 {feature.title}

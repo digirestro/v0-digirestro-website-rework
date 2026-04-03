@@ -15,11 +15,12 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center">
             <Image 
-              src="/images/digirestro-logo.png" 
+              src="/images/digirestro-logo.webp" 
               alt="DigiRestro" 
-              width={140} 
+              width={160} 
               height={40}
-              style={{ width: 'auto', height: '40px' }}
+              className="h-8 w-auto"
+              priority
             />
           </Link>
 
