@@ -49,12 +49,14 @@ export function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-base px-8 shadow-lg shadow-primary/20">
-              Get a Demo
-              <ArrowRight className="w-4 h-4 ml-2" />
+            <Button size="lg" className="text-base px-8 shadow-lg shadow-primary/20" asChild>
+              <Link href="/contact">
+                Get a Demo
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-base px-8 bg-background/80 backdrop-blur-sm" asChild>
-              <Link href="/#features">Explore Features</Link>
+              <Link href="/features">Explore Features</Link>
             </Button>
           </div>
         </div>
@@ -62,17 +64,20 @@ export function Hero() {
         <div className="mt-16 relative">
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
           <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border shadow-2xl ring-1 ring-black/5 dark:ring-white/10">
-            <div className="relative aspect-[1280/717] w-full bg-muted">
+            <div className="relative aspect-[1536/974] w-full bg-muted">
               <Image
-                src="/images/hero-spotlight.webp"
-                alt="Guests enjoying food together at a restaurant"
-                width={1280}
-                height={717}
-                className="h-full w-full object-cover object-center"
+                src="/images/pos-dashboard.png"
+                alt="DigiRestro POS software running on desktop for restaurant billing and operations"
+                width={1536}
+                height={974}
+                className="h-full w-full object-cover object-top"
                 priority
               />
             </div>
           </div>
+          <p className="mt-3 text-center text-xs text-muted-foreground">
+            Product imagery: DigiRestro
+          </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

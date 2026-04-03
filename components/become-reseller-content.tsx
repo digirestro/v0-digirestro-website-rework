@@ -1,6 +1,4 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Check } from "lucide-react"
 
 const benefits = [
   "Access to our full range of products.",
@@ -10,45 +8,50 @@ const benefits = [
   "Regular updates on new products, promotions, and sales opportunities.",
 ]
 
+const btnPrimary =
+  "inline-flex min-w-[200px] items-center justify-center rounded-sm bg-[#2ea3f2] px-8 py-3 text-center text-base font-semibold text-white shadow-sm transition-colors hover:bg-[#1e8bc4] sm:min-w-[220px]"
+const btnOutline =
+  "inline-flex min-w-[200px] items-center justify-center rounded-sm border-2 border-[#2ea3f2] bg-transparent px-8 py-3 text-center text-base font-semibold text-[#2ea3f2] transition-colors hover:bg-[#f7fbfe] sm:min-w-[220px]"
+
 export function BecomeResellerContent() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-primary/[0.07] via-background to-background px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="font-[family-name:var(--font-display)] text-balance text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
+      <section className="border-b border-[#e2e2e2] bg-white px-4 pb-14 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
+        <div className="mx-auto max-w-[1080px] text-center">
+          <h1 className="text-[#333] text-balance text-[26px] font-bold leading-[1.3] sm:text-4xl lg:text-[42px] lg:leading-[1.25]">
             Let us help you to grow your business with DigiRestro&apos;s unique product offerings.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
+          <p className="mt-6 text-lg font-semibold text-[#4e4e4e] sm:text-xl">
             Become a DigiRestro Reseller Partner Now!
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <Button size="lg" className="w-full min-w-[200px] shadow-lg shadow-primary/20 sm:w-auto" asChild>
-              <Link href="#contact">Get Started</Link>
-            </Button>
-            <Button size="lg" variant="outline" className="w-full min-w-[200px] bg-background/80 backdrop-blur-sm sm:w-auto" asChild>
-              <Link href="#contact">Request A Callback</Link>
-            </Button>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
+            <Link href="#contact" className={btnPrimary}>
+              Get Started
+            </Link>
+            <Link href="#contact" className={btnOutline}>
+              Request A Callback
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl">
+      <section className="bg-[#f9f9f9] px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-[1080px]">
+          <h2 className="text-[#333] text-2xl font-bold sm:text-[28px] sm:leading-snug">
             Who can become a DigiRestro Reseller?
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-5 text-base leading-[1.8] text-[#666] sm:text-lg">
             ANYBODY who has connections in the F&amp;B industry and is passionate about sales can become a DigiRestro reseller. It&apos;s perfectly fine if you are non technical and haven&apos;t sold any technology product before. We even have a restaurant&apos;s chefs and manager who trusts our products and works as a partner for us part time.
           </p>
         </div>
       </section>
 
-      <section className="border-y border-border bg-muted/25 px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl">
+      <section className="bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-[1080px]">
+          <h2 className="text-[#333] text-2xl font-bold sm:text-[28px] sm:leading-snug">
             How can I become a DigiRestro Reseller?
           </h2>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
+          <div className="mt-5 space-y-5 text-base leading-[1.8] text-[#666] sm:text-lg">
             <p>
               If you are already on this page, you have already completed half a milestone. It&apos;s pretty simple, just fill up the Reseller form below and expect a callback from our team within 24 hours.
             </p>
@@ -62,32 +65,30 @@ export function BecomeResellerContent() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl">
+      <section className="bg-[#f9f9f9] px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-[1080px]">
+          <h2 className="text-[#333] text-2xl font-bold sm:text-[28px] sm:leading-snug">
             Who will manage the product onboarding and support?
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            It&apos;s us!!!
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-5 text-lg font-semibold text-[#333] sm:text-xl">It&apos;s us!!!</p>
+          <p className="mt-4 text-base leading-[1.8] text-[#666] sm:text-lg">
             We want our reseller partner to focus completely on building relationships with the merchants and do sales. Rest everything, right from catalogs onboarding to tech support, we will ensure to get it done.
           </p>
         </div>
       </section>
 
-      <section className="border-t border-border bg-gradient-to-br from-primary/[0.06] via-muted/20 to-background px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl">
-            Benefits of DigiRestro Reseller Program
+      <section className="border-t border-[#e2e2e2] bg-white px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-[1080px]">
+          <h2 className="text-[#333] text-2xl font-bold sm:text-[28px] sm:leading-snug">
+            Benefits of DigiRestro Reseller Program-
           </h2>
-          <ul className="mt-8 space-y-4">
+          <ul className="mt-8 list-none space-y-4 pl-0">
             {benefits.map((line) => (
-              <li key={line} className="flex gap-3 text-muted-foreground">
-                <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                </span>
-                <span className="text-base leading-relaxed sm:text-lg">{line}</span>
+              <li
+                key={line}
+                className="relative pl-8 text-base leading-[1.8] text-[#666] before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#2ea3f2] sm:text-lg"
+              >
+                {line}
               </li>
             ))}
           </ul>

@@ -3,23 +3,23 @@ import Image from "next/image"
 
 const footerLinks = {
   product: [
-    { label: "Features", href: "/#features" },
-    { label: "Integrations", href: "/#features" },
-    { label: "Pricing", href: "/#contact" },
-    { label: "Demo", href: "/#contact" },
+    { label: "Features", href: "/features" },
+    { label: "Integrations", href: "/features" },
+    { label: "Pricing", href: "/contact" },
+    { label: "Demo", href: "/contact" },
   ],
   solutions: [
-    { label: "Restaurant", href: "/#solutions" },
-    { label: "Cafe", href: "/#solutions" },
-    { label: "Cloud Kitchen", href: "/#solutions" },
-    { label: "Bar & Pub", href: "/#solutions" },
+    { label: "Restaurant", href: "/solutions" },
+    { label: "Cafe", href: "/solutions" },
+    { label: "Cloud Kitchen", href: "/solutions" },
+    { label: "Bar & Pub", href: "/solutions" },
   ],
   company: [
     { label: "About", href: "#" },
     { label: "Careers", href: "#" },
     { label: "Blog", href: "#" },
     { label: "Become a Reseller", href: "/become-a-reseller" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Contact", href: "/contact" },
   ],
   support: [
     { label: "Help Center", href: "#" },

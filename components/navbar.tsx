@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 export function Navbar() {
@@ -25,30 +24,21 @@ export function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/features" className="text-muted-foreground hover:text-foreground transition-colors">
               Features
             </Link>
-            <Link href="/#solutions" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/solutions" className="text-muted-foreground hover:text-foreground transition-colors">
               Solutions
             </Link>
-            <Link href="/#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
               Testimonials
             </Link>
             <Link href="/become-a-reseller" className="text-muted-foreground hover:text-foreground transition-colors">
               Become a Reseller
             </Link>
-            <Link href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </Link>
-          </div>
-
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Log in
-            </Button>
-            <Button size="sm" asChild>
-              <Link href="/#contact">Get Started</Link>
-            </Button>
           </div>
 
           <button
@@ -63,29 +53,21 @@ export function Navbar() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
-              <Link href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/features" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                 Features
               </Link>
-              <Link href="/#solutions" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/solutions" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                 Solutions
               </Link>
-              <Link href="/#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/testimonials" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                 Testimonials
               </Link>
-              <Link href="/become-a-reseller" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/become-a-reseller" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                 Become a Reseller
               </Link>
-              <Link href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                 Contact
               </Link>
-              <div className="flex gap-2 pt-4">
-                <Button variant="ghost" size="sm" className="flex-1">
-                  Log in
-                </Button>
-                <Button size="sm" className="flex-1" asChild>
-                  <Link href="/#contact">Get Started</Link>
-                </Button>
-              </div>
             </div>
           </div>
         )}
