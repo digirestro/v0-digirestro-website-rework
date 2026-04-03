@@ -3,6 +3,38 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 
+function HeroVisual({
+  src,
+  alt,
+  width,
+  height,
+  priority,
+}: {
+  src: string
+  alt: string
+  width: number
+  height: number
+  priority?: boolean
+}) {
+  return (
+    <figure className="mx-auto w-full max-w-5xl">
+      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-muted shadow-xl ring-1 ring-black/5 dark:ring-white/10">
+        <div className="relative aspect-[1024/576] w-full">
+          <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            className="h-full w-full object-contain object-center"
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            priority={priority}
+          />
+        </div>
+      </div>
+    </figure>
+  )
+}
+
 export function Hero() {
   return (
     <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -61,64 +93,20 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 relative">
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
-          <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-border shadow-2xl ring-1 ring-black/5 dark:ring-white/10">
-            <div className="relative aspect-[1536/974] w-full bg-muted">
-              <Image
-                src="/images/pos-dashboard.png"
-                alt="DigiRestro POS software running on desktop for restaurant billing and operations"
-                width={1536}
-                height={974}
-                className="h-full w-full object-cover object-top"
-                priority
-              />
-            </div>
-          </div>
-          <p className="mt-3 text-center text-xs text-muted-foreground">
-            Product imagery: DigiRestro
-          </p>
-        </div>
-
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          <article className="group rounded-2xl overflow-hidden border border-border bg-card shadow-lg transition-all hover:border-primary/25 hover:shadow-xl">
-            <div className="relative aspect-[1024/607] bg-muted">
-              <Image
-                src="/images/showcase-table-ordering.png"
-                alt="DigiRestro table ordering and QR menu experience"
-                width={1024}
-                height={607}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-            </div>
-            <div className="p-5 sm:p-6">
-              <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-foreground">
-                Table ordering &amp; QR menus
-              </h3>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                Let guests order from their phones while your floor stays calm and your kitchen stays in sync.
-              </p>
-            </div>
-          </article>
-          <article className="group rounded-2xl overflow-hidden border border-border bg-card shadow-lg transition-all hover:border-primary/25 hover:shadow-xl">
-            <div className="relative aspect-[1024/543] bg-muted">
-              <Image
-                src="/images/showcase-kds.png"
-                alt="DigiRestro kitchen display system"
-                width={1024}
-                height={543}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-            </div>
-            <div className="p-5 sm:p-6">
-              <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-foreground">
-                Kitchen Display System
-              </h3>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                Clear tickets, faster prep times, and fewer mistakes from front of house to the pass.
-              </p>
-            </div>
-          </article>
+        <div className="mt-16 space-y-10 sm:space-y-12">
+          <HeroVisual
+            src="/images/hero-smart-automation-ai.png"
+            alt="Smart automation: simplify POS orders with DigiRestro AI chatbot"
+            width={1024}
+            height={576}
+            priority
+          />
+          <HeroVisual
+            src="/images/hero-ecosystem.png"
+            alt="DigiRestro restaurant technology ecosystem: QR ordering, online orders, POS, KDS, apps, and payments"
+            width={1024}
+            height={576}
+          />
         </div>
       </div>
     </section>
