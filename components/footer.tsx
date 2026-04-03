@@ -3,22 +3,23 @@ import Image from "next/image"
 
 const footerLinks = {
   product: [
-    { label: "Features", href: "#features" },
-    { label: "Integrations", href: "#features" },
-    { label: "Pricing", href: "#contact" },
-    { label: "Demo", href: "#contact" },
+    { label: "Features", href: "/#features" },
+    { label: "Integrations", href: "/#features" },
+    { label: "Pricing", href: "/#contact" },
+    { label: "Demo", href: "/#contact" },
   ],
   solutions: [
-    { label: "Restaurant", href: "#solutions" },
-    { label: "Cafe", href: "#solutions" },
-    { label: "Cloud Kitchen", href: "#solutions" },
-    { label: "Bar & Pub", href: "#solutions" },
+    { label: "Restaurant", href: "/#solutions" },
+    { label: "Cafe", href: "/#solutions" },
+    { label: "Cloud Kitchen", href: "/#solutions" },
+    { label: "Bar & Pub", href: "/#solutions" },
   ],
   company: [
     { label: "About", href: "#" },
     { label: "Careers", href: "#" },
     { label: "Blog", href: "#" },
-    { label: "Contact", href: "#contact" },
+    { label: "Become a Reseller", href: "/become-a-reseller" },
+    { label: "Contact", href: "/#contact" },
   ],
   support: [
     { label: "Help Center", href: "#" },
@@ -38,8 +39,8 @@ export function Footer() {
               <Image 
                 src="/images/digirestro-logo.webp" 
                 alt="DigiRestro" 
-                width={160} 
-                height={40}
+                width={156} 
+                height={32}
                 className="h-8 w-auto brightness-0 invert"
               />
             </Link>

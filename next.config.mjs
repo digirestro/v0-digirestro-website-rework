@@ -6,6 +6,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/become-a-partner",
+        destination: "/become-a-reseller",
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

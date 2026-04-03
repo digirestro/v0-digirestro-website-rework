@@ -17,24 +17,27 @@ export function Navbar() {
             <Image 
               src="/images/digirestro-logo.webp" 
               alt="DigiRestro" 
-              width={160} 
-              height={40}
+              width={156} 
+              height={32}
               className="h-8 w-auto"
               priority
             />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
               Features
             </Link>
-            <Link href="#solutions" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/#solutions" className="text-muted-foreground hover:text-foreground transition-colors">
               Solutions
             </Link>
-            <Link href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
               Testimonials
             </Link>
-            <Link href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/become-a-reseller" className="text-muted-foreground hover:text-foreground transition-colors">
+              Become a Reseller
+            </Link>
+            <Link href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </Link>
           </div>
@@ -43,8 +46,8 @@ export function Navbar() {
             <Button variant="ghost" size="sm">
               Log in
             </Button>
-            <Button size="sm">
-              Get Started
+            <Button size="sm" asChild>
+              <Link href="/#contact">Get Started</Link>
             </Button>
           </div>
 
@@ -60,24 +63,27 @@ export function Navbar() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
-              <Link href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
                 Features
               </Link>
-              <Link href="#solutions" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/#solutions" className="text-muted-foreground hover:text-foreground transition-colors">
                 Solutions
               </Link>
-              <Link href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">
                 Testimonials
               </Link>
-              <Link href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/become-a-reseller" className="text-muted-foreground hover:text-foreground transition-colors">
+                Become a Reseller
+              </Link>
+              <Link href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
                 Contact
               </Link>
               <div className="flex gap-2 pt-4">
                 <Button variant="ghost" size="sm" className="flex-1">
                   Log in
                 </Button>
-                <Button size="sm" className="flex-1">
-                  Get Started
+                <Button size="sm" className="flex-1" asChild>
+                  <Link href="/#contact">Get Started</Link>
                 </Button>
               </div>
             </div>

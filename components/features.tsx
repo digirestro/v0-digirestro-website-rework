@@ -4,33 +4,39 @@ const features = [
   {
     image: "/images/feature-ai.png",
     title: "AI-Enabled Features",
-    description: "AI utilizes your historic data and helps you make crucial business decisions with smart insights."
+    description: "AI utilizes your historic data and helps you make crucial business decisions with smart insights.",
+    imageClass: "object-cover object-center",
   },
   {
     image: "/images/feature-billing.webp",
     title: "Point of Sale & Billing",
-    description: "End-to-end technology experience for your restaurant and customers with comprehensive billing tools."
+    description: "End-to-end technology experience for your restaurant and customers with comprehensive billing tools.",
+    imageClass: "object-contain p-4",
   },
   {
     image: "/images/feature-easy.webp",
     title: "Easy to Operate",
-    description: "Easy to navigate billing screen designed with a layman-centric approach for busy hours."
+    description: "Easy to navigate billing screen designed with a layman-centric approach for busy hours.",
+    imageClass: "object-contain p-4",
   },
   {
     image: "/images/feature-integration.webp",
     title: "Seamless Integrations",
-    description: "Manage online orders directly on POS with Zomato, Swiggy, and accounting system integrations."
+    description: "Manage online orders directly on POS with Zomato, Swiggy, and accounting system integrations.",
+    imageClass: "object-contain p-4",
   },
   {
     image: "/images/feature-support.webp",
     title: "24/7 Live Support",
-    description: "Real humans hearing your complaints and requests. We provide personalized support round the clock."
+    description: "Real humans hearing your complaints and requests. We provide personalized support round the clock.",
+    imageClass: "object-cover object-center",
   },
   {
     image: "/images/feature-inventory.webp",
     title: "Inventory Management",
-    description: "Real-time inventory tracking and management to reduce waste and optimize your stock levels."
-  }
+    description: "Real-time inventory tracking and management to reduce waste and optimize your stock levels.",
+    imageClass: "object-contain p-4",
+  },
 ]
 
 export function Features() {
@@ -50,14 +56,15 @@ export function Features() {
           {features.map((feature) => (
             <div 
               key={feature.title}
-              className="bg-card p-6 rounded-2xl border border-border hover:border-primary/30 transition-colors group"
+              className="bg-card p-6 rounded-2xl border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all group"
             >
-              <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden bg-muted/50">
+              <div className="w-full h-48 relative mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-muted/80 to-muted/40 ring-1 ring-border/60">
                 <Image
                   src={feature.image}
                   alt={feature.title}
                   fill
-                  className="object-contain p-4"
+                  className={feature.imageClass}
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold text-foreground mb-3">

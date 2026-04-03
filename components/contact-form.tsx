@@ -1,11 +1,22 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { MapPin, Phone, Mail, Clock, Loader2, CheckCircle } from "lucide-react"
+import { Mail, Clock, Loader2, CheckCircle } from "lucide-react"
 
-export function ContactForm() {
+type ContactFormProps = {
+  showLeadVisual?: boolean
+  heading?: string
+  subheading?: string
+}
+
+export function ContactForm({
+  showLeadVisual = true,
+  heading = "Are You Ready To Grow Your Business With Us?",
+  subheading = "Get in touch and we'll help you find the perfect solution for your restaurant.",
+}: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState("")
@@ -45,38 +56,36 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div
+        className="pointer-events-none absolute top-1/2 right-0 h-[min(480px,70vw)] w-[min(480px,70vw)] translate-x-1/3 -translate-y-1/2 opacity-40"
+        aria-hidden
+      >
+        <Image src="/images/hero-gradient-2.webp" alt="" width={480} height={480} className="h-full w-full object-contain" />
+      </div>
+      <div className="max-w-7xl mx-auto relative">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
-            Are You Ready To Grow Your Business With Us?
+            {heading}
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Get in touch and we&apos;ll help you find the perfect solution for your restaurant.
+            {subheading}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div className="space-y-8">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 text-primary" />
+            {showLeadVisual && (
+              <div className="rounded-2xl overflow-hidden border border-border shadow-lg ring-1 ring-black/5 dark:ring-white/10 lg:max-w-lg">
+                <Image
+                  src="/images/contact-side.jpg"
+                  alt="Restaurant team planning with marketing and operations"
+                  width={768}
+                  height={451}
+                  className="w-full h-auto object-cover aspect-[768/451]"
+                />
               </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">Address</h4>
-                <p className="text-muted-foreground">4 Eleanor Dr South Brunswick, NJ 08824</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Phone className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-                <p className="text-muted-foreground">1800 313 2585</p>
-              </div>
-            </div>
+            )}
 
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -84,7 +93,11 @@ export function ContactForm() {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                <p className="text-muted-foreground">sales@digirestro.ai</p>
+                <p className="text-muted-foreground">
+                  <a href="mailto:sales@digirestro.ai" className="hover:text-primary transition-colors">
+                    sales@digirestro.ai
+                  </a>
+                </p>
               </div>
             </div>
 

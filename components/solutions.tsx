@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { 
   Building2, 
   Coffee, 
@@ -46,6 +47,28 @@ export function Solutions() {
               <span className="text-sm font-medium text-foreground">{type.name}</span>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center rounded-3xl border border-border bg-gradient-to-br from-primary/[0.07] via-card to-muted/40 p-8 sm:p-10 lg:p-12 shadow-lg">
+          <div className="order-2 lg:order-1 space-y-4 text-center lg:text-left">
+            <h3 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold text-foreground text-balance">
+              One platform from counter to kitchen
+            </h3>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Run billing, online orders, and back-office workflows from a single DigiRestro experience—built for how real service floors operate.
+            </p>
+          </div>
+          <div className="order-1 lg:order-2 flex justify-center">
+            <div className="relative w-full max-w-md rounded-2xl border border-border bg-background/80 p-4 shadow-xl ring-1 ring-black/5 dark:ring-white/10">
+              <Image
+                src="/images/solutions-product.png"
+                alt="DigiRestro POS on tablet and phone"
+                width={768}
+                height={768}
+                className="h-auto w-full rounded-xl"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
