@@ -10,12 +10,15 @@ type ContactFormProps = {
   showLeadVisual?: boolean
   heading?: string
   subheading?: string
+  /** Extra top padding for standalone /contact page and subpages (not home). */
+  pageTopPadding?: boolean
 }
 
 export function ContactForm({
   showLeadVisual = true,
   heading = "Are You Ready To Grow Your Business With Us?",
   subheading = "Get in touch and we'll help you find the perfect solution for your restaurant.",
+  pageTopPadding = false,
 }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -56,7 +59,10 @@ export function ContactForm({
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section
+      id="contact"
+      className={`px-4 sm:px-6 lg:px-8 relative overflow-hidden pb-20 ${pageTopPadding ? "pt-28 sm:pt-32" : "py-20"}`}
+    >
       <div
         className="pointer-events-none absolute top-1/2 right-0 h-[min(480px,70vw)] w-[min(480px,70vw)] translate-x-1/3 -translate-y-1/2 opacity-40"
         aria-hidden
