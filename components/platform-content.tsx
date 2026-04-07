@@ -7,59 +7,61 @@ import {
   WifiOff,
 } from "lucide-react"
 
-/** Product imagery sourced from digirestro.ai (ImageKit), ordered from owner-facing tools through AI insights */
-const IK = "https://ik.imagekit.io/ybpqqauwy5"
-
 const suite = [
   {
+    title: "Owner App",
+    desc: "Sales, menus, and outlet performance on your phone—wherever you are.",
+    src: "/images/suite/owner-app.jpg",
+  },
+  {
+    title: "QR Ordering",
+    desc: "Guests scan, browse, and order from the table with your branded digital menu.",
+    src: "/images/suite/qr-ordering.jpg",
+  },
+  {
+    title: "Rider App",
+    desc: "Routes, handoffs, and delivery status so riders stay in sync with the kitchen.",
+    src: "/images/suite/rider-app.jpg",
+  },
+  {
+    title: "Captain App",
+    desc: "Table map and floor service tools so captains run the room with confidence.",
+    src: "/images/suite/captain-app.jpg",
+  },
+  {
     title: "Billing POS",
-    desc: "One-stop billing with layouts your team can learn quickly—fewer mistakes at peak hours.",
-    src: `${IK}/DigiRestro/digirestro-POS_3QhbFTGeC.png?updatedAt=1704435229510`,
+    desc: "Billing, tables, and checkout in one flow—built for busy service.",
+    src: "/images/suite/billing-pos.jpg",
   },
   {
-    title: "DigiPay",
-    desc: "Accept cards, wallets, and online payments with fast settlement and strong security.",
-    src: `${IK}/DigiRestro/Union_xqR0JeDq68.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515374350`,
+    title: "KDS – Kitchen Display System",
+    desc: "Colour-coded tickets, prep states, and handoff from kitchen to the pass.",
+    src: "/images/suite/kds.jpg",
   },
   {
-    title: "Supply chain (SCM)",
-    desc: "Contracts, sourcing, expiry and batch tracking, tied to recipes and outlet consumption.",
-    src: `${IK}/DigiRestro/SCM-dashboard_K-isF3Wnb.jpg?updatedAt=1709798342530`,
+    title: "SCM – Supply Chain Management",
+    desc: "Purchasing, stock, and analytics tied to what your kitchens actually use.",
+    src: "/images/suite/scm.jpg",
   },
   {
-    title: "Owner app",
-    desc: "Performance, stock alerts, and menu or pricing updates across outlets from your phone.",
-    src: `${IK}/DigiRestro/main_digirestro_W1DY10MDNR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673512375110`,
+    title: "Online Ordering App",
+    desc: "Your menu and offers in a consumer-ready ordering experience.",
+    src: "/images/suite/online-ordering.jpg",
   },
   {
-    title: "QR ordering",
-    desc: "Guests order and pay from the table—less wait time, fewer manual order-entry errors.",
-    src: `${IK}/DigiRestro/Group-2047_kQoI3r_OJd.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515371222`,
+    title: "ONDC Integration",
+    desc: "Connect to India’s open commerce network without a separate order stack.",
+    src: "/images/suite/ondc.jpg",
   },
   {
-    title: "Captain & rider apps",
-    desc: "Floor and delivery workflows that stay in sync with the kitchen and the bill.",
-    src: `${IK}/DigiRestro/Group-2043_rYxPL06QJh.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515371134`,
+    title: "AI – My Learning Academy",
+    desc: "In-product learning paths so teams adopt Digirestro faster.",
+    src: "/images/suite/ai-learning-academy.jpg",
   },
   {
-    title: "Kitchen display (KDS)",
-    desc: "One screen for KOTs, modifiers, and prep timers—clear handoff from kitchen to service.",
-    src: `${IK}/DigiRestro/Group-2046_BcgJD4q0G.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515371284`,
-  },
-  {
-    title: "Online ordering",
-    desc: "Aggregator orders flow into the same POS as dine-in—one menu and inventory view.",
-    src: `${IK}/DigiRestro/digirestro-pos-software-india-2_xyS17Se3-I.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673512365868`,
-  },
-  {
-    title: "ONDC-ready",
-    desc: "Work with India’s open commerce network without juggling a separate order dashboard.",
-    src: `${IK}/DigiRestro/Group-2048_av571_VVFr.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515371273`,
-  },
-  {
-    title: "AI insights & feedback",
-    desc: "Smarter operations with AI-enabled tools for forecasting, automation, and actionable feedback loops.",
-    src: `${IK}/ai%20enable%20(1)_dH0Vy2Ql-c.png?updatedAt=1732554937114`,
+    title: "AI Feedback",
+    desc: "Signals and suggestions to refine operations, menus, and guest experience.",
+    src: "/images/suite/ai-feedback.jpg",
   },
 ]
 
@@ -125,32 +127,22 @@ export function PlatformContent() {
             <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl">
               Product suite
             </h2>
-            <p className="mt-3 text-muted-foreground">
-              Shots from digirestro.ai—from owner tools and day-to-day apps through AI-enabled insights.
-            </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {suite.map((item) => (
-              <div
+              <article
                 key={item.title}
                 className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:border-primary/25 hover:shadow-md"
               >
-                <div className="relative aspect-[4/3] w-full bg-muted">
-                  <Image
-                    src={item.src}
-                    alt=""
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-                </div>
-              </div>
+                <Image
+                  src={item.src}
+                  alt={`${item.title}: ${item.desc}`}
+                  width={1024}
+                  height={898}
+                  className="h-auto w-full object-contain"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </article>
             ))}
           </div>
         </div>

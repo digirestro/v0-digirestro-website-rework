@@ -4,7 +4,7 @@ import { PlatformContent } from "@/components/platform-content"
 export const metadata: Metadata = {
   title: "Platform | Digirestro",
   description:
-    "Digirestro platform: POS, DigiPay, SCM, owner app, QR ordering, captain & rider, KDS, online ordering, ONDC, and AI insights—integrated restaurant operations.",
+    "Digirestro product suite: Owner App, QR ordering, rider & captain apps, billing POS, KDS, SCM, online ordering, ONDC, AI Learning Academy, and AI feedback.",
 }
 
 export default function PlatformPage() {
