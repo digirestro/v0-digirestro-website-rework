@@ -26,6 +26,7 @@ function LinkedInIcon({ className }: { className?: string }) {
 }
 
 const footerLinks = [
+  { label: "Platform", href: "/platform" },
   { label: "Features", href: "/features" },
   { label: "Solutions", href: "/solutions" },
   { label: "Testimonials", href: "/testimonials" },

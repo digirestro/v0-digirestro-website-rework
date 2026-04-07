@@ -29,7 +29,8 @@ export function Hero() {
               className="mt-5 max-w-md text-pretty text-base leading-relaxed sm:text-lg"
               style={{ color: subGray }}
             >
-              One powerful system connecting POS, online ordering, inventory, and operations.
+              POS, order management, inventory, billing, reservations, delivery, reporting, and analytics—connected for
+              restaurants from single sites to growing chains.
             </p>
             <div className="mt-9">
               <Link

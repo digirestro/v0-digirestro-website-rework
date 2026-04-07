@@ -23,6 +23,9 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-7 md:flex lg:gap-9">
+            <Link href="/platform" className={navLinkClass}>
+              Platform
+            </Link>
             <Link href="/features" className={navLinkClass}>
               Features
             </Link>
@@ -52,6 +55,13 @@ export function Navbar() {
         {isOpen && (
           <div className="border-t border-neutral-100 py-4 md:hidden">
             <div className="flex flex-col gap-3">
+              <Link
+                href="/platform"
+                className={`${navLinkClass} py-1`}
+                onClick={() => setIsOpen(false)}
+              >
+                Platform
+              </Link>
               <Link
                 href="/features"
                 className={`${navLinkClass} py-1`}
