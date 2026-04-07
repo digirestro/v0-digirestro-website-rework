@@ -8,6 +8,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
       { protocol: "https", hostname: "cdn.jsdelivr.net", pathname: "/**" },
+      { protocol: "https", hostname: "ik.imagekit.io", pathname: "/**" },
     ],
   },
   async redirects() {

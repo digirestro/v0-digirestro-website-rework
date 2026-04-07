@@ -1,65 +1,65 @@
+import Image from "next/image"
 import Link from "next/link"
 import {
   Building2,
-  CreditCard,
   LayoutDashboard,
-  MonitorSmartphone,
-  QrCode,
-  Receipt,
-  Route,
-  Smartphone,
-  Store,
-  TabletSmartphone,
-  Truck,
   UtensilsCrossed,
   WifiOff,
 } from "lucide-react"
 
+/** Product imagery sourced from digirestro.ai (ImageKit), ordered from owner-facing tools through AI insights */
+const IK = "https://ik.imagekit.io/ybpqqauwy5"
+
 const suite = [
   {
-    icon: Receipt,
     title: "Billing POS",
     desc: "One-stop billing with layouts your team can learn quickly—fewer mistakes at peak hours.",
+    src: `${IK}/DigiRestro/digirestro-POS_3QhbFTGeC.png?updatedAt=1704435229510`,
   },
   {
-    icon: CreditCard,
     title: "DigiPay",
     desc: "Accept cards, wallets, and online payments with fast settlement and strong security.",
+    src: `${IK}/DigiRestro/Union_xqR0JeDq68.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515374350`,
   },
   {
-    icon: Truck,
     title: "Supply chain (SCM)",
     desc: "Contracts, sourcing, expiry and batch tracking, tied to recipes and outlet consumption.",
+    src: `${IK}/DigiRestro/SCM-dashboard_K-isF3Wnb.jpg?updatedAt=1709798342530`,
   },
   {
-    icon: Smartphone,
     title: "Owner app",
     desc: "Performance, stock alerts, and menu or pricing updates across outlets from your phone.",
+    src: `${IK}/DigiRestro/main_digirestro_W1DY10MDNR.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673512375110`,
   },
   {
-    icon: QrCode,
     title: "QR ordering",
     desc: "Guests order and pay from the table—less wait time, fewer manual order-entry errors.",
+    src: `${IK}/DigiRestro/Group-2047_kQoI3r_OJd.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515371222`,
   },
   {
-    icon: TabletSmartphone,
     title: "Captain & rider apps",
     desc: "Floor and delivery workflows that stay in sync with the kitchen and the bill.",
+    src: `${IK}/DigiRestro/Group-2043_rYxPL06QJh.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515371134`,
   },
   {
-    icon: MonitorSmartphone,
     title: "Kitchen display (KDS)",
     desc: "One screen for KOTs, modifiers, and prep timers—clear handoff from kitchen to service.",
+    src: `${IK}/DigiRestro/Group-2046_BcgJD4q0G.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515371284`,
   },
   {
-    icon: Store,
     title: "Online ordering",
     desc: "Aggregator orders flow into the same POS as dine-in—one menu and inventory view.",
+    src: `${IK}/DigiRestro/digirestro-pos-software-india-2_xyS17Se3-I.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673512365868`,
   },
   {
-    icon: Route,
     title: "ONDC-ready",
     desc: "Work with India’s open commerce network without juggling a separate order dashboard.",
+    src: `${IK}/DigiRestro/Group-2048_av571_VVFr.png?ik-sdk-version=javascript-1.4.3&updatedAt=1673515371273`,
+  },
+  {
+    title: "AI insights & feedback",
+    desc: "Smarter operations with AI-enabled tools for forecasting, automation, and actionable feedback loops.",
+    src: `${IK}/ai%20enable%20(1)_dH0Vy2Ql-c.png?updatedAt=1732554937114`,
   },
 ]
 
@@ -126,22 +126,30 @@ export function PlatformContent() {
               Product suite
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Independent apps for each job, integrated so data moves with every order and every payout.
+              Shots from digirestro.ai—from owner tools and day-to-day apps through AI-enabled insights.
             </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {suite.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:border-primary/25 hover:shadow-md"
+                className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:border-primary/25 hover:shadow-md"
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <item.icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                <div className="relative aspect-[4/3] w-full bg-muted">
+                  <Image
+                    src={item.src}
+                    alt=""
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </div>
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-foreground">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                <div className="p-5">
+                  <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>

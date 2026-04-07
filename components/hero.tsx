@@ -1,5 +1,5 @@
+import Image from "next/image"
 import Link from "next/link"
-import { HeroIllustration } from "@/components/hero-illustration"
 
 /** Light shell, red CTA, split headline */
 const red = "#d92a2a"
@@ -45,11 +45,21 @@ export function Hero() {
 
           <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
             <div
-              className="relative aspect-[560/320] w-full rounded-2xl border border-border bg-card p-4 shadow-sm ring-1 ring-border/60"
+              className="relative w-full overflow-hidden rounded-2xl border border-neutral-200/90 bg-[#0a0a0a] shadow-md ring-1 ring-black/5"
               role="img"
-              aria-label="Stylised illustration of a POS screen, order list, and payment action"
+              aria-label="Illustration of restaurant staff and guest using Digirestro POS, tablet ordering, and mobile payment"
             >
-              <HeroIllustration />
+              <div className="relative aspect-[1024/700] w-full">
+                <Image
+                  src="/images/hero-illustration.jpg"
+                  alt=""
+                  width={1024}
+                  height={700}
+                  className="h-full w-full object-contain object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>

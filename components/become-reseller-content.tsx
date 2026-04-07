@@ -13,16 +13,19 @@ const btnPrimary =
 const btnOutline =
   "inline-flex min-w-[200px] items-center justify-center rounded-lg border-2 border-primary bg-transparent px-8 py-3 text-center text-base font-semibold text-primary transition-colors hover:bg-muted sm:min-w-[220px]"
 
+const sectionHeadingClass =
+  "font-[family-name:var(--font-reseller-heading)] text-3xl font-semibold leading-snug text-foreground sm:text-[2.35rem] sm:leading-tight"
+
 export function BecomeResellerContent() {
   return (
     <>
       <section className="border-b border-border bg-card px-4 pb-14 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-[1080px] text-center">
           <h1 className="text-balance text-2xl font-bold leading-snug text-foreground sm:text-4xl lg:text-[42px] lg:leading-[1.25]">
-            Grow with Digirestro&apos;s product line and partner support.
+            Let us help you grow your business with Digirestro&apos;s product offerings.
           </h1>
           <p className="mt-6 text-lg font-semibold text-muted-foreground sm:text-xl">
-            Become a Digirestro reseller partner
+            Become a Digirestro reseller partner now!
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
             <Link href="#contact" className={btnPrimary}>
@@ -37,9 +40,7 @@ export function BecomeResellerContent() {
 
       <section className="bg-muted/30 px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-[1080px]">
-          <h2 className="text-2xl font-bold text-foreground sm:text-[28px] sm:leading-snug">
-            Who can become a Digirestro reseller?
-          </h2>
+          <h2 className={sectionHeadingClass}>Who can become a Digirestro reseller?</h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Anyone with connections in the F&amp;B industry and a passion for sales can become a Digirestro reseller.
             You don&apos;t need a technical background or prior experience selling software—we support you with demos
@@ -50,9 +51,7 @@ export function BecomeResellerContent() {
 
       <section className="bg-card px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-[1080px]">
-          <h2 className="text-2xl font-bold text-foreground sm:text-[28px] sm:leading-snug">
-            How do I become a reseller?
-          </h2>
+          <h2 className={sectionHeadingClass}>How can I become a Digirestro reseller?</h2>
           <div className="mt-5 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
             <p>
               If you&apos;re on this page, you&apos;re already halfway there. Fill in the form below and expect a call
@@ -70,9 +69,7 @@ export function BecomeResellerContent() {
 
       <section className="bg-muted/30 px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-[1080px]">
-          <h2 className="text-2xl font-bold text-foreground sm:text-[28px] sm:leading-snug">
-            Who handles onboarding and support?
-          </h2>
+          <h2 className={sectionHeadingClass}>Who handles onboarding and support?</h2>
           <p className="mt-5 text-lg font-semibold text-foreground sm:text-xl">We do.</p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
             You focus on relationships and sales—we take care of catalog onboarding, setup, and ongoing technical
@@ -83,9 +80,7 @@ export function BecomeResellerContent() {
 
       <section className="border-t border-border bg-card px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-[1080px]">
-          <h2 className="text-2xl font-bold text-foreground sm:text-[28px] sm:leading-snug">
-            Reseller program benefits
-          </h2>
+          <h2 className={sectionHeadingClass}>Benefits of the Digirestro reseller program</h2>
           <ul className="mt-8 list-none space-y-4 pl-0">
             {benefits.map((line) => (
               <li

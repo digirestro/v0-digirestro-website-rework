@@ -1,23 +1,27 @@
 "use client"
 
+import Image from "next/image"
 import { Quote, Star } from "lucide-react"
 
 const testimonials = [
   {
     name: "Manish Patel",
-    business: "Leo's Cafe",
+    business: "LEO'S CAFE",
+    image: "/images/testimonial-manish-patel.png",
     quote:
       "I would definitely recommend it as it is very easy. The staff is very calm, and the features are understandable. The support team easily handles and solves minor issues. The discount and customer details features are good.",
   },
   {
     name: "Aman Singh",
     business: "Renaissance Grand Restaurant",
+    image: "/images/testimonial-aman-singh.png",
     quote:
       "Because Digirestro offers you maximum features at an affordable price, I highly recommend Digirestro as a one-stop solution for any restaurant.",
   },
   {
     name: "Mr. Neeraj",
-    business: "Laapaso",
+    business: "LAAPASO",
+    image: "/images/testimonial-mr-neeraj.png",
     quote:
       "It is very user-friendly, and there is no delay in support. I'll be using the loyalty program soon. Also, the order taking and billing process is effortless.",
   },
@@ -58,8 +62,14 @@ export function Testimonials() {
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-lg font-bold text-primary">
-                  {t.name.charAt(0)}
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-border bg-muted ring-2 ring-background">
+                  <Image
+                    src={t.image}
+                    alt={`${t.name}, ${t.business}`}
+                    fill
+                    className="object-cover"
+                    sizes="56px"
+                  />
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">{t.name}</p>
