@@ -1,7 +1,7 @@
-import Image from "next/image"
 import Link from "next/link"
+import { HeroIllustration } from "@/components/hero-illustration"
 
-/** Matches reference: light shell, red CTA, split headline */
+/** Light shell, red CTA, split headline */
 const red = "#d92a2a"
 const headingGray = "#3a3a3a"
 const subGray = "#5c5c5c"
@@ -43,18 +43,12 @@ export function Hero() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
-            <div className="relative w-full overflow-visible">
-              <div className="relative aspect-[1024/468] w-full">
-                <Image
-                  src="/images/hero-pos-illustration.jpg"
-                  alt="Restaurant staff and guests using Digirestro POS, tablet ordering, and payment terminal"
-                  width={1024}
-                  height={468}
-                  className="h-full w-full object-contain object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
+            <div
+              className="relative aspect-[560/320] w-full rounded-2xl border border-border bg-card p-4 shadow-sm ring-1 ring-border/60"
+              role="img"
+              aria-label="Stylised illustration of a POS screen, order list, and payment action"
+            >
+              <HeroIllustration />
             </div>
           </div>
         </div>

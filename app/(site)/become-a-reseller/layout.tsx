@@ -4,7 +4,7 @@ export default function BecomeResellerLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="font-[family-name:var(--font-open-sans)] bg-white text-[#333] antialiased">
+    <div className="bg-background text-foreground antialiased">
       {children}
     </div>
   )

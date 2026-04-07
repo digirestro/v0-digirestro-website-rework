@@ -12,8 +12,9 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'DigiRestro | AI-Powered Restaurant POS System',
-  description: 'Streamline your restaurant operations with DigiRestro - the perfect AI-driven POS system with inventory management, billing, and 24/7 support. Trusted by 1000+ restaurants.',
+  title: 'Digirestro | Restaurant POS & operations',
+  description:
+    'Run service, billing, online orders, and inventory with Digirestro—POS and back-office tools built for restaurant teams. Trusted by 300+ venues.',
   generator: 'v0.app',
   icons: {
     icon: [

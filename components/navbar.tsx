@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Menu, X } from "lucide-react"
+import { BrandLogo } from "@/components/brand-logo"
 
 const navLinkClass =
   "text-[15px] font-medium text-[#4a4a4a] transition-colors hover:text-[#1a1a1a]"
@@ -15,19 +15,12 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-neutral-200/90 bg-white/95 backdrop-blur-md">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 py-3 md:py-4">
-          <Link href="/" className="flex flex-shrink-0 flex-col gap-0.5">
-            <Image
-              src="/images/digirestro-logo.webp"
-              alt="Digirestro"
-              width={156}
-              height={32}
-              className="h-7 w-auto sm:h-8"
-              priority
-            />
+          <div className="flex flex-shrink-0 flex-col gap-0.5">
+            <BrandLogo variant="light" className="text-xl sm:text-2xl" />
             <span className="hidden pl-0.5 text-[10px] font-medium uppercase tracking-[0.12em] text-[#888] sm:block sm:text-[11px]">
-              Smart restaurant POS
+              Restaurant POS
             </span>
-          </Link>
+          </div>
 
           <div className="hidden items-center gap-7 md:flex lg:gap-9">
             <Link href="/features" className={navLinkClass}>

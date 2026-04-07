@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { Features } from "@/components/features"
 
 export const metadata: Metadata = {
-  title: "Features | DigiRestro",
+  title: "Features | Digirestro",
   description:
-    "AI-enabled POS, billing, integrations with Zomato and Swiggy, inventory, and 24/7 support for your restaurant.",
+    "Digirestro POS: billing, integrations with Zomato and Swiggy, inventory, reporting, and 24/7 support for your restaurant.",
 }
 
 export default function FeaturesPage() {

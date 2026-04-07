@@ -13,7 +13,7 @@ const testimonials = [
     name: "Aman Singh",
     business: "Renaissance Grand Restaurant",
     quote:
-      "Because DigiRestro offers you maximum features at an affordable price, I highly recommend DigiRestro as a one-stop solution for any restaurant.",
+      "Because Digirestro offers you maximum features at an affordable price, I highly recommend Digirestro as a one-stop solution for any restaurant.",
   },
   {
     name: "Mr. Neeraj",
@@ -39,10 +39,10 @@ export function Testimonials() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
-            The Stunning Results Our Customers Have Experienced
+            What operators say about Digirestro
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Real feedback from operators who switched to DigiRestro.
+            Real feedback from teams using Digirestro day to day.
           </p>
         </div>
 
