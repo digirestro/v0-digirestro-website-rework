@@ -11,57 +11,57 @@ const suite = [
   {
     title: "Owner App",
     desc: "Sales, menus, and outlet performance on your phone—wherever you are.",
-    src: "/images/suite/owner-app.jpg",
+    src: "/images/suite/owner-app.png",
   },
   {
     title: "QR Ordering",
     desc: "Guests scan, browse, and order from the table with your branded digital menu.",
-    src: "/images/suite/qr-ordering.jpg",
+    src: "/images/suite/qr-ordering.png",
   },
   {
     title: "Rider App",
     desc: "Routes, handoffs, and delivery status so riders stay in sync with the kitchen.",
-    src: "/images/suite/rider-app.jpg",
+    src: "/images/suite/rider-app.png",
   },
   {
     title: "Captain App",
     desc: "Table map and floor service tools so captains run the room with confidence.",
-    src: "/images/suite/captain-app.jpg",
+    src: "/images/suite/captain-app.png",
   },
   {
     title: "Billing POS",
     desc: "Billing, tables, and checkout in one flow—built for busy service.",
-    src: "/images/suite/billing-pos.jpg",
+    src: "/images/suite/billing-pos.png",
   },
   {
     title: "KDS – Kitchen Display System",
     desc: "Colour-coded tickets, prep states, and handoff from kitchen to the pass.",
-    src: "/images/suite/kds.jpg",
+    src: "/images/suite/kds.png",
   },
   {
     title: "SCM – Supply Chain Management",
     desc: "Purchasing, stock, and analytics tied to what your kitchens actually use.",
-    src: "/images/suite/scm.jpg",
+    src: "/images/suite/scm.png",
   },
   {
     title: "Online Ordering App",
     desc: "Your menu and offers in a consumer-ready ordering experience.",
-    src: "/images/suite/online-ordering.jpg",
+    src: "/images/suite/online-ordering.png",
   },
   {
     title: "ONDC Integration",
     desc: "Connect to India’s open commerce network without a separate order stack.",
-    src: "/images/suite/ondc.jpg",
+    src: "/images/suite/ondc.png",
   },
   {
     title: "AI – My Learning Academy",
     desc: "In-product learning paths so teams adopt Digirestro faster.",
-    src: "/images/suite/ai-learning-academy.jpg",
+    src: "/images/suite/ai-learning-academy.png",
   },
   {
     title: "AI Feedback",
     desc: "Signals and suggestions to refine operations, menus, and guest experience.",
-    src: "/images/suite/ai-feedback.jpg",
+    src: "/images/suite/ai-feedback.png",
   },
 ]
 
@@ -128,19 +128,22 @@ export function PlatformContent() {
               Product suite
             </h2>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-8">
             {suite.map((item) => (
               <article
                 key={item.title}
-                className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:border-primary/25 hover:shadow-md"
+                className="overflow-hidden rounded-2xl border border-border bg-card p-3 shadow-md transition hover:border-primary/25 hover:shadow-lg sm:p-4"
               >
-                <div className="relative w-full bg-muted/40" style={{ aspectRatio: "1024 / 898" }}>
+                <div
+                  className="relative w-full bg-muted/30"
+                  style={{ aspectRatio: "596 / 406" }}
+                >
                   <Image
                     src={item.src}
                     alt={`${item.title}: ${item.desc}`}
                     fill
                     className="object-contain object-center"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     unoptimized
                   />
                 </div>
