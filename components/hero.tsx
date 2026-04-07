@@ -45,17 +45,17 @@ export function Hero() {
 
           <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
             <div
-              className="relative w-full overflow-hidden rounded-2xl border border-neutral-200/90 bg-[#0a0a0a] shadow-md ring-1 ring-black/5"
+              className="relative w-full"
               role="img"
               aria-label="Illustration of restaurant staff and guest using Digirestro POS, tablet ordering, and mobile payment"
             >
               <div className="relative aspect-[1024/700] w-full">
                 <Image
-                  src="/images/hero-illustration.jpg"
+                  src="/images/hero-illustration.png"
                   alt=""
                   width={1024}
                   height={700}
-                  className="h-full w-full object-contain object-center"
+                  className="h-full w-full object-contain object-center drop-shadow-sm"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
                 />

@@ -12,5 +12,6 @@ next.user-config.*
 
 # Common ignores
 node_modules
+.venv-img/
 .next/
 .DS_Store

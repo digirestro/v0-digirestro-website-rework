@@ -134,14 +134,16 @@ export function PlatformContent() {
                 key={item.title}
                 className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:border-primary/25 hover:shadow-md"
               >
-                <Image
-                  src={item.src}
-                  alt={`${item.title}: ${item.desc}`}
-                  width={1024}
-                  height={898}
-                  className="h-auto w-full object-contain"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+                <div className="relative w-full bg-muted/40" style={{ aspectRatio: "1024 / 898" }}>
+                  <Image
+                    src={item.src}
+                    alt={`${item.title}: ${item.desc}`}
+                    fill
+                    className="object-contain object-center"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    unoptimized
+                  />
+                </div>
               </article>
             ))}
           </div>
