@@ -15,23 +15,22 @@ export const metadata: Metadata = {
   title: 'Digirestro | Restaurant POS & operations',
   description:
     'Run service, billing, online orders, and inventory with Digirestro—POS and back-office tools built for restaurant teams. Trusted by 300+ venues.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
         url: '/icon-light-32x32.png',
+        type: 'image/png',
+        sizes: '32x32',
         media: '(prefers-color-scheme: light)',
       },
       {
         url: '/icon-dark-32x32.png',
+        type: 'image/png',
+        sizes: '32x32',
         media: '(prefers-color-scheme: dark)',
       },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
     ],
-    apple: '/apple-icon.png',
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 
