@@ -27,8 +27,8 @@ const features: {
     title: "Easy to operate",
     description:
       "Straightforward screens designed so staff can move fast during lunch and dinner rushes.",
-    image: `${U}/photo-1556740758-90f3742e0f0e?w=900&h=600&fit=crop&q=82`,
-    alt: "Person using a tablet for orders in a café setting",
+    image: `${U}/photo-1512941937669-90a1b58e7e9c?w=900&h=600&fit=crop&q=82`,
+    alt: "Person holding a smartphone—simple, familiar devices your team already knows",
   },
   {
     title: "Seamless integrations",
@@ -41,8 +41,8 @@ const features: {
     title: "24/7 live support",
     description:
       "Real people on the line for questions and fixes—personalised help around the clock.",
-    image: `${U}/photo-1521790365259-fb0d9cde40d7?w=900&h=600&fit=crop&q=82`,
-    alt: "Customer support headset representing help desk assistance",
+    image: `${U}/photo-1573496359142-b8d87734a5a2?w=900&h=600&fit=crop&q=82`,
+    alt: "Support professional with headset, representing friendly help when you need it",
   },
   {
     title: "Inventory management",
