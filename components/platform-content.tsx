@@ -12,56 +12,67 @@ const suite = [
     title: "Owner App",
     desc: "Sales, menus, and outlet performance on your phone—wherever you are.",
     src: "/images/suite/owner-app.png",
+    slug: "owner-app",
   },
   {
     title: "QR Ordering",
     desc: "Guests scan, browse, and order from the table with your branded digital menu.",
     src: "/images/suite/qr-ordering.png",
+    slug: "qr-menu",
   },
   {
     title: "Rider App",
     desc: "Routes, handoffs, and delivery status so riders stay in sync with the kitchen.",
     src: "/images/suite/rider-app.png",
+    slug: "digirestro-rider-app",
   },
   {
     title: "Captain App",
     desc: "Table map and floor service tools so captains run the room with confidence.",
     src: "/images/suite/captain-app.png",
+    slug: "captain-ordering",
   },
   {
     title: "Billing POS",
     desc: "Billing, tables, and checkout in one flow—built for busy service.",
     src: "/images/suite/billing-pos.png",
+    slug: "billing-software",
   },
   {
     title: "KDS – Kitchen Display System",
     desc: "Colour-coded tickets, prep states, and handoff from kitchen to the pass.",
     src: "/images/suite/kds.png",
+    slug: "kds-kitchen-display-system",
   },
   {
     title: "SCM – Supply Chain Management",
     desc: "Purchasing, stock, and analytics tied to what your kitchens actually use.",
     src: "/images/suite/scm.png",
+    slug: "scm-3",
   },
   {
     title: "Online Ordering App",
     desc: "Your menu and offers in a consumer-ready ordering experience.",
     src: "/images/suite/online-ordering.png",
+    slug: "online-ordering-mobile-app",
   },
   {
     title: "ONDC Integration",
     desc: "Connect to India’s open commerce network without a separate order stack.",
     src: "/images/suite/ondc.png",
+    slug: "ondc-digirestro",
   },
   {
     title: "AI – My Learning Academy",
     desc: "In-product learning paths so teams adopt Digirestro faster.",
     src: "/images/suite/ai-learning-academy.png",
+    slug: "ai-learning-academy",
   },
   {
     title: "AI Feedback",
     desc: "Signals and suggestions to refine operations, menus, and guest experience.",
     src: "/images/suite/ai-feedback.png",
+    slug: "ai-feedback",
   },
 ]
 
@@ -130,9 +141,10 @@ export function PlatformContent() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-8">
             {suite.map((item) => (
-              <article
+              <Link
                 key={item.title}
-                className="overflow-hidden rounded-2xl border border-border bg-card p-3 shadow-md transition hover:border-primary/25 hover:shadow-lg sm:p-4"
+                href={`/${item.slug}`}
+                className="block overflow-hidden rounded-2xl border border-border bg-card p-3 shadow-md transition hover:border-primary/25 hover:shadow-lg sm:p-4"
               >
                 <div
                   className="relative w-full bg-muted/30"
@@ -147,7 +159,11 @@ export function PlatformContent() {
                     unoptimized
                   />
                 </div>
-              </article>
+                <div className="mt-4">
+                  <h3 className="font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
