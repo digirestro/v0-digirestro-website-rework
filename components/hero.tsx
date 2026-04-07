@@ -49,7 +49,7 @@ export function Hero() {
               role="img"
               aria-label="Illustration of restaurant staff and guest using Digirestro POS, tablet ordering, and mobile payment"
             >
-              <div className="relative aspect-[1024/700] w-full">
+              <div className="relative w-full">
                 <Image
                   src="/images/hero-illustration.png"
                   alt=""
