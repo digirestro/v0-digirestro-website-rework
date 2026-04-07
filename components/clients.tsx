@@ -58,6 +58,11 @@ const integrationPartners: { name: string; logoUrl?: string }[] = [
   { name: "Visa", logoUrl: `${SI}/visa.svg` },
   { name: "Mastercard", logoUrl: `${SI}/mastercard.svg` },
   { name: "Fiserv" },
+  { name: "Diliverect" },
+  { name: "Lalamove", logoUrl: `${SI}/lalamove.svg` },
+  { name: "DoorDash", logoUrl: `${SI}/doordash.svg` },
+  { name: "Uber Eats", logoUrl: `${SI}/ubereats.svg` },
+  { name: "Urban Piper" },
 ]
 
 const restaurantCards = clients.map((name, i) => ({
@@ -103,10 +108,10 @@ export function Clients() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center lg:mx-auto lg:max-w-2xl">
           <h3 className="text-balance font-[family-name:var(--font-display)] text-xl font-semibold text-foreground sm:text-2xl">
-            Trusted by 300+ wonderful restaurant teams
+            Restaurant teams in India and all over the world trust Digirestro.
           </h3>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-            Teams across India and abroad rely on Digirestro—from neighbourhood favourites to busy chains.
+            Teams across many states in India and abroad rely on Digirestro—from neighbourhood favourites to busy chains.
           </p>
         </div>
 
@@ -151,7 +156,7 @@ export function Clients() {
           Restaurants &amp; brands
         </p>
         <p className="mb-6 text-center text-xs text-muted-foreground">
-          Photos show typical dining venues for atmosphere; they are not photographs of listed businesses.
+          
         </p>
 
         <RestaurantMarquee />

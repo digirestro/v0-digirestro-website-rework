@@ -80,7 +80,7 @@
   --font-display: var(--font-space-grotesk), system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee: marquee 50s linear infinite;
   
   @keyframes marquee {
     0% {
