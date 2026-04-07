@@ -39,9 +39,9 @@ function Stars() {
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="scroll-mt-24 pt-28 sm:pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="testimonials" className="scroll-mt-24 pt-28 sm:pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
             What operators say about Digirestro
           </h2>
@@ -50,30 +50,30 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+        <div className="grid grid-cols-1 gap-10 lg:gap-12 md:grid-cols-3">
           {testimonials.map((t) => (
             <article
               key={t.name}
-              className="relative flex flex-col rounded-3xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md sm:p-8"
+              className="relative flex min-h-[22rem] flex-col rounded-3xl border border-border bg-card p-8 shadow-sm transition-shadow hover:shadow-md sm:min-h-[24rem] sm:p-10 lg:p-11"
             >
-              <Quote className="absolute right-6 top-6 h-10 w-10 text-primary/15" aria-hidden />
+              <Quote className="absolute right-7 top-7 h-11 w-11 text-primary/15 sm:right-9 sm:top-9" aria-hidden />
               <Stars />
-              <blockquote className="mt-5 flex-1 text-base leading-relaxed text-foreground sm:text-lg">
+              <blockquote className="mt-6 flex-1 text-base leading-relaxed text-foreground sm:text-lg sm:leading-relaxed">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
-              <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-border bg-muted ring-2 ring-background">
+              <div className="mt-10 flex items-center gap-5 border-t border-border pt-8">
+                <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-full border-2 border-border bg-muted shadow-sm ring-2 ring-background sm:h-24 sm:w-24">
                   <Image
                     src={t.image}
                     alt={`${t.name}, ${t.business}`}
                     fill
                     className="object-cover"
-                    sizes="56px"
+                    sizes="96px"
                   />
                 </div>
-                <div>
-                  <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.business}</p>
+                <div className="min-w-0">
+                  <p className="text-lg font-semibold text-foreground">{t.name}</p>
+                  <p className="mt-1 text-sm text-muted-foreground sm:text-base">{t.business}</p>
                 </div>
               </div>
             </article>
