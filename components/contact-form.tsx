@@ -41,14 +41,20 @@ export function ContactForm({
         body: JSON.stringify(data),
       })
 
+      const body = await response.json().catch(() => ({}))
+
       if (!response.ok) {
-        throw new Error("Failed to submit form")
+        const msg =
+          typeof body.error === "string" && body.error.length > 0
+            ? body.error
+            : "Failed to submit form"
+        throw new Error(msg)
       }
 
       setIsSuccess(true)
       e.currentTarget.reset()
-    } catch {
-      setError("Something went wrong. Please try again.")
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
