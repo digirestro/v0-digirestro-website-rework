@@ -1,5 +1,9 @@
+"use client"
+
 import Image from "next/image"
 import { CreditCard, Network } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import useEmblaCarousel from "embla-carousel-react"
 
 /** Venue imagery — ImageKit from digirestro.ai for trusted restaurant brands */
 const VENUE_IMAGES = [
@@ -85,22 +89,98 @@ const restaurantCards = clients.map((name, i) => ({
 }))
 
 function RestaurantMarquee() {
-  const loop = [...restaurantCards, ...restaurantCards]
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    slidesToScroll: 1,
+    duration: 50,
+  })
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+    }
+
+    emblaApi.on("select", onSelect)
+    emblaApi.on("reInit", onSelect)
+
+    return () => {
+      emblaApi.off("select", onSelect)
+      emblaApi.off("reInit", onSelect)
+    }
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const updateScales = () => {
+      const slides = slideRefs.current
+      slides.forEach((slide, index) => {
+        if (!slide) return
+        const distance = Math.abs(index - selectedIndex)
+        
+        let scale = 1
+        let opacity = 1
+        
+        if (distance === 0) {
+          scale = 1.1
+          opacity = 1
+        } else if (distance === 1) {
+          scale = 0.95
+          opacity = 0.9
+        } else if (distance === 2) {
+          scale = 0.85
+          opacity = 0.7
+        } else {
+          scale = 0.75
+          opacity = 0.5
+        }
+        
+        slide.style.transform = `scale(${scale})`
+        slide.style.opacity = `${opacity}`
+        slide.style.transition = "transform 0.3s ease-out, opacity 0.3s ease-out"
+      })
+    }
+
+    updateScales()
+    emblaApi.on("select", updateScales)
+    emblaApi.on("settle", updateScales)
+
+    return () => {
+      emblaApi.off("select", updateScales)
+      emblaApi.off("settle", updateScales)
+    }
+  }, [emblaApi, selectedIndex])
+
+  // Auto-scroll every 4 seconds
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const interval = setInterval(() => {
+      emblaApi.scrollNext()
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [emblaApi])
 
   return (
-    <div className="clients-marquee-wrap relative overflow-hidden py-1">
-      <div
-        className="clients-marquee-track flex w-max gap-4"
-        aria-hidden={false}
-      >
-        {loop.map((item, i) => (
+    <div className="clients-carousel-wrap relative overflow-hidden py-8" ref={emblaRef}>
+      <div className="flex gap-4">
+        {restaurantCards.map((item, i) => (
           <figure
             key={`${item.name}-${i}`}
-            className="relative h-36 w-[220px] shrink-0 overflow-hidden rounded-xl border border-border bg-card shadow-sm sm:h-40 sm:w-[260px]"
+            ref={(el) => {
+              slideRefs.current[i] = el
+            }}
+            className="relative h-36 w-[220px] shrink-0 overflow-hidden rounded-xl border border-border bg-card shadow-sm sm:h-40 sm:w-[260px] cursor-grab active:cursor-grabbing"
           >
             <Image
               src={item.image}
-              alt=""
+              alt={item.name}
               fill
               className="object-cover"
               sizes="260px"

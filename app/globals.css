@@ -154,6 +154,28 @@
   animation-play-state: paused;
 }
 
+.clients-carousel-wrap {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.clients-carousel-wrap > div {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.clients-carousel-wrap figure {
+  transform-origin: center;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .clients-marquee-track {
     animation: none;
