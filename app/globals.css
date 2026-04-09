@@ -157,24 +157,26 @@
 .clients-carousel-wrapper {
   position: relative;
   width: 100%;
-  overflow: hidden;
-}
-
-.clients-carousel-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.clients-carousel-container > div {
+  overflow: visible;
   display: flex;
-  gap: 1.5rem;
   justify-content: center;
   align-items: center;
 }
 
-.clients-carousel-container figure {
+.clients-carousel-wrapper > div {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients-carousel-wrapper figure {
+  position: absolute;
   transform-origin: center;
-  transition: transform 0.4s cubic-bezier(0.33, 0.66, 0.66, 1), z-index 0.4s ease-out;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
 }
 
 @media (prefers-reduced-motion: reduce) {

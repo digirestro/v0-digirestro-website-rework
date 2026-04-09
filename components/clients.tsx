@@ -3,7 +3,6 @@
 import Image from "next/image"
 import { CreditCard, Network } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-import useEmblaCarousel from "embla-carousel-react"
 
 /** Venue imagery — ImageKit from digirestro.ai for trusted restaurant brands */
 const VENUE_IMAGES = [
@@ -89,106 +88,100 @@ const restaurantCards = clients.map((name, i) => ({
 }))
 
 function RestaurantMarquee() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "center",
-    slidesToScroll: 1,
-  })
+  const containerRef = useRef<HTMLDivElement>(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const slideRefs = useRef<(HTMLDivElement | null)[]>([])
 
+  // Calculate scale and position based on distance from center
+  const getTransform = (index: number) => {
+    const distance = Math.abs(index - selectedIndex)
+    let scale = 1
+    let translateY = 0
+
+    if (distance === 0) {
+      scale = 1.2
+      translateY = 0
+    } else if (distance === 1) {
+      scale = 0.95
+      translateY = 20
+    } else if (distance === 2) {
+      scale = 0.8
+      translateY = 40
+    } else if (distance === 3) {
+      scale = 0.65
+      translateY = 60
+    } else {
+      scale = 0.5
+      translateY = 80
+    }
+
+    return { scale, translateY }
+  }
+
   useEffect(() => {
-    if (!emblaApi) return
-
-    const updateScales = () => {
-      const slides = slideRefs.current
-      const selectedSnap = emblaApi.selectedScrollSnap()
-      setSelectedIndex(selectedSnap)
-
-      slides.forEach((slide, index) => {
+    const updateSlides = () => {
+      slideRefs.current.forEach((slide, index) => {
         if (!slide) return
+        const { scale, translateY } = getTransform(index)
+        const zIndex = 100 - Math.abs(index - selectedIndex)
         
-        // Calculate distance from selected slide
-        const distance = Math.abs(index - selectedSnap)
-        
-        let scale = 1
-        let zIndex = 0
-        
-        if (distance === 0) {
-          // Center item - largest
-          scale = 1.15
-          zIndex = 30
-        } else if (distance === 1) {
-          // One step away
-          scale = 0.85
-          zIndex = 20
-        } else if (distance === 2) {
-          // Two steps away
-          scale = 0.65
-          zIndex = 10
-        } else if (distance === 3) {
-          // Three steps away
-          scale = 0.5
-          zIndex = 5
-        } else {
-          // Further away
-          scale = 0.4
-          zIndex = 0
-        }
-        
-        slide.style.transform = `scale(${scale})`
+        slide.style.transform = `scale(${scale}) translateY(${index < selectedIndex ? -translateY : translateY}px)`
         slide.style.zIndex = `${zIndex}`
-        slide.style.transition = "transform 0.4s cubic-bezier(0.33, 0.66, 0.66, 1), z-index 0.4s ease-out"
+        slide.style.transition = "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)"
       })
     }
 
-    emblaApi.on("select", updateScales)
-    emblaApi.on("reInit", updateScales)
-    updateScales()
+    updateSlides()
+  }, [selectedIndex])
 
-    return () => {
-      emblaApi.off("select", updateScales)
-      emblaApi.off("reInit", updateScales)
-    }
-  }, [emblaApi])
-
-  // Auto-scroll every 4 seconds
+  // Auto-scroll every 5 seconds
   useEffect(() => {
-    if (!emblaApi) return
-
     const interval = setInterval(() => {
-      emblaApi.scrollNext()
-    }, 4000)
-
+      setSelectedIndex((prev) => (prev + 1) % restaurantCards.length)
+    }, 5000)
     return () => clearInterval(interval)
-  }, [emblaApi])
+  }, [])
 
   return (
-    <div className="clients-carousel-wrapper relative w-full">
-      <div className="clients-carousel-container overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6 py-12 px-4 justify-center">
-          {restaurantCards.map((item, i) => (
+    <div className="clients-carousel-wrapper w-full py-16">
+      <div 
+        className="relative flex justify-center items-center gap-8"
+        style={{
+          height: "500px",
+          perspective: "1000px",
+        }}
+      >
+        {restaurantCards.map((item, i) => {
+          const { scale } = getTransform(i)
+          const width = 280 * scale
+          const height = 160 * scale
+
+          return (
             <figure
               key={`${item.name}-${i}`}
               ref={(el) => {
                 slideRefs.current[i] = el
               }}
-              className="relative h-40 w-[280px] shrink-0 overflow-hidden rounded-xl border border-border bg-card shadow-lg cursor-grab active:cursor-grabbing origin-center"
+              className="absolute overflow-hidden rounded-xl border border-border bg-card shadow-xl cursor-pointer hover:shadow-2xl transition-shadow origin-center"
+              style={{
+                width: "280px",
+                height: "160px",
+              }}
+              onClick={() => setSelectedIndex(i)}
             >
               <Image
                 src={item.image}
                 alt={item.name}
                 fill
                 className="object-cover"
-                sizes="280px"
                 unoptimized
               />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent px-4 pb-4 pt-12">
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent px-4 pb-4 pt-12 h-full flex items-end">
                 <span className="line-clamp-2 text-sm font-semibold text-white">{item.name}</span>
               </figcaption>
             </figure>
-          ))}
-        </div>
+          )
+        })}
       </div>
     </div>
   )
