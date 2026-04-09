@@ -114,19 +114,6 @@ export function PlatformContent() {
             Digirestro is a full-stack operations platform for restaurants, cafés, bars, and chains: billing,
             payments, inventory, digital ordering, kitchen screens, and owner tools in one connected system.
           </p>
-          <div className="relative mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border border-border bg-muted/30 shadow-xl ring-1 ring-black/[0.04]">
-            <div className="relative aspect-[16/10] w-full sm:aspect-[2/1]">
-              <Image
-                src="/images/hero-ecosystem.jpg"
-                alt="Digirestro platform ecosystem: POS, kitchen, ordering, and operations connected in one system"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 896px) 100vw, 896px"
-                priority
-                unoptimized
-              />
-            </div>
-          </div>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
