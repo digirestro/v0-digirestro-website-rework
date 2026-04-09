@@ -2,10 +2,24 @@ import Image from "next/image"
 import Link from "next/link"
 import {
   Building2,
+  Globe2,
   LayoutDashboard,
   UtensilsCrossed,
   WifiOff,
 } from "lucide-react"
+
+/** Unsplash — Earth view (global reach); https://unsplash.com/license */
+const GLOBAL_REACH_IMAGE =
+  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&h=1050&fit=crop&q=82&auto=format"
+
+const whoWeServeRegions = [
+  "India",
+  "Middle East",
+  "Asia",
+  "Africa",
+  "Europe",
+  "North America",
+] as const
 
 const suite = [
   {
@@ -244,16 +258,61 @@ export function PlatformContent() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-muted/15 px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl">
-            Who we serve
-          </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Independent eateries, growing regional brands, and multi-outlet chains in India, the Middle East, Asia,
-            Africa, Europe, and North America. SMEs get fast time-to-value; enterprises get consistency and scale across
-            locations.
-          </p>
+      <section className="border-t border-border bg-gradient-to-b from-muted/20 via-muted/10 to-background px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div className="relative order-2 lg:order-1">
+              <div
+                className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/25 via-primary/5 to-transparent opacity-80 blur-2xl"
+                aria-hidden
+              />
+              <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-card shadow-2xl ring-1 ring-black/[0.06]">
+                <div className="relative aspect-[4/3] w-full sm:aspect-[3/2]">
+                  <Image
+                    src={GLOBAL_REACH_IMAGE}
+                    alt="View of Earth from space—symbolising Digirestro’s presence across regions worldwide"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    unoptimized
+                  />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent px-4 pb-4 pt-16 sm:px-5 sm:pb-5">
+                  <p className="text-center text-xs font-medium text-white/95 sm:text-sm">
+                    Serving teams across continents—from single outlets to global chains
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-1 text-center lg:order-2 lg:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                <Globe2 className="h-3.5 w-3.5" aria-hidden />
+                Global footprint
+              </div>
+              <h2 className="mt-4 font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
+                Who we serve
+              </h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed sm:text-lg">
+                Independent eateries, growing regional brands, and multi-outlet chains in India, the Middle East, Asia,
+                Africa, Europe, and North America. SMEs get fast time-to-value; enterprises get consistency and scale
+                across locations.
+              </p>
+              <ul
+                className="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start"
+                aria-label="Regions we serve"
+              >
+                {whoWeServeRegions.map((region) => (
+                  <li
+                    key={region}
+                    className="rounded-full border border-border bg-background/80 px-3 py-1.5 text-xs font-medium text-foreground shadow-sm backdrop-blur-sm sm:text-sm"
+                  >
+                    {region}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </div>
