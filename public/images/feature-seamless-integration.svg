@@ -1,0 +1,24 @@
+<svg width="900" height="600" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="600" rx="40" fill="#F5F5F5"/>
+  <rect x="116" y="70" width="178" height="148" rx="24" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3"/>
+  <rect x="356" y="70" width="178" height="148" rx="24" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3"/>
+  <rect x="596" y="70" width="178" height="148" rx="24" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3"/>
+  <circle cx="205" cy="144" r="16" fill="#F97316"/>
+  <circle cx="305" cy="144" r="16" fill="#2563EB"/>
+  <circle cx="706" cy="144" r="16" fill="#EC4899"/>
+  <rect x="260" y="310" width="380" height="192" rx="28" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3"/>
+  <path d="M150 170C240 140 340 140 420 170" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M510 170C590 195 690 195 770 170" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M250 242L313 292" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M506 242L569 292" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/>
+  <rect x="322" y="330" width="72" height="64" rx="16" fill="#F97316"/>
+  <rect x="424" y="330" width="72" height="64" rx="16" fill="#2563EB"/>
+  <rect x="526" y="330" width="72" height="64" rx="16" fill="#10B981"/>
+  <path d="M340 354H556" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M340 384H556" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M340 414H460" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="205" cy="528" r="70" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3"/>
+  <path d="M180 520C183 512 191 507 199 507H229C241 507 250 516 250 528V540C250 546 246 552 240 554L205 566L170 554C164 552 160 546 160 540V528C160 516 169 507 181 507H211C219 507 227 512 230 520" fill="#2563EB"/>
+  <path d="M192 472H218C221.866 472 225 474.819 225 478V496H185V478C185 474.819 188.134 472 192 472Z" fill="#2563EB"/>
+  <text x="340" y="530" fill="#4B5563" font-family="Inter, sans-serif" font-size="26" font-weight="600">Connected finance & aggregators</text>
+</svg>

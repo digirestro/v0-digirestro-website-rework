@@ -48,33 +48,20 @@ const features: FeatureItem[] = [
     alt: "Person holding a smartphone—simple, familiar devices your team already knows",
   },
   {
-    kind: "integration",
+    kind: "image",
     title: "Seamless integrations",
     description:
       "Bring aggregator and accounting workflows into one place with Zomato, Swiggy, and your finance stack.",
-    alt: "Digirestro POS, payments, and kitchen display working together",
-    panels: [
-      {
-        src: "/images/suite/billing-pos.png",
-        alt: "Digirestro POS terminal",
-      },
-      {
-        src: "/images/partner-order-flow.webp",
-        alt: "Order and payment flow connected to POS",
-      },
-      {
-        src: "/images/suite/kds.png",
-        alt: "Kitchen display system",
-      },
-    ],
+    image: "/images/feature-seamless-integration.svg",
+    alt: "Connected workflow illustration for aggregator and finance integration",
   },
   {
     kind: "image",
     title: "24/7 live support",
     description:
       "Real people on the line for questions and fixes—personalised help around the clock.",
-    image: "/images/feature-support.webp",
-    alt: "Digirestro support team ready to help your restaurant",
+    image: "/images/feature-live-support-open-source.svg",
+    alt: "24/7 restaurant support illustration",
   },
   {
     kind: "image",

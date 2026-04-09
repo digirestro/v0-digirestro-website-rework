@@ -1,0 +1,20 @@
+<svg width="900" height="600" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="600" rx="40" fill="#F5F5F5"/>
+  <path d="M222 192C222 137.386 268.386 91 323 91H577C631.614 91 678 137.386 678 192V366C678 420.614 631.614 467 577 467H323C268.386 467 222 420.614 222 366V192Z" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="4"/>
+  <circle cx="450" cy="220" r="58" fill="#2563EB" opacity="0.12"/>
+  <path d="M354 190C354 171.326 368.326 157 387 157H513C531.674 157 546 171.326 546 190V294C546 312.674 531.674 327 513 327H387C368.326 327 354 312.674 354 294V190Z" fill="#FFFFFF" stroke="#2563EB" stroke-width="4"/>
+  <path d="M378 204H522" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+  <path d="M378 238H522" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+  <path d="M378 272H470" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+  <path d="M399 330C399 318.954 407.954 310 419 310H481C492.046 310 501 318.954 501 330V356C501 367.046 492.046 376 481 376H419C407.954 376 399 367.046 399 356V330Z" fill="#F97316"/>
+  <path d="M380 370C382.761 366.916 387.159 365 392 365H508C512.841 365 517.239 366.916 520 370" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+  <path d="M285 344C285 336.268 290.268 331 298 331H318C325.732 331 331 336.268 331 344V364C331 371.732 325.732 377 318 377H298C290.268 377 285 371.732 285 364V344Z" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="4"/>
+  <path d="M600 344C600 336.268 605.268 331 613 331H633C640.732 331 646 336.268 646 344V364C646 371.732 640.732 377 633 377H613C605.268 377 600 371.732 600 364V344Z" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="4"/>
+  <path d="M304 372C327 404 406 422 508 388" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
+  <path d="M360 250L336 210" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+  <path d="M540 250L564 210" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+  <path d="M450 415C479.614 415 503 391.614 503 362C503 332.386 479.614 309 450 309C420.386 309 397 332.386 397 362C397 391.614 420.386 415 450 415Z" fill="#F97316"/>
+  <path d="M444 360C444 354.477 448.477 350 454 350H458C463.523 350 468 354.477 468 360V396C468 401.523 463.523 406 458 406H454C448.477 406 444 401.523 444 396V360Z" fill="#FFFFFF"/>
+  <path d="M376 408C376 401.373 381.373 396 388 396H512C518.627 396 524 401.373 524 408V430C524 436.627 518.627 442 512 442H388C381.373 442 376 436.627 376 430V408Z" fill="#E5E7EB"/>
+  <text x="330" y="520" fill="#4B5563" font-family="Inter, sans-serif" font-size="32" font-weight="700">24/7 live support</text>
+</svg>
