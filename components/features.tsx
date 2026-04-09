@@ -3,28 +3,18 @@ import Image from "next/image"
 /** Unsplash — https://unsplash.com/license (decorative / thematic imagery) */
 const U = "https://images.unsplash.com"
 
-type FeatureBase = {
+type FeatureItem = {
   title: string
   description: string
-  alt: string
-}
-
-type FeatureSimple = FeatureBase & {
-  kind: "image"
   image: string
+  alt: string
+  /** Square or illustrated assets: show full artwork without harsh cropping */
+  imageFit?: "cover" | "contain"
+  imageBgClass?: string
 }
-
-type FeatureIntegration = FeatureBase & {
-  kind: "integration"
-  /** POS terminal, payment / order flow, KDS — brand photography from /public/images */
-  panels: { src: string; alt: string }[]
-}
-
-type FeatureItem = FeatureSimple | FeatureIntegration
 
 const features: FeatureItem[] = [
   {
-    kind: "image",
     title: "Analytics & reporting",
     description:
       "Use sales history, inventory, and outlet data to spot trends, tighten costs, and make clearer day-to-day decisions.",
@@ -32,7 +22,6 @@ const features: FeatureItem[] = [
     alt: "Laptop showing charts and business analytics on a desk",
   },
   {
-    kind: "image",
     title: "Point of Sale & billing",
     description:
       "End-to-end tools for your restaurant and guests—from orders to receipts—with a billing flow built for busy service.",
@@ -40,7 +29,6 @@ const features: FeatureItem[] = [
     alt: "Digirestro POS terminal and billing at the counter",
   },
   {
-    kind: "image",
     title: "Easy to operate",
     description:
       "Straightforward screens designed so staff can move fast during lunch and dinner rushes.",
@@ -48,23 +36,22 @@ const features: FeatureItem[] = [
     alt: "Person holding a smartphone—simple, familiar devices your team already knows",
   },
   {
-    kind: "image",
     title: "Seamless integrations",
     description:
       "Bring aggregator and accounting workflows into one place with Zomato, Swiggy, and your finance stack.",
-    image: "/images/feature-seamless-integration.svg",
-    alt: "Connected workflow illustration for aggregator and finance integration",
+    image: "/images/partner-integrations-hub.webp",
+    alt: "Connected restaurant ecosystem—POS, QR ordering, printers, kitchen, and aggregators in one network",
   },
   {
-    kind: "image",
     title: "24/7 live support",
     description:
       "Real people on the line for questions and fixes—personalised help around the clock.",
-    image: "/images/feature-live-support-open-source.svg",
-    alt: "24/7 restaurant support illustration",
+    image: "/images/customer-support-24-7.png",
+    alt: "Customer support services—24/7 support, remote assistance, technical help, and general inquiries",
+    imageFit: "contain",
+    imageBgClass: "bg-white",
   },
   {
-    kind: "image",
     title: "Inventory management",
     description:
       "Track stock in real time to cut waste and keep the kitchen and bar aligned with what actually sells.",
@@ -75,41 +62,16 @@ const features: FeatureItem[] = [
 
 function FeatureMedia({ feature }: { feature: FeatureItem }) {
   const box = "relative w-full h-52 sm:h-56 md:h-60 bg-muted"
-
-  if (feature.kind === "integration") {
-    return (
-      <div className={`${box} grid grid-cols-3 gap-px overflow-hidden`}>
-        {feature.panels.map((panel) => (
-          <div key={panel.src} className="relative min-h-0">
-            <Image
-              src={panel.src}
-              alt={panel.alt}
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 33vw, 200px"
-              unoptimized
-            />
-          </div>
-        ))}
-        <div
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-          aria-hidden
-        >
-          <span className="rounded-full border border-white/40 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white shadow-lg backdrop-blur-sm sm:text-[11px]">
-            Connected stack
-          </span>
-        </div>
-      </div>
-    )
-  }
+  const fit = feature.imageFit ?? "cover"
+  const bg = feature.imageBgClass ?? ""
 
   return (
-    <div className={box}>
+    <div className={`${box} ${bg}`}>
       <Image
         src={feature.image}
         alt={feature.alt}
         fill
-        className="object-cover"
+        className={fit === "contain" ? "object-contain object-center p-2 sm:p-3" : "object-cover"}
         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         unoptimized={feature.image.startsWith("http")}
       />
