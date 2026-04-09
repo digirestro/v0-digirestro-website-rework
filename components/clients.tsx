@@ -99,10 +99,15 @@ function RestaurantCoverflowCarousel() {
 
   return (
     <div className="clients-carousel-wrapper w-full px-2 py-6 sm:px-4">
+      {/*
+        Swiper defaults: .swiper-slide { height: 100% } with .swiper height unset → 0px chain + overflow:hidden clips all slides.
+        autoHeight + intrinsic-sized cards fixes visibility. Slightly lower depth avoids extreme Z clipping on small viewports.
+      */}
       <Swiper
-        className="!overflow-visible pb-2"
+        className="restaurant-coverflow pb-2"
         modules={[EffectCoverflow, Autoplay, Keyboard]}
         effect="coverflow"
+        autoHeight
         grabCursor={false}
         centeredSlides
         loop
@@ -122,7 +127,7 @@ function RestaurantCoverflowCarousel() {
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
-          depth: 362,
+          depth: 200,
           modifier: 1,
           slideShadows: false,
         }}
@@ -131,16 +136,18 @@ function RestaurantCoverflowCarousel() {
         }}
       >
         {restaurantCards.map((item, i) => (
-          <SwiperSlide key={`${item.name}-${i}`} className="!flex justify-center py-2">
-            <figure className="relative mx-auto h-[200px] w-full max-w-[280px] overflow-hidden rounded-xl border border-border bg-card shadow-lg transition-shadow sm:h-[210px] sm:max-w-[300px]">
-              <Image
-                src={item.image}
-                alt={item.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 90vw, 300px"
-                unoptimized
-              />
+          <SwiperSlide key={`${item.name}-${i}`} className="box-border !flex justify-center py-2">
+            <figure className="relative mx-auto w-full max-w-[280px] overflow-hidden rounded-xl border border-border bg-card shadow-lg sm:max-w-[300px]">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 90vw, 300px"
+                  unoptimized
+                />
+              </div>
               <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-12">
                 <span className="line-clamp-2 text-center text-sm font-semibold text-white">{item.name}</span>
               </figcaption>
