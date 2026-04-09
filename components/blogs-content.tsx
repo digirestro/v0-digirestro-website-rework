@@ -1,44 +1,103 @@
-import { ExternalLink } from "lucide-react"
+import { ArrowUpRight, BookOpen, Sparkles } from "lucide-react"
 import { blogPosts } from "@/data/blog-posts"
+function padIndex(n: number) {
+  return String(n).padStart(2, "0")
+}
 
 export function BlogsContent() {
-  return (
-    <section className="border-b border-border bg-muted/20 px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-      <div className="mx-auto max-w-3xl text-center">
-        <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl">
-          Blogs
-        </h1>
-        <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-          Guides and ideas from Digirestro on POS, delivery, kitchen tech, and running a smoother restaurant. Each link
-          opens the full article on{" "}
-          <span className="font-medium text-foreground">digirestro.ai</span> in a new tab.
-        </p>
-      </div>
+  const [featured, ...rest] = blogPosts
 
-      <ul className="mx-auto mt-14 max-w-3xl space-y-4">
-        {blogPosts.map((post) => (
-          <li key={post.href}>
-            <a
-              href={post.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col gap-2 rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:border-primary/30 hover:shadow-md sm:p-6"
-            >
-              <span className="flex items-start justify-between gap-3">
-                <span className="font-[family-name:var(--font-display)] text-lg font-semibold text-foreground text-balance group-hover:text-primary sm:text-xl">
-                  {post.title}
+  return (
+    <section className="relative overflow-hidden border-b border-border bg-muted/20 px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        aria-hidden
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, oklch(0.75 0 0) 1px, transparent 0)`,
+          backgroundSize: "28px 28px",
+        }}
+      />
+      <div className="relative mx-auto max-w-6xl">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+            <Sparkles className="h-3.5 w-3.5" aria-hidden />
+            From digirestro.ai
+          </div>
+          <h1 className="mt-5 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
+            The Digirestro journal
+          </h1>
+          <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+            A reading shelf of guides on POS, kitchen tech, delivery, and calmer operations—each article opens on{" "}
+            <span className="font-medium text-foreground">digirestro.ai</span> in a new tab.
+          </p>
+        </div>
+
+        {featured && (
+          <a
+            href={featured.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative mt-14 flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition hover:border-primary/35 hover:shadow-xl md:grid md:min-h-[280px] md:grid-cols-12 md:gap-0"
+          >
+            <div className="relative flex flex-col justify-between bg-gradient-to-br from-primary/15 via-primary/5 to-transparent px-8 py-10 md:col-span-5">
+              <div>
+                <span className="inline-flex items-center gap-1.5 rounded-md bg-background/80 px-2.5 py-1 text-xs font-semibold text-primary ring-1 ring-primary/20">
+                  <BookOpen className="h-3.5 w-3.5" aria-hidden />
+                  {featured.category}
                 </span>
-                <ExternalLink
-                  className="mt-1 h-5 w-5 shrink-0 text-muted-foreground transition group-hover:text-primary"
-                  aria-hidden
-                />
+                <p className="mt-6 font-[family-name:var(--font-display)] text-6xl font-bold leading-none text-primary/90 sm:text-7xl">
+                  {padIndex(1)}
+                </p>
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                  Featured story
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-1 flex-col justify-center border-t border-border/80 px-8 py-8 md:col-span-7 md:border-l md:border-t-0 md:py-10 md:pl-10 md:pr-12">
+              <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-foreground text-balance transition group-hover:text-primary sm:text-3xl">
+                {featured.title}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{featured.description}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                Read full article
+                <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
-              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{post.description}</p>
-              <span className="text-xs font-medium text-primary">Read on digirestro.ai →</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+            </div>
+          </a>
+        )}
+
+        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((post, i) => {
+            const n = i + 2
+            return (
+              <a
+                key={post.href}
+                href={post.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card/90 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <span className="rounded-md bg-muted px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                    {post.category}
+                  </span>
+                  <span className="font-[family-name:var(--font-display)] text-3xl font-bold tabular-nums text-primary/35 transition group-hover:text-primary/55">
+                    {padIndex(n)}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-[family-name:var(--font-display)] text-lg font-semibold leading-snug text-foreground text-balance group-hover:text-primary sm:text-xl">
+                  {post.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{post.description}</p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-primary">
+                  Open on digirestro.ai
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                </span>
+              </a>
+            )
+          })}
+        </div>
+      </div>
     </section>
   )
 }
