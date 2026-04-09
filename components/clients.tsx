@@ -94,61 +94,137 @@ const restaurantCards = clients.map((name, i) => ({
   image: VENUE_IMAGES[i % VENUE_IMAGES.length]!,
 }))
 
+const SLIDE_COUNT = restaurantCards.length
+
+/** Shortest distance between indices on a looping strip (for staircase scaling). */
+function loopDistance(i: number, selected: number, n: number) {
+  const d = Math.abs(i - selected)
+  return Math.min(d, n - d)
+}
+
+/** Signed offset from selected (-n/2 … n/2) for rotateY: left negative, right positive. */
+function loopOffset(i: number, selected: number, n: number) {
+  let diff = i - selected
+  if (diff > n / 2) diff -= n
+  if (diff < -n / 2) diff += n
+  return diff
+}
+
+/** Center slide larger; each step away smaller + slight Y-rotation (staircase / coverflow-style). */
+function slideStaircaseStyle(index: number, selectedIndex: number) {
+  const dist = loopDistance(index, selectedIndex, SLIDE_COUNT)
+  const offset = loopOffset(index, selectedIndex, SLIDE_COUNT)
+  const scale = Math.max(0.62, 1.1 - dist * 0.11)
+  const opacity = Math.max(0.42, 1 - dist * 0.16)
+  const rotateY = Math.max(-14, Math.min(14, -offset * 5))
+  const zIndex = 30 - dist
+
+  return {
+    zIndex,
+    opacity,
+    transform: `perspective(1100px) rotateY(${rotateY}deg) scale(${scale})`,
+    transition: "transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease",
+    transformOrigin: "center center" as const,
+    willChange: "transform, opacity" as const,
+  }
+}
+
 /**
- * Same UX as digirestro.ai (centered carousel, loop, ~2s autoplay, arrows, pause on hover).
- * Implemented with Embla (see `components/ui/carousel`) instead of Swiper — Swiper coverflow was unreliable here.
+ * All partner cards are in the loop (see `restaurantCards`). Autoplay runs continuously;
+ * pause only while pointer is over the track (not the arrow row) so rotation is obvious.
  */
 function RestaurantPartnersCarousel() {
   const [api, setApi] = useState<CarouselApi>()
+  const [selectedIndex, setSelectedIndex] = useState(0)
   const [pauseAutoplay, setPauseAutoplay] = useState(false)
+
+  useEffect(() => {
+    if (!api) return
+    const sync = () => {
+      const next = api.selectedScrollSnap()
+      setSelectedIndex((prev) => (prev === next ? prev : next))
+    }
+    sync()
+    api.on("select", sync)
+    api.on("reInit", sync)
+    let raf = 0
+    const onScroll = () => {
+      if (raf) return
+      raf = requestAnimationFrame(() => {
+        raf = 0
+        sync()
+      })
+    }
+    api.on("scroll", onScroll)
+    return () => {
+      api.off("select", sync)
+      api.off("reInit", sync)
+      api.off("scroll", onScroll)
+    }
+  }, [api])
 
   useEffect(() => {
     if (!api || pauseAutoplay) return
     const id = window.setInterval(() => {
       api.scrollNext()
-    }, 2000)
+    }, 2200)
     return () => window.clearInterval(id)
   }, [api, pauseAutoplay])
 
   return (
-    <div
-      className="clients-carousel-wrapper w-full px-2 py-6 sm:px-4"
-      onMouseEnter={() => setPauseAutoplay(true)}
-      onMouseLeave={() => setPauseAutoplay(false)}
-    >
-      <Carousel
-        setApi={setApi}
-        opts={{
-          loop: true,
-          align: "center",
-          duration: 40,
-        }}
-        className="w-full"
+    <div className="clients-carousel-wrapper w-full px-2 py-6 sm:px-4">
+      <div
+        className="relative px-4 sm:px-10 md:px-14"
+        onPointerEnter={() => setPauseAutoplay(true)}
+        onPointerLeave={() => setPauseAutoplay(false)}
       >
-        <CarouselContent className="-ml-3 md:-ml-4">
-          {restaurantCards.map((item, i) => (
-            <CarouselItem
-              key={`${item.name}-${i}`}
-              className="pl-3 md:pl-4 basis-[88%] sm:basis-[58%] lg:basis-[32%]"
-            >
-              <figure className="relative mx-auto w-full max-w-[300px] overflow-hidden rounded-xl border border-border bg-card shadow-md">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={400}
-                  height={300}
-                  className="aspect-[4/3] h-auto w-full object-cover"
-                  sizes="(max-width: 640px) 88vw, (max-width: 1024px) 58vw, 32vw"
-                  unoptimized
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-12">
-                  <span className="line-clamp-2 text-center text-sm font-semibold text-white">{item.name}</span>
-                </figcaption>
-              </figure>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+        <Carousel
+          setApi={setApi}
+          opts={{
+            loop: true,
+            align: "center",
+            duration: 35,
+            skipSnaps: false,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-3 items-center md:-ml-4">
+            {restaurantCards.map((item, i) => (
+              <CarouselItem
+                key={`${item.name}-${i}`}
+                className="pl-3 md:pl-4 basis-[78%] sm:basis-[48%] md:basis-[38%] lg:basis-[30%] xl:basis-[26%]"
+              >
+                <div
+                  className="relative mx-auto w-full max-w-[340px]"
+                  style={slideStaircaseStyle(i, selectedIndex)}
+                >
+                  <figure className="relative w-full overflow-hidden rounded-xl border border-border bg-card shadow-lg ring-1 ring-black/5">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={400}
+                      height={300}
+                      className="aspect-[4/3] h-auto w-full object-cover"
+                      sizes="(max-width: 640px) 78vw, (max-width: 1024px) 38vw, 30vw"
+                      unoptimized
+                    />
+                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-12">
+                      <span className="line-clamp-2 text-center text-sm font-semibold text-white">
+                        {item.name}
+                      </span>
+                    </figcaption>
+                  </figure>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+
+      <p className="mt-2 text-center text-xs text-muted-foreground">
+        {SLIDE_COUNT} venues—drag or use arrows; focus moves along the row automatically.
+      </p>
+
       <div className="mt-6 flex justify-center gap-10">
         <button
           type="button"
