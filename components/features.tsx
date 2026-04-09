@@ -3,6 +3,9 @@ import Image from "next/image"
 /** Unsplash — https://unsplash.com/license (decorative / thematic imagery) */
 const U = "https://images.unsplash.com"
 
+/** Brand illustration (JPEG); use native img so it always loads from /public without optimizer edge cases */
+const SUPPORT_ART = "/images/customer-support-24-7.jpg"
+
 type FeatureItem = {
   title: string
   description: string
@@ -11,6 +14,8 @@ type FeatureItem = {
   /** Square or illustrated assets: show full artwork without harsh cropping */
   imageFit?: "cover" | "contain"
   imageBgClass?: string
+  /** User-provided raster: render with <img> + object-contain (see SUPPORT_ART) */
+  useNativeImage?: boolean
 }
 
 const features: FeatureItem[] = [
@@ -46,10 +51,11 @@ const features: FeatureItem[] = [
     title: "24/7 live support",
     description:
       "Real people on the line for questions and fixes—personalised help around the clock.",
-    image: "/images/customer-support-24-7.png",
+    image: SUPPORT_ART,
     alt: "Customer support services—24/7 support, remote assistance, technical help, and general inquiries",
     imageFit: "contain",
     imageBgClass: "bg-white",
+    useNativeImage: true,
   },
   {
     title: "Inventory management",
@@ -64,6 +70,23 @@ function FeatureMedia({ feature }: { feature: FeatureItem }) {
   const box = "relative w-full h-52 sm:h-56 md:h-60 bg-muted"
   const fit = feature.imageFit ?? "cover"
   const bg = feature.imageBgClass ?? ""
+
+  if (feature.useNativeImage) {
+    return (
+      <div className={`${box} ${bg} flex items-center justify-center`}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- static brand illustration from /public */}
+        <img
+          src={feature.image}
+          alt={feature.alt}
+          width={1024}
+          height={1024}
+          className="h-full w-full max-h-full object-contain object-center p-2 sm:p-3"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    )
+  }
 
   return (
     <div className={`${box} ${bg}`}>
