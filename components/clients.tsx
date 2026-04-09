@@ -2,13 +2,14 @@
 
 import Image from "next/image"
 import { CreditCard, ChevronLeft, ChevronRight, Network } from "lucide-react"
-import { useRef } from "react"
-import type { Swiper as SwiperType } from "swiper"
-import { Autoplay, EffectCoverflow, Keyboard } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
+import { useEffect, useState } from "react"
 
-import "swiper/css"
-import "swiper/css/effect-coverflow"
+import {
+  type CarouselApi,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
 
 /** Venue imagery — ImageKit from digirestro.ai for trusted restaurant brands */
 const VENUE_IMAGES = [
@@ -93,74 +94,67 @@ const restaurantCards = clients.map((name, i) => ({
   image: VENUE_IMAGES[i % VENUE_IMAGES.length]!,
 }))
 
-/** Matches digirestro.ai: Swiper coverflow (Divi Essential), autoplay 2s, centered, depth ~362, 3|1|1 breakpoints */
-function RestaurantCoverflowCarousel() {
-  const swiperRef = useRef<SwiperType | null>(null)
+/**
+ * Same UX as digirestro.ai (centered carousel, loop, ~2s autoplay, arrows, pause on hover).
+ * Implemented with Embla (see `components/ui/carousel`) instead of Swiper — Swiper coverflow was unreliable here.
+ */
+function RestaurantPartnersCarousel() {
+  const [api, setApi] = useState<CarouselApi>()
+  const [pauseAutoplay, setPauseAutoplay] = useState(false)
+
+  useEffect(() => {
+    if (!api || pauseAutoplay) return
+    const id = window.setInterval(() => {
+      api.scrollNext()
+    }, 2000)
+    return () => window.clearInterval(id)
+  }, [api, pauseAutoplay])
 
   return (
-    <div className="clients-carousel-wrapper w-full px-2 py-6 sm:px-4">
-      {/*
-        Swiper defaults: .swiper-slide { height: 100% } with .swiper height unset → 0px chain + overflow:hidden clips all slides.
-        autoHeight + intrinsic-sized cards fixes visibility. Slightly lower depth avoids extreme Z clipping on small viewports.
-      */}
-      <Swiper
-        className="restaurant-coverflow pb-2"
-        modules={[EffectCoverflow, Autoplay, Keyboard]}
-        effect="coverflow"
-        autoHeight
-        grabCursor={false}
-        centeredSlides
-        loop
-        speed={400}
-        keyboard={{ enabled: true }}
-        slidesPerView={1}
-        spaceBetween={24}
-        breakpoints={{
-          768: { slidesPerView: 1, spaceBetween: 32 },
-          1024: { slidesPerView: 3, spaceBetween: 50 },
+    <div
+      className="clients-carousel-wrapper w-full px-2 py-6 sm:px-4"
+      onMouseEnter={() => setPauseAutoplay(true)}
+      onMouseLeave={() => setPauseAutoplay(false)}
+    >
+      <Carousel
+        setApi={setApi}
+        opts={{
+          loop: true,
+          align: "center",
+          duration: 40,
         }}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 200,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        onSwiper={(instance) => {
-          swiperRef.current = instance
-        }}
+        className="w-full"
       >
-        {restaurantCards.map((item, i) => (
-          <SwiperSlide key={`${item.name}-${i}`} className="box-border !flex justify-center py-2">
-            <figure className="relative mx-auto w-full max-w-[280px] overflow-hidden rounded-xl border border-border bg-card shadow-lg sm:max-w-[300px]">
-              <div className="relative aspect-[4/3] w-full">
+        <CarouselContent className="-ml-3 md:-ml-4">
+          {restaurantCards.map((item, i) => (
+            <CarouselItem
+              key={`${item.name}-${i}`}
+              className="pl-3 md:pl-4 basis-[88%] sm:basis-[58%] lg:basis-[32%]"
+            >
+              <figure className="relative mx-auto w-full max-w-[300px] overflow-hidden rounded-xl border border-border bg-card shadow-md">
                 <Image
                   src={item.image}
                   alt={item.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 90vw, 300px"
+                  width={400}
+                  height={300}
+                  className="aspect-[4/3] h-auto w-full object-cover"
+                  sizes="(max-width: 640px) 88vw, (max-width: 1024px) 58vw, 32vw"
                   unoptimized
                 />
-              </div>
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-12">
-                <span className="line-clamp-2 text-center text-sm font-semibold text-white">{item.name}</span>
-              </figcaption>
-            </figure>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-12">
+                  <span className="line-clamp-2 text-center text-sm font-semibold text-white">{item.name}</span>
+                </figcaption>
+              </figure>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
       <div className="mt-6 flex justify-center gap-10">
         <button
           type="button"
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-sm transition hover:bg-muted"
           aria-label="Previous restaurant"
-          onClick={() => swiperRef.current?.slidePrev()}
+          onClick={() => api?.scrollPrev()}
         >
           <ChevronLeft className="h-5 w-5" aria-hidden />
         </button>
@@ -168,7 +162,7 @@ function RestaurantCoverflowCarousel() {
           type="button"
           className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-sm transition hover:bg-muted"
           aria-label="Next restaurant"
-          onClick={() => swiperRef.current?.slideNext()}
+          onClick={() => api?.scrollNext()}
         >
           <ChevronRight className="h-5 w-5" aria-hidden />
         </button>
@@ -230,7 +224,7 @@ export function Clients() {
         <p className="mb-4 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Restaurants &amp; brands
         </p>
-        <RestaurantCoverflowCarousel />
+        <RestaurantPartnersCarousel />
       </div>
     </section>
   )
