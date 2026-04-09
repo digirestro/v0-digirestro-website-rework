@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Solutions } from "@/components/solutions"
+import { Testimonials } from "@/components/testimonials"
 
 export const metadata: Metadata = {
   title: "Solutions | Digirestro",
@@ -8,5 +9,10 @@ export const metadata: Metadata = {
 }
 
 export default function SolutionsPage() {
-  return <Solutions />
+  return (
+    <>
+      <Solutions />
+      <Testimonials />
+    </>
+  )
 }

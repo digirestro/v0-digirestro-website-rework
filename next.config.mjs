@@ -18,6 +18,11 @@ const nextConfig = {
         destination: "/become-a-reseller",
         permanent: true,
       },
+      {
+        source: "/testimonials",
+        destination: "/#testimonials",
+        permanent: false,
+      },
     ]
   },
 }

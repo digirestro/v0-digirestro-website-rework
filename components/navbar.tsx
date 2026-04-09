@@ -32,9 +32,6 @@ export function Navbar() {
             <Link href="/solutions" className={navLinkClass}>
               Solutions
             </Link>
-            <Link href="/testimonials" className={navLinkClass}>
-              Testimonials
-            </Link>
             <Link href="/blogs" className={navLinkClass}>
               Blogs
             </Link>
@@ -78,13 +75,6 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 Solutions
-              </Link>
-              <Link
-                href="/testimonials"
-                className={`${navLinkClass} py-1`}
-                onClick={() => setIsOpen(false)}
-              >
-                Testimonials
               </Link>
               <Link
                 href="/blogs"

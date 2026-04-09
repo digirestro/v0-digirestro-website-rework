@@ -37,7 +37,6 @@ const footerLinks = [
   { label: "Platform", href: "/platform" },
   { label: "Features", href: "/features" },
   { label: "Solutions", href: "/solutions" },
-  { label: "Testimonials", href: "/testimonials" },
   { label: "Blogs", href: "/blogs" },
   { label: "Become a Reseller", href: "/become-a-reseller" },
   { label: "Contact", href: "/contact" },
