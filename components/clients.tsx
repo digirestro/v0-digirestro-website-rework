@@ -88,44 +88,34 @@ const restaurantCards = clients.map((name, i) => ({
 }))
 
 function RestaurantMarquee() {
-  const containerRef = useRef<HTMLDivElement>(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const slideRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  // Calculate scale and position based on distance from center
-  const getTransform = (index: number) => {
+  // Calculate scale based on distance from center
+  const getScale = (index: number) => {
     const distance = Math.abs(index - selectedIndex)
-    let scale = 1
-    let translateY = 0
 
     if (distance === 0) {
-      scale = 1.2
-      translateY = 0
+      return 1.25 // Center item - largest
     } else if (distance === 1) {
-      scale = 0.95
-      translateY = 20
+      return 1.0 // One step away
     } else if (distance === 2) {
-      scale = 0.8
-      translateY = 40
+      return 0.8 // Two steps away
     } else if (distance === 3) {
-      scale = 0.65
-      translateY = 60
+      return 0.65 // Three steps away
     } else {
-      scale = 0.5
-      translateY = 80
+      return 0.5 // Further away
     }
-
-    return { scale, translateY }
   }
 
   useEffect(() => {
     const updateSlides = () => {
       slideRefs.current.forEach((slide, index) => {
         if (!slide) return
-        const { scale, translateY } = getTransform(index)
+        const scale = getScale(index)
         const zIndex = 100 - Math.abs(index - selectedIndex)
         
-        slide.style.transform = `scale(${scale}) translateY(${index < selectedIndex ? -translateY : translateY}px)`
+        slide.style.transform = `scale(${scale})`
         slide.style.zIndex = `${zIndex}`
         slide.style.transition = "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)"
       })
@@ -143,18 +133,15 @@ function RestaurantMarquee() {
   }, [])
 
   return (
-    <div className="clients-carousel-wrapper w-full py-16">
+    <div className="clients-carousel-wrapper w-full py-12 overflow-x-auto overflow-y-hidden">
       <div 
-        className="relative flex justify-center items-center gap-8"
+        className="flex justify-center items-end gap-4 px-8 pb-4"
         style={{
-          height: "500px",
-          perspective: "1000px",
+          minHeight: "400px",
         }}
       >
         {restaurantCards.map((item, i) => {
-          const { scale } = getTransform(i)
-          const width = 280 * scale
-          const height = 160 * scale
+          const scale = getScale(i)
 
           return (
             <figure
@@ -162,7 +149,7 @@ function RestaurantMarquee() {
               ref={(el) => {
                 slideRefs.current[i] = el
               }}
-              className="absolute overflow-hidden rounded-xl border border-border bg-card shadow-xl cursor-pointer hover:shadow-2xl transition-shadow origin-center"
+              className="relative shrink-0 overflow-hidden rounded-xl border border-border bg-card shadow-lg cursor-pointer hover:shadow-2xl transition-shadow origin-bottom"
               style={{
                 width: "280px",
                 height: "160px",
@@ -176,7 +163,7 @@ function RestaurantMarquee() {
                 className="object-cover"
                 unoptimized
               />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent px-4 pb-4 pt-12 h-full flex items-end">
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent px-4 pb-4 pt-12">
                 <span className="line-clamp-2 text-sm font-semibold text-white">{item.name}</span>
               </figcaption>
             </figure>
