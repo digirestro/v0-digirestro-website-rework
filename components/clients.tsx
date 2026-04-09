@@ -88,87 +88,70 @@ const restaurantCards = clients.map((name, i) => ({
 }))
 
 function RestaurantMarquee() {
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const slideRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  // Calculate scale based on distance from center
-  const getScale = (index: number) => {
-    const distance = Math.abs(index - selectedIndex)
-
-    if (distance === 0) {
-      return 1.25 // Center item - largest
-    } else if (distance === 1) {
-      return 1.0 // One step away
-    } else if (distance === 2) {
-      return 0.8 // Two steps away
-    } else if (distance === 3) {
-      return 0.65 // Three steps away
-    } else {
-      return 0.5 // Further away
-    }
-  }
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isPaused, setIsPaused] = useState(false)
 
   useEffect(() => {
-    const updateSlides = () => {
-      slideRefs.current.forEach((slide, index) => {
-        if (!slide) return
-        const scale = getScale(index)
-        const zIndex = 100 - Math.abs(index - selectedIndex)
-        
-        slide.style.transform = `scale(${scale})`
-        slide.style.zIndex = `${zIndex}`
-        slide.style.transition = "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)"
-      })
+    const container = containerRef.current
+    if (!container) return
+
+    const scrollWidth = container.scrollWidth
+    const clientWidth = container.clientWidth
+
+    if (scrollWidth <= clientWidth) return
+
+    let scrollPos = 0
+    const speed = 2
+
+    const scroll = () => {
+      if (!isPaused) {
+        scrollPos += speed
+        if (scrollPos >= scrollWidth - clientWidth) {
+          scrollPos = 0
+        }
+        container.scrollLeft = scrollPos
+      }
     }
 
-    updateSlides()
-  }, [selectedIndex])
-
-  // Auto-scroll every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedIndex((prev) => (prev + 1) % restaurantCards.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+    const animationId = setInterval(scroll, 30)
+    return () => clearInterval(animationId)
+  }, [isPaused])
 
   return (
-    <div className="clients-carousel-wrapper w-full py-12 overflow-x-auto overflow-y-hidden">
+    <div 
+      className="clients-carousel-wrapper w-full py-8 px-4"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div 
-        className="flex justify-center items-end gap-4 px-8 pb-4"
+        ref={containerRef}
+        className="flex gap-6 overflow-x-auto scroll-smooth pb-4"
         style={{
-          minHeight: "400px",
+          scrollBehavior: "smooth",
+          minHeight: "220px",
         }}
       >
-        {restaurantCards.map((item, i) => {
-          const scale = getScale(i)
-
-          return (
-            <figure
-              key={`${item.name}-${i}`}
-              ref={(el) => {
-                slideRefs.current[i] = el
-              }}
-              className="relative shrink-0 overflow-hidden rounded-xl border border-border bg-card shadow-lg cursor-pointer hover:shadow-2xl transition-shadow origin-bottom"
-              style={{
-                width: "280px",
-                height: "160px",
-              }}
-              onClick={() => setSelectedIndex(i)}
-            >
-              <Image
-                src={item.image}
-                alt={item.name}
-                fill
-                className="object-cover"
-                unoptimized
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent px-4 pb-4 pt-12">
-                <span className="line-clamp-2 text-sm font-semibold text-white">{item.name}</span>
-              </figcaption>
-            </figure>
-          )
-        })}
+        {restaurantCards.map((item, i) => (
+          <figure
+            key={`${item.name}-${i}`}
+            className="relative shrink-0 overflow-hidden rounded-xl border border-border bg-card shadow-lg hover:shadow-xl transition-shadow"
+            style={{
+              width: "260px",
+              height: "180px",
+            }}
+          >
+            <Image
+              src={item.image}
+              alt={item.name}
+              fill
+              className="object-cover"
+              unoptimized
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent px-4 pb-4 pt-12">
+              <span className="line-clamp-2 text-sm font-semibold text-white">{item.name}</span>
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   )
