@@ -13,7 +13,7 @@ type ContactFormProps = {
 
 export function ContactForm({
   heading = "Let us help you run a restaurant people love.",
-  subheading = "Tell us about your venue—we'll get back to you with next steps.",
+  subheading = "Tell us about your venue we'll get back to you with next steps.",
   pageTopPadding = false,
 }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)

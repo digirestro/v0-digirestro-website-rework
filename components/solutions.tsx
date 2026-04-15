@@ -67,7 +67,7 @@ export function Solutions() {
               One platform from counter to kitchen
             </h3>
             <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-              Run billing, online orders, and back-office workflows from a single Digirestro experience—built for how real service floors operate.
+              Run billing, online orders, and back office workflows from a single Digirestro experience built for how real service floors operate.
             </p>
           </div>
           <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">

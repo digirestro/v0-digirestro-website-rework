@@ -23,7 +23,7 @@ const whoWeServeRegions = [
 const suite = [
   {
     title: "Owner App",
-    desc: "Sales, menus, and outlet performance on your phone—wherever you are.",
+    desc: "Sales, menus, and outlet performance on your phone wherever you are.",
     src: "/images/suite/owner-app.png",
     slug: "owner-app",
   },
@@ -47,13 +47,13 @@ const suite = [
   },
   {
     title: "Billing POS",
-    desc: "Billing, tables, and checkout in one flow—built for busy service.",
+    desc: "Billing, tables, and checkout in one flow built for busy service.",
     src: "/images/suite/billing-pos.png",
     slug: "billing-software",
   },
   {
     title: "KDS – Kitchen Display System",
-    desc: "Colour-coded tickets, prep states, and handoff from kitchen to the pass.",
+    desc: "Colour coded tickets, prep states, and handoff from kitchen to the pass.",
     src: "/images/suite/kds.png",
     slug: "kds-kitchen-display-system",
   },
@@ -65,7 +65,7 @@ const suite = [
   },
   {
     title: "Online Ordering App",
-    desc: "Your menu and offers in a consumer-ready ordering experience.",
+    desc: "Your menu and offers in a consumer ready ordering experience.",
     src: "/images/suite/online-ordering.png",
     slug: "online-ordering-mobile-app",
   },
@@ -77,12 +77,12 @@ const suite = [
   },
   {
     title: "AI – My Learning Academy",
-    desc: "In-product learning paths so teams adopt Digirestro faster.",
+    desc: "In product learning paths so teams adopt Digirestro faster.",
     src: "/images/suite/ai-learning-academy.png",
     slug: "ai-learning-academy",
   },
   {
-    title: "AI Feedback",
+    title: "Review Lens",
     desc: "Signals and suggestions to refine operations, menus, and guest experience.",
     src: "/images/suite/ai-feedback.png",
     slug: "ai-feedback",
@@ -93,22 +93,22 @@ const posHighlights = [
   {
     icon: LayoutDashboard,
     title: "Built for real staff",
-    body: "Self-explanatory billing screens so teams adopt faster with less training overhead.",
+    body: "Self explanatory billing screens so teams adopt faster with less training overhead.",
   },
   {
     icon: WifiOff,
-    title: "Hardware-flexible & offline-ready",
+    title: "Hardware flexible & offline ready",
     body: "Run on the devices you already own. Bill locally when the line drops; sync when you’re back online.",
   },
   {
     icon: UtensilsCrossed,
     title: "Sections & kitchens",
-    body: "Section-wise pricing and KOT routing so the right kitchen gets the right ticket.",
+    body: "Section wise pricing and KOT routing so the right kitchen gets the right ticket.",
   },
   {
     icon: Building2,
     title: "Many terminals, one sequence",
-    body: "Multi-terminal billing with offline sync and continuous bill numbering across the floor.",
+    body: "Multi terminal billing with offline sync and continuous bill numbering across the floor.",
   },
 ]
 
@@ -121,10 +121,10 @@ export function PlatformContent() {
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-medium uppercase tracking-wider text-primary">Platform overview</p>
           <h1 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
-            Everything you need to run food service—from POS to supply chain
+            Everything you need to run food service from POS to supply chain
           </h1>
           <p className="mt-5 text-lg text-muted-foreground text-pretty">
-            Digirestro is a full-stack operations platform for restaurants, cafés, bars, and chains: billing,
+            Digirestro is a full stack operations platform for restaurants, cafés, bars, and chains: billing,
             payments, inventory, digital ordering, kitchen screens, and owner tools in one connected system.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -189,7 +189,7 @@ export function PlatformContent() {
               Billing POS that fits your operation
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Highlights operators care about on day one—speed, resilience, and control at the register.
+              Highlights operators care about on day one speed, resilience, and control at the register.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -236,7 +236,7 @@ export function PlatformContent() {
               Supply chain &amp; recipes
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Track ingredients from supplier contracts to plate-level recipes—aligned with POS and finance for
+              Track ingredients from supplier contracts to plate level recipes aligned with POS and finance for
               clearer food cost and less waste.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
@@ -268,7 +268,7 @@ export function PlatformContent() {
               src={WHO_WE_SERVE_IMAGE}
               width={1600}
               height={1000}
-              alt="Earth from space—representing Digirestro’s reach across India, the Middle East, Asia, Africa, Europe, and North America"
+              alt="Earth from space representing Digirestro’s reach across India, the Middle East, Asia, Africa, Europe, and North America"
               className="h-auto w-full object-cover"
               sizes="(max-width: 1024px) 100vw, 1024px"
               priority={false}
@@ -285,12 +285,12 @@ export function PlatformContent() {
               Who we serve
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed sm:text-lg">
-              Independent eateries, growing regional brands, and multi-outlet chains in India, the Middle East, Asia,
-              Africa, Europe, and North America. SMEs get fast time-to-value; enterprises get consistency and scale
+              Independent eateries, growing regional brands, and multi outlet chains in India, the Middle East, Asia,
+              Africa, Europe, and North America. SMEs get fast time to value; enterprises get consistency and scale
               across locations.
             </p>
             <p className="mt-3 text-sm font-medium text-foreground">
-              Serving teams across continents—from single outlets to global chains.
+              Serving teams across continents from single outlets to global chains.
             </p>
             <ul
               className="mt-6 flex flex-wrap justify-center gap-2"
