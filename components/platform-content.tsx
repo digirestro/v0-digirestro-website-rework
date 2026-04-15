@@ -78,8 +78,8 @@ const suite = [
   {
     title: "DigiPay",
     desc: "Payment integrated with billing, reporting, and accounting for smoother operations and clearer records.",
-    src: "/images/suite/ai-learning-academy.png",
-    slug: "ai-learning-academy",
+    src: "/images/suite/digipay.png",
+    slug: "digipay",
   },
   {
     title: "Review Lens",
