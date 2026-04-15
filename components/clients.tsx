@@ -194,7 +194,12 @@ export function Clients() {
           </p>
         </div>
 
-        <p className="mb-6 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
+
+        <p className="mb-4 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          Restaurants &amp; brands
+        </p>
+        <RestaurantPartnersCarousel />
+                <p className="mb-6 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
           Trusted partners &amp; integrations
         </p>
 
@@ -231,10 +236,6 @@ export function Clients() {
           </div>
         </div>
 
-        <p className="mb-4 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          Restaurants &amp; brands
-        </p>
-        <RestaurantPartnersCarousel />
       </div>
     </section>
   )
