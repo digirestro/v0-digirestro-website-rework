@@ -224,6 +224,8 @@ export function Clients() {
           Trusted partners &amp; integrations
         </p>
 
+        <br />
+        <br />
         <div className="mb-14 flex flex-wrap items-start justify-center gap-x-6 gap-y-6 px-2 sm:gap-x-8 sm:gap-y-7">
           {integrationPartners.map((p) => (
             <div
@@ -234,8 +236,8 @@ export function Clients() {
               <img
                 src={p.logoUrl}
                 alt={`${p.name} logo`}
-                width={42}
-                height={42}
+                width={54}
+                height={54}
                 loading="lazy"
                 decoding="async"
                 className="h-[2.1rem] w-[2.1rem] object-contain opacity-90 grayscale transition hover:grayscale-0 sm:h-[2.3625rem] sm:w-[2.3625rem]"
