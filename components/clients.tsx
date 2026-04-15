@@ -242,7 +242,7 @@ export function Clients() {
                 decoding="async"
                 className="h-[2.1rem] w-[2.1rem] object-contain opacity-90 grayscale transition hover:grayscale-0 sm:h-[2.3625rem] sm:w-[2.3625rem]"
               />
-              <span className="line-clamp-2 min-h-[2rem] text-center text-[9px] font-medium leading-tight text-muted-foreground sm:min-h-[2.25rem] sm:text-[10px]">
+              <span className="line-clamp-3 min-h-[3.25rem] text-center text-[15px] font-medium leading-tight text-muted-foreground sm:min-h-[3.25rem] sm:text-[15px]">
                 {p.name}
               </span>
             </div>
