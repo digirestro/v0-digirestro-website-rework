@@ -84,8 +84,8 @@ const suite = [
   {
     title: "Review Lens",
     desc: "Signals and suggestions to refine operations, menus, and guest experience.",
-    src: "/images/suite/ai-feedback.png",
-    slug: "ai-feedback",
+    src: "/images/suite/review_lens.png",
+    slug: "review-lens",
   },
 ]
 
