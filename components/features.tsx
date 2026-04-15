@@ -35,8 +35,8 @@ const features: FeatureItem[] = [
     title: "Easy to operate",
     description:
       "Straightforward screens designed so staff can move fast during lunch and dinner rushes.",
-    image: `${U}/photo-1512941937669-90a1b58e7e9c?w=900&h=600&fit=crop&q=82`,
-    alt: "Person holding a smartphone—simple, familiar devices your team already knows",
+    image: "/images/operate.jpg",
+    alt: "operations of a mobile restaurant POS system",
   },
   {
     title: "Seamless integrations",
