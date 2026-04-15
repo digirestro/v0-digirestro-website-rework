@@ -76,8 +76,8 @@ const suite = [
     slug: "ondc-digirestro",
   },
   {
-    title: "AI – My Learning Academy",
-    desc: "In product learning paths so teams adopt Digirestro faster.",
+    title: "DigiPay",
+    desc: "Payment integrated with billing, reporting, and accounting for smoother operations and clearer records.",
     src: "/images/suite/ai-learning-academy.png",
     slug: "ai-learning-academy",
   },
