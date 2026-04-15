@@ -53,10 +53,11 @@ export function Hero() {
                   src="/images/hero-illustration.png"
                   alt=""
                   width={1024}
-                  height={700}
-                  className="h-auto w-full max-w-[1024px]"
+                  height={1024}
+                  className="h-auto max-h-52 w-full max-w-full object-contain object-center sm:max-h-56 md:max-h-60"
                   priority
-                  sizes="(max-width: 1024px) 100vw, min(1024px, 100%)"
+                  sizes="(max-width: 768px) 90vw, 360px"
+                  unoptimized
                 />
               </div>
             </div>
