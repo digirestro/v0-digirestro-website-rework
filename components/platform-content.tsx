@@ -9,7 +9,7 @@ import {
 } from "lucide-react"
 
 /** Local asset (same scene as Unsplash NASA Earth view) — avoids blank tiles when remote images are blocked */
-const WHO_WE_SERVE_IMAGE = "/images/who-we-serve-global.jpg"
+const WHO_WE_SERVE_IMAGE = "/images/global.jpg"
 
 const whoWeServeRegions = [
   "India",
@@ -277,10 +277,6 @@ export function PlatformContent() {
           </div>
 
           <div className="mx-auto mt-10 max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-              <Globe2 className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              Global footprint
-            </div>
             <h2 className="mt-5 font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
               Who we serve
             </h2>
