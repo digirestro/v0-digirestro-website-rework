@@ -54,9 +54,9 @@ export function Hero() {
                   alt=""
                   width={1024}
                   height={1024}
-                  className="h-auto max-h-52 w-full max-w-full object-contain object-center sm:max-h-56 md:max-h-60"
+                  className="h-auto max-h-104 w-full max-w-full object-contain object-center sm:max-h-112 md:max-h-120"
                   priority
-                  sizes="(max-width: 768px) 90vw, 360px"
+                  sizes="(max-width: 768px) 90vw, 520px"
                   unoptimized
                 />
               </div>
