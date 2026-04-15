@@ -9,7 +9,7 @@ export default function BillingSoftwarePage() {
             Billing POS
           </h1>
           <p className="mt-5 text-lg text-muted-foreground text-pretty">
-            Billing, tables, and checkout in one flow—built for busy service.
+            Billing, tables, and checkout in one flow built for busy service.
           </p>
         </div>
       </section>
@@ -30,7 +30,7 @@ export default function BillingSoftwarePage() {
             <h2>Key Features</h2>
             <ul>
               <li><strong>Hardware & Internet Independent:</strong> Works on any hardware and functions offline</li>
-              <li><strong>Easy to navigate billing Screen:</strong> Self-explanatory and simple to learn</li>
+              <li><strong>Easy to navigate billing Screen:</strong> Self explanatory and simple to learn</li>
               <li><strong>Customize your billing flow:</strong> Keep only required features for operations</li>
               <li><strong>Sectionwise Pricing & KOT Printings:</strong> Different prices for sections and automatic KOT routing</li>
               <li><strong>Integration for all 3rd party order aggregators:</strong> Manage online orders on POS</li>

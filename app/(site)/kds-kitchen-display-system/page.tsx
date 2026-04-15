@@ -9,7 +9,7 @@ export default function KdsPage() {
             KDS – Kitchen Display System
           </h1>
           <p className="mt-5 text-lg text-muted-foreground text-pretty">
-            Colour-coded tickets, prep states, and handoff from kitchen to the pass.
+            Colour coded tickets, prep states, and handoff from kitchen to the pass.
           </p>
         </div>
       </section>
@@ -23,7 +23,7 @@ export default function KdsPage() {
 
             <h2>Key Features</h2>
             <ul>
-              <li><strong>Easy Management:</strong> Manage one product catalogue and sync inventory so it's available for online and in-person selling</li>
+              <li><strong>Easy Management:</strong> Manage one product catalogue and sync inventory so it's available for online and in person selling</li>
               <li><strong>Staff Management:</strong> Create staff login PINs and assign specific rights to secure access</li>
               <li><strong>Sales Analysis:</strong> Check the sales analysis on your mobile/tablet and adapt to growing trends in your business with unified analytics</li>
             </ul>

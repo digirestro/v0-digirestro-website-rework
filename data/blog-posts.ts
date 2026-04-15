@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "5 common restaurant problems and simple ways to solve them",
     description:
-      "Practical fixes for everyday pain points—from slow service to stock surprises—that don’t require a full overhaul overnight.",
+      "Practical fixes for everyday pain points from slow service to stock surprises that don’t require a full overhaul overnight.",
     href: "https://digirestro.ai/5-common-restaurant-problems-and-simple-ways-to-solve-them/",
     category: "Operations",
   },
@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "What is restaurant ERP?",
     description:
-      "How ERP-style thinking connects finance, inventory, and outlets—and where POS fits in that bigger picture.",
+      "How ERP-style thinking connects finance, inventory, and outlets and where POS fits in that bigger picture.",
     href: "https://digirestro.ai/what-is-restaurant-erp/",
     category: "ERP",
   },
@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "7 critical benefits of restaurant kitchen display systems",
     description:
-      "From fewer remakes to better pacing during rush hour—why kitchens adopt KDS and what to measure after go-live.",
+      "From fewer remakes to better pacing during rush hour why kitchens adopt KDS and what to measure after go-live.",
     href: "https://digirestro.ai/7-critical-benefits-of-restaurant-kitchen-display-systems/",
     category: "Kitchen",
   },
