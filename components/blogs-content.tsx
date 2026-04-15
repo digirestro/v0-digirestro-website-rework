@@ -27,7 +27,7 @@ export function BlogsContent() {
             The Digirestro journal
           </h1>
           <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-            A reading shelf of guides on POS, kitchen tech, delivery, and calmer operations—each article opens on{" "}
+            A reading shelf of guides on POS, kitchen tech, delivery, and calmer operations each article opens on{" "}
             <span className="font-medium text-foreground">digirestro.ai</span> in a new tab.
           </p>
         </div>

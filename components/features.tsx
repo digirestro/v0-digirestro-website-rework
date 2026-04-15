@@ -27,7 +27,7 @@ const features: FeatureItem[] = [
   {
     title: "Point of Sale & billing",
     description:
-      "End-to-end tools for your restaurant and guests—from orders to receipts—with a billing flow built for busy service.",
+      "End-to-end tools for your restaurant and guests from orders to receipts with a billing flow built for busy service.",
     image: "/images/feature-billing.webp",
     alt: "Digirestro POS terminal and billing at the counter",
   },
@@ -48,7 +48,7 @@ const features: FeatureItem[] = [
   {
     title: "24/7 live support",
     description:
-      "Real people on the line for questions and fixes—personalised help around the clock.",
+      "Real people on the line for questions and fixes personalised help around the clock.",
     image: SUPPORT_ART,
     alt: "Customer support services—24/7 support, remote assistance, technical help, and general inquiries",
     imageFit: "contain",
@@ -110,7 +110,7 @@ export function Features() {
             Built for busy restaurant floors
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            One consistent toolset from Digirestro—so teams spend less time on software and more time with guests.
+            One consistent toolset from Digirestro so teams spend less time on software and more time with guests.
           </p>
         </div>
 

@@ -16,14 +16,14 @@ const testimonials = [
     business: "Renaissance Grand Restaurant",
     image: "/images/testimonial-aman-singh.png",
     quote:
-      "Because Digirestro offers you maximum features at an affordable price, I highly recommend Digirestro as a one-stop solution for any restaurant.",
+      "Because Digirestro offers you maximum features at an affordable price, I highly recommend Digirestro as a one stop solution for any restaurant.",
   },
   {
     name: "Mr. Neeraj",
     business: "LAAPASO",
     image: "/images/testimonial-mr-neeraj.png",
     quote:
-      "It is very user-friendly, and there is no delay in support. I'll be using the loyalty program soon. Also, the order taking and billing process is effortless.",
+      "It is very user friendly, and there is no delay in support. I'll be using the loyalty program soon. Also, the order taking and billing process is effortless.",
   },
 ]
 

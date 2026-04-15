@@ -72,7 +72,7 @@ export function BecomeResellerContent() {
           <h2 className={sectionHeadingClass}>Who handles onboarding and support?</h2>
           <p className="mt-5 text-lg font-semibold text-foreground sm:text-xl">We do.</p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            You focus on relationships and sales—we take care of catalog onboarding, setup, and ongoing technical
+            You focus on relationships and sales we take care of catalog onboarding, setup, and ongoing technical
             support for your merchants.
           </p>
         </div>
