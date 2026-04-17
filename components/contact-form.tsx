@@ -77,11 +77,13 @@ export function ContactForm({
           <p className="mt-4 text-muted-foreground text-lg">{subheading}</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 max-w-6xl mx-auto lg:grid-cols-2">
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-8">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0 border border-border">
-                <Mail className="w-5 h-5 text-primary" />
+                <a href="mailto:sales@digirestro.ai" className="hover:text-primary transition-colors">
+                  <Mail className="w-5 h-5 text-primary" />
+                </a>
               </div>
               <div>
                 <h4 className="font-semibold text-foreground mb-1">Email</h4>

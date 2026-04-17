@@ -83,20 +83,7 @@ export function Solutions() {
           </ul>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
-            <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">300+</div>
-            <p className="text-muted-foreground mt-2">Restaurant teams</p>
-          </div>
-          <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
-            <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">24/7</div>
-            <p className="text-muted-foreground mt-2">Live support</p>
-          </div>
-          <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
-            <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">10+</div>
-            <p className="text-muted-foreground mt-2">Countries served</p>
-          </div>
-        </div>
+
       </div>
     </section>
   )
