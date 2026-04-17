@@ -90,6 +90,6 @@ export const blogPosts: BlogPost[] = [
     description:
       "How QR menus and table ordering reduce wait time, support safer service, and pair neatly with your existing POS flow.",
     href: "https://digirestro.ai/contactless-dining-and-convenience-with-qr-code-ordering/",
-    category: "QR & guest",
+    category: "QR and guest",
   },
 ]

@@ -97,12 +97,12 @@ const posHighlights = [
   },
   {
     icon: WifiOff,
-    title: "Hardware flexible & offline ready",
+    title: "Hardware flexible and offline ready",
     body: "Run on the devices you already own. Bill locally when the line drops; sync when you’re back online.",
   },
   {
     icon: UtensilsCrossed,
-    title: "Sections & kitchens",
+    title: "Sections and kitchens",
     body: "Section wise pricing and KOT routing so the right kitchen gets the right ticket.",
   },
   {

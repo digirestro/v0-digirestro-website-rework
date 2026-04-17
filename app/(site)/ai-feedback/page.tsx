@@ -6,7 +6,7 @@ export default function AiFeedbackPage() {
       variant="review"
       showAdminControl={false}
       eyebrow="Review Lens"
-      title="Review Lens — AI-powered feedback & reputation"
+      title="Review Lens — AI-powered feedback and reputation"
       lead="Manage, analyze, and respond to reviews from one place—with AI that turns feedback into action."
       heroImage={{
         src: "/images/suite/review_lens.png",
@@ -39,7 +39,7 @@ export default function AiFeedbackPage() {
             "Workflows and tooling focused on resolving issues early and keeping your public presence accurate and fair.",
         },
         {
-          title: "Reputation score & health",
+          title: "Reputation score and health",
           description:
             "Track how your brand is perceived over time with scores and signals that map to guest satisfaction.",
         },

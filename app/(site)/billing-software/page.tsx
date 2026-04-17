@@ -5,7 +5,7 @@ export default function BillingSoftwarePage() {
     <ProductPageLayout
       variant="article"
       showAdminControl={false}
-      eyebrow="POS & billing"
+      eyebrow="POS and billing"
       title="Billing software — the one-stop platform you need to thrive"
       lead="Hardware-flexible, offline-capable billing built for real restaurant floors."
       heroImage={{
@@ -19,7 +19,7 @@ export default function BillingSoftwarePage() {
       ]}
       articleSections={[
         {
-          heading: "Hardware & internet independent",
+          heading: "Hardware and internet independent",
           paragraphs: [
             "We understand that replacing hardware and buying new kit can be costly. DigiRestro POS works across a wide range of hardware so you can save capital while still getting a fast, reliable billing experience.",
             "When connectivity is unreliable, billing should not stop. The POS is designed to keep serving checks offline, then sync when your line is back—without you managing duplicate entries by hand.",
@@ -39,7 +39,7 @@ export default function BillingSoftwarePage() {
           ],
         },
         {
-          heading: "Section-wise pricing & KOT routing",
+          heading: "Section-wise pricing and KOT routing",
           paragraphs: [
             "Set different prices for the same item across sections or formats where your business needs it.",
             "Operate multiple kitchens or cuisines without manually splitting tickets—KOTs route to the right station so prep stays organized.",
@@ -52,7 +52,7 @@ export default function BillingSoftwarePage() {
           ],
         },
         {
-          heading: "Multi-user & multi-terminal billing",
+          heading: "Multi-user and multi-terminal billing",
           paragraphs: [
             "Run several billing terminals—even across floors—with one license mindset: terminals stay in sync offline and bill numbers follow your sequence rules so finance stays clean at close.",
           ],

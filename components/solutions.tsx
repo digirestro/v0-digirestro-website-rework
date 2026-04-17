@@ -25,15 +25,15 @@ const businessTypes = [
 ]
 
 const platformServices = [
-  "Point of sale & billing",
-  "QR ordering & digital menus",
-  "Online ordering & aggregators",
+  "Point of sale and billing",
+  "QR ordering and digital menus",
+  "Online ordering and aggregators",
   "Kitchen display (KDS)",
-  "Captain & floor apps",
-  "Inventory & recipes",
-  "Payments & settlements",
-  "Reports & outlet analytics",
-  "Owner dashboard & alerts",
+  "Captain and floor apps",
+  "Inventory and recipes",
+  "Payments and settlements",
+  "Reports and outlet analytics",
+  "Owner dashboard and alerts",
 ]
 
 export function Solutions() {
