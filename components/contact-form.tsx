@@ -95,15 +95,20 @@ export function ContactForm({
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0 border border-border">
-                <Clock className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">Business Hours</h4>
-                <p className="text-muted-foreground">09:00 AM - 07:00 PM</p>
-              </div>
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
+              <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">300+</div>
+              <p className="text-muted-foreground mt-2">Restaurant teams</p>
             </div>
+            <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
+              <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">24/7</div>
+              <p className="text-muted-foreground mt-2">Live support</p>
+            </div>
+            <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
+              <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">10+</div>
+              <p className="text-muted-foreground mt-2">Countries served</p>
+            </div>
+          </div>
           </div>
 
           <div className="bg-card border border-border rounded-2xl p-8">
