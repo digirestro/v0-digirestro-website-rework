@@ -42,7 +42,7 @@ export function BecomeResellerContent() {
         <div className="mx-auto max-w-[1080px]">
           <h2 className={sectionHeadingClass}>Who can become a Digirestro reseller?</h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Anyone with connections in the F&amp;B industry and a passion for sales can become a Digirestro reseller.
+            Anyone with connections in the Food and Beverage industry and a passion for sales can become a Digirestro reseller.
             You don&apos;t need a technical background or prior experience selling software—we support you with demos
             and materials. Some of our partners are chefs and managers who already trust the product.
           </p>

@@ -221,7 +221,7 @@ export function Clients() {
         <br />
                 
         <p className="mb-6 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          Trusted partners &amp; integrations
+          Trusted partners and integrations
         </p>
 
         <br />

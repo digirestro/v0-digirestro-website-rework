@@ -119,12 +119,11 @@ export function PlatformContent() {
     <div className="bg-background">
       <section className="border-b border-border bg-muted/25 px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-medium uppercase tracking-wider text-primary">Platform overview</p>
           <h1 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
             Everything you need to run food service from POS to supply chain
           </h1>
           <p className="mt-5 text-lg text-muted-foreground text-pretty">
-            Digirestro is a full stack operations platform for restaurants, cafés, bars, and chains: billing,
+            Digirestro is a one stop platform for restaurants, cafés, bars, and chains: billing,
             payments, inventory, digital ordering, kitchen screens, and owner tools in one connected system.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
