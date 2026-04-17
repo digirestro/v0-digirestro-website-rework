@@ -35,11 +35,11 @@ export default function AiLearningPage() {
                 <p className="mt-2 font-semibold">- Manish Patel, LEO'S CAFE</p>
               </div>
               <div className="rounded-lg border p-4">
-                <p>"It is very user-friendly, and there is no delay in support. I'll use the loyalty program soon. Also, the order taking & billing process is effortless"</p>
+                <p>"It is very user-friendly, and there is no delay in support. I'll use the loyalty program soon. Also, the order taking and billing process is effortless"</p>
                 <p className="mt-2 font-semibold">- Aman Singh, Renaissance Grand Restaurant</p>
               </div>
               <div className="rounded-lg border p-4">
-                <p>"It is very user-friendly, and there is no delay in support. I'll use the loyalty program soon. Also, the order taking & billing process is effortless"</p>
+                <p>"It is very user-friendly, and there is no delay in support. I'll use the loyalty program soon. Also, the order taking and billing process is effortless"</p>
                 <p className="mt-2 font-semibold">- Mr. Neeraj, LAAPASO</p>
               </div>
             </div>

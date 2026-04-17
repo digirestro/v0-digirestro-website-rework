@@ -18,14 +18,14 @@ type FeatureItem = {
 
 const features: FeatureItem[] = [
   {
-    title: "Analytics & reporting",
+    title: "Analytics and reporting",
     description:
       "Use sales history, inventory, and outlet data to spot trends, tighten costs, and make clearer day-to-day decisions.",
     image: "/images/Analytics.jpeg",
     alt: "Laptop showing charts and business analytics on a desk",
   },
   {
-    title: "Point of Sale & billing",
+    title: "Point of Sale and billing",
     description:
       "End-to-end tools for your restaurant and guests from orders to receipts with a billing flow built for busy service.",
     image: "/images/feature-billing.webp",
