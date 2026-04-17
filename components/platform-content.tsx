@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
+  ArrowRight,
   Building2,
-  Globe2,
   LayoutDashboard,
   UtensilsCrossed,
   WifiOff,
@@ -85,7 +85,7 @@ const suite = [
     title: "Review Lens",
     desc: "Signals and suggestions to refine operations, menus, and guest experience.",
     src: "/images/suite/review_lens.png",
-    slug: "review-lens",
+    slug: "ai-feedback",
   },
 ]
 
@@ -157,7 +157,7 @@ export function PlatformContent() {
               <Link
                 key={item.title}
                 href={`/${item.slug}`}
-                className="block overflow-hidden rounded-2xl border border-border bg-card p-3 shadow-md transition hover:border-primary/25 hover:shadow-lg sm:p-4"
+                className="group block overflow-hidden rounded-2xl border border-border bg-card p-3 shadow-md transition hover:border-primary/25 hover:shadow-lg sm:p-4"
               >
                 <div
                   className="relative w-full bg-muted/30"
@@ -173,8 +173,15 @@ export function PlatformContent() {
                   />
                 </div>
                 <div className="mt-4">
-                  <h3 className="font-semibold text-foreground">{item.title}</h3>
+                  <h3 className="font-semibold text-foreground transition group-hover:text-primary">{item.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{item.desc}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    Learn more
+                    <ArrowRight
+                      className="h-4 w-4 transition group-hover:translate-x-0.5"
+                      aria-hidden
+                    />
+                  </span>
                 </div>
               </Link>
             ))}

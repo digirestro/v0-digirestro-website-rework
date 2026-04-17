@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 })
     }
 
-    const apiKey = process.env.RESEND_API_KEY
+    const apiKey = process.env.RESEND_API_KEY?.trim()
     if (!apiKey) {
       console.error("RESEND_API_KEY is not set — contact form cannot send email.")
       return NextResponse.json(
@@ -54,9 +54,18 @@ export async function POST(request: Request) {
       )
     }
 
-    const to = process.env.CONTACT_EMAIL_TO ?? "sales@digirestro.ai"
+    const toRaw = process.env.CONTACT_EMAIL_TO ?? "sales@digirestro.ai"
+    const to = toRaw
+      .split(",")
+      .map((a) => a.trim())
+      .filter(Boolean)
+    if (to.length === 0) {
+      return NextResponse.json({ error: "CONTACT_EMAIL_TO is invalid" }, { status: 500 })
+    }
+
     const from =
-      process.env.RESEND_FROM ?? "Digirestro Website <onboarding@resend.dev>"
+      process.env.RESEND_FROM?.trim() ??
+      "Digirestro Website <onboarding@resend.dev>"
 
     const displayOptional = (v: string) => (v ? escapeHtml(v) : "—")
 
@@ -98,9 +107,9 @@ export async function POST(request: Request) {
     ].join("\n")
 
     const resend = new Resend(apiKey)
-    const { error } = await resend.emails.send({
+    const { data: sendData, error } = await resend.emails.send({
       from,
-      to: [to],
+      to,
       subject,
       html,
       text,
@@ -108,11 +117,34 @@ export async function POST(request: Request) {
     })
 
     if (error) {
-      console.error("Resend error:", error)
+      const errMsg =
+        typeof error === "object" && error !== null && "message" in error
+          ? String((error as { message: unknown }).message)
+          : String(error)
+      console.error("Resend error:", errMsg, error)
+
+      const lower = errMsg.toLowerCase()
+      const sandboxBlock =
+        lower.includes("only send testing") ||
+        lower.includes("verify a domain") ||
+        lower.includes("testing emails to your own")
+
+      const hint = sandboxBlock
+        ? "Resend’s test sender (onboarding@resend.dev) can only deliver to your Resend signup email. To receive mail at sales@digirestro.ai: verify digirestro.ai in the Resend dashboard (Domains), then set RESEND_FROM to an address on that domain, e.g. Digirestro <noreply@digirestro.ai>."
+        : undefined
+
       return NextResponse.json(
-        { error: "Could not send email. Please try again later." },
+        {
+          error: "Could not send email. Please try again later.",
+          ...(hint && { hint }),
+          ...(process.env.NODE_ENV === "development" && { debug: errMsg }),
+        },
         { status: 502 },
       )
+    }
+
+    if (sendData?.id) {
+      console.info("Resend email queued:", sendData.id, "to:", to.join(", "))
     }
 
     return NextResponse.json({ message: "Form submitted successfully" }, { status: 200 })

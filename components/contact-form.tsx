@@ -43,10 +43,13 @@ export function ContactForm({
       const body = await response.json().catch(() => ({}))
 
       if (!response.ok) {
-        const msg =
+        let msg =
           typeof body.error === "string" && body.error.length > 0
             ? body.error
             : "Failed to submit form"
+        if (typeof body.hint === "string" && body.hint.length > 0) {
+          msg = `${msg} ${body.hint}`
+        }
         throw new Error(msg)
       }
 
