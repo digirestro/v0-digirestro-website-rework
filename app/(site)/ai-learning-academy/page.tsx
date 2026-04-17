@@ -23,7 +23,7 @@ export default function AiLearningPage() {
 
             <h2>Key Features</h2>
             <ul>
-              <li><strong>Easy Management:</strong> Manage one product catalogue and sync inventory so it's available for online and in-person selling</li>
+              <li><strong>Easy Management:</strong> Manage one product catalogue and sync inventory so it&apos;s available for online and in-person selling</li>
               <li><strong>Staff Management:</strong> Create staff login PINs and assign specific rights to secure access</li>
               <li><strong>Sales Analysis:</strong> Check the sales analysis on your mobile/tablet and adapt to growing trends in your business with unified analytics</li>
             </ul>
@@ -31,15 +31,21 @@ export default function AiLearningPage() {
             <h2>Testimonials</h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-lg border p-4">
-                <p>"Would definitely recommend it as it is very easy. The staff is very calm and the features are understandable. The support team easily handles and solves minor issues. Discount and Customer Details features are good."</p>
-                <p className="mt-2 font-semibold">- Manish Patel, LEO'S CAFE</p>
+                <p>
+                  &ldquo;Would definitely recommend it as it is very easy. The staff is very calm and the features are understandable. The support team easily handles and solves minor issues. Discount and Customer Details features are good.&rdquo;
+                </p>
+                <p className="mt-2 font-semibold">- Manish Patel, LEO&apos;S CAFE</p>
               </div>
               <div className="rounded-lg border p-4">
-                <p>"It is very user-friendly, and there is no delay in support. I'll use the loyalty program soon. Also, the order taking and billing process is effortless"</p>
+                <p>
+                  &ldquo;It is very user-friendly, and there is no delay in support. I&apos;ll use the loyalty program soon. Also, the order taking and billing process is effortless&rdquo;
+                </p>
                 <p className="mt-2 font-semibold">- Aman Singh, Renaissance Grand Restaurant</p>
               </div>
               <div className="rounded-lg border p-4">
-                <p>"It is very user-friendly, and there is no delay in support. I'll use the loyalty program soon. Also, the order taking and billing process is effortless"</p>
+                <p>
+                  &ldquo;It is very user-friendly, and there is no delay in support. I&apos;ll use the loyalty program soon. Also, the order taking and billing process is effortless&rdquo;
+                </p>
                 <p className="mt-2 font-semibold">- Mr. Neeraj, LAAPASO</p>
               </div>
             </div>
