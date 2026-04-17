@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Mail, Clock, Loader2, CheckCircle } from "lucide-react"
+import { Mail, Loader2, CheckCircle } from "lucide-react"
 
 import { SocialMediaLinks } from "@/components/social-media-links"
 
@@ -77,40 +77,52 @@ export function ContactForm({
           <p className="mt-4 text-muted-foreground text-lg">{subheading}</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 max-w-6xl mx-auto lg:grid-cols-2">
-          <div className="space-y-8">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0 border border-border">
-                <a href="mailto:sales@digirestro.ai" className="hover:text-primary transition-colors">
-                  <Mail className="w-5 h-5 text-primary" />
-                </a>
+        <div className="grid grid-cols-1 gap-12 max-w-6xl mx-auto lg:grid-cols-2 lg:items-start">
+          <div className="flex flex-col gap-10">
+            <div className="flex gap-4">
+              <div
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border bg-muted"
+                aria-hidden
+              >
+                <Mail className="h-5 w-5 text-primary" />
               </div>
-              <div>
-                <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                <p className="text-muted-foreground">
-                  <a href="mailto:sales@digirestro.ai" className="hover:text-primary transition-colors">
-                    sales@digirestro.ai
-                  </a>
-                </p>
-                <p className="mt-4 text-sm font-medium text-foreground">Follow us</p>
-                <SocialMediaLinks variant="contact" className="mt-2" />
+              <div className="min-w-0 flex-1 space-y-5">
+                <div>
+                  <h4 className="font-semibold text-foreground">Email</h4>
+                  <p className="mt-1 text-muted-foreground">
+                    <a href="mailto:sales@digirestro.ai" className="transition-colors hover:text-primary">
+                      sales@digirestro.ai
+                    </a>
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Follow us</p>
+                  <SocialMediaLinks variant="contact" className="mt-2.5" />
+                </div>
               </div>
             </div>
 
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
-              <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">300+</div>
-              <p className="text-muted-foreground mt-2">Restaurant teams</p>
+            {/* Stats align with email / social copy (icon w-12 + gap-4 = pl-16) */}
+            <div className="grid w-full grid-cols-1 gap-4 pl-16 sm:grid-cols-3">
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-muted/25 px-4 py-6 text-center sm:min-h-[7.5rem]">
+                <div className="text-3xl font-bold text-primary font-[family-name:var(--font-display)] tabular-nums sm:text-4xl">
+                  300+
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">Restaurant teams</p>
+              </div>
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-muted/25 px-4 py-6 text-center sm:min-h-[7.5rem]">
+                <div className="text-3xl font-bold text-primary font-[family-name:var(--font-display)] tabular-nums sm:text-4xl">
+                  24/7
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">Live support</p>
+              </div>
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-muted/25 px-4 py-6 text-center sm:min-h-[7.5rem]">
+                <div className="text-3xl font-bold text-primary font-[family-name:var(--font-display)] tabular-nums sm:text-4xl">
+                  10+
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">Countries served</p>
+              </div>
             </div>
-            <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
-              <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">24/7</div>
-              <p className="text-muted-foreground mt-2">Live support</p>
-            </div>
-            <div className="text-center p-8 rounded-2xl border border-border bg-muted/20">
-              <div className="text-4xl font-bold text-primary font-[family-name:var(--font-display)]">10+</div>
-              <p className="text-muted-foreground mt-2">Countries served</p>
-            </div>
-          </div>
           </div>
 
           <div className="bg-card border border-border rounded-2xl p-8">
