@@ -14,7 +14,7 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: 'Digirestro | Restaurant POS & operations',
   description:
-    'Run service, billing, online orders, and inventory with Digirestro—POS and back-office tools built for restaurant teams. Trusted by 300+ venues.',
+    'Run service, billing, online orders, and inventory with Digirestro—POS and back-office tools built for restaurant teams. Trusted by fleet of restaurant teams all over the world.',
   icons: {
     icon: [
       {

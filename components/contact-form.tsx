@@ -106,9 +106,9 @@ export function ContactForm({
             <div className="grid w-full grid-cols-1 gap-4 pl-16 sm:grid-cols-3">
               <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-muted/25 px-4 py-6 text-center sm:min-h-[7.5rem]">
                 <div className="text-3xl font-bold text-primary font-[family-name:var(--font-display)] tabular-nums sm:text-4xl">
-                  300+
+                  25%+
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">Restaurant teams</p>
+                <p className="mt-2 text-sm text-muted-foreground">Increased Orders</p>
               </div>
               <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-muted/25 px-4 py-6 text-center sm:min-h-[7.5rem]">
                 <div className="text-3xl font-bold text-primary font-[family-name:var(--font-display)] tabular-nums sm:text-4xl">
