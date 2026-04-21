@@ -49,8 +49,7 @@ export function BlogsContent() {
             The Digirestro journal
           </h1>
           <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-            Guides on POS, kitchen tech, delivery, and calmer operations—all articles below open{" "}
-            <span className="font-medium text-foreground">on this site</span>.
+            Guides on POS, kitchen tech, delivery, and calmer operations
           </p>
         </div>
 
