@@ -1,18 +1,17 @@
 export type BlogPost = {
   title: string
   description: string
+  /** Same-site path (e.g. `/blogs/...`) or full URL for external articles */
   href: string
-  /** Short label for the bento / magazine layout */
   category: string
 }
 
-/** Curated posts from digirestro.ai — opens in a new tab from /blogs */
 export const blogPosts: BlogPost[] = [
   {
     title: "Using a rider app to revolutionise food delivery",
     description:
       "How a dedicated rider app speeds up dispatch, cuts confusion on the road, and keeps customers informed from kitchen to doorstep.",
-    href: "https://digirestro.ai/using-a-rider-app-to-revolutionise-food-delivery/",
+    href: "/blogs/using-a-rider-app-to-revolutionise-food-delivery",
     category: "Delivery",
   },
   {
@@ -74,7 +73,7 @@ export const blogPosts: BlogPost[] = [
   {
     title: "7 critical benefits of restaurant kitchen display systems",
     description:
-      "From fewer remakes to better pacing during rush hour why kitchens adopt KDS and what to measure after go-live.",
+      "From fewer remakes to better pacing during rush hour—why kitchens adopt KDS and what to measure after go-live.",
     href: "https://digirestro.ai/7-critical-benefits-of-restaurant-kitchen-display-systems/",
     category: "Kitchen",
   },
@@ -93,3 +92,7 @@ export const blogPosts: BlogPost[] = [
     category: "QR and guest",
   },
 ]
+
+export function isInternalBlogHref(href: string): boolean {
+  return href.startsWith("/")
+}
