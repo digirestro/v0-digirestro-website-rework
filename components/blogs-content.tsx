@@ -43,7 +43,7 @@ export function BlogsContent() {
           backgroundSize: "28px 28px",
         }}
       />
-      <div className="relative mx-auto max-w-[93.6rem]">
+      <div className="relative mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="mt-5 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
             The Digirestro journal

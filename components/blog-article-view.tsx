@@ -4,8 +4,8 @@ import { ArrowLeft, BookOpen, Building2 } from "lucide-react"
 import type { BlogArticleData } from "@/lib/blog-article-types"
 import { splitBullet } from "@/lib/blog-article-types"
 
-/** ~30% wider than max-w-3xl (48rem × 1.3 ≈ 62.4rem) */
-const ARTICLE_MAX = "max-w-[62.4rem]"
+/** Individual post layout: wider reading column (not applied to /blogs index) */
+const ARTICLE_MAX = "max-w-6xl"
 
 function ArticleFigure({ src, alt }: { src: string; alt: string }) {
   return (
@@ -16,7 +16,7 @@ function ArticleFigure({ src, alt }: { src: string; alt: string }) {
         width={1200}
         height={675}
         className="h-auto w-full object-cover"
-        sizes="(max-width: 768px) 100vw, 62rem"
+        sizes="(max-width: 768px) 100vw, 72rem"
       />
     </figure>
   )
