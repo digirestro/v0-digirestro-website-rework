@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 import Link from "next/link"
-import { ArrowRight, ArrowUpRight, BookOpen } from "lucide-react"
+import { ArrowRight, BookOpen } from "lucide-react"
 import { blogPosts, isInternalBlogHref } from "@/data/blog-posts"
 
 function padIndex(n: number) {
@@ -43,15 +43,14 @@ export function BlogsContent() {
           backgroundSize: "28px 28px",
         }}
       />
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-[93.6rem]">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="mt-5 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
             The Digirestro journal
           </h1>
           <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
-            Guides on POS, kitchen tech, delivery, and calmer operations. The featured story opens{" "}
-            <span className="font-medium text-foreground">on this site</span>; other picks open on{" "}
-            <span className="font-medium text-foreground">digirestro.ai</span> in a new tab.
+            Guides on POS, kitchen tech, delivery, and calmer operations—all articles below open{" "}
+            <span className="font-medium text-foreground">on this site</span>.
           </p>
         </div>
 
@@ -78,17 +77,10 @@ export function BlogsContent() {
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{featured.description}</p>
               <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                {isInternalBlogHref(featured.href) ? (
-                  <>
-                    Read on this site
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
-                  </>
-                ) : (
-                  <>
-                    Read full article
-                    <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </>
-                )}
+                <>
+                  Read article
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
+                </>
               </span>
             </div>
           </PostCard>
@@ -97,7 +89,6 @@ export function BlogsContent() {
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((post, i) => {
             const n = i + 2
-            const internal = isInternalBlogHref(post.href)
             return (
               <PostCard
                 key={post.href}
@@ -117,17 +108,8 @@ export function BlogsContent() {
                 </h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{post.description}</p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-primary">
-                  {internal ? (
-                    <>
-                      Read on this site
-                      <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-                    </>
-                  ) : (
-                    <>
-                      Open on digirestro.ai
-                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-                    </>
-                  )}
+                  Read article
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden />
                 </span>
               </PostCard>
             )
