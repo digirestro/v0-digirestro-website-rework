@@ -117,7 +117,14 @@ const CLIENT_IMAGE_BY_NAME: Record<string, string> = {
   "Urban Theka": VENUE_IMAGES[6]!,
   "Integrated Group": VENUE_IMAGES[9]!,
   "Durga Cafe": VENUE_IMAGES[25]!,
+  "OutPost 7": "/images/clients/outpost-7.png",
+  "Moon Broch Multicuisine": "/images/clients/moon-broch.png",
+  "Kill no kalorie": "/images/clients/kill-no-kalorie.png",
+  "Ambrosia Restaurant": "/images/clients/ambrosia.png",
+  "A Paradise Rasoi": "/images/clients/a-paradise-rasoi.png",
+  "Hungry Oven": "/images/clients/hungry-oven.png",
 }
+
 
 const restaurantCards = clients.map((name, i) => ({
   name,
@@ -171,7 +178,7 @@ function RestaurantPartnersCarousel() {
           {restaurantCards.map((item, i) => (
             <SwiperSlide key={`${item.name}-${i}`} className="!flex justify-center !bg-transparent">
               <div className="flex w-full max-w-[320px] flex-col overflow-hidden rounded-xl border border-border/90 shadow-xl">
-                <div className="relative aspect-[4/3] w-full min-h-[200px] bg-zinc-950">
+                <div className="relative aspect-[4/3] w-full min-h-[200px] bg-white">
                   <div className="absolute inset-2.5 sm:inset-3">
                     <div className="relative h-full w-full">
                       <Image
