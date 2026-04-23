@@ -108,14 +108,25 @@ const integrationPartners: { name: string; logoUrl: string }[] = [
   { name: "Xirify", logoUrl: fav("www.xirify.com") },
 ]
 
+/** Explicit image per venue so carousel index always matches the right asset (avoids wrong/cropped pairings). */
+const CLIENT_IMAGE_BY_NAME: Record<string, string> = {
+  "Chaat Di Hatti": VENUE_IMAGES[2]!,
+  "Mashaal Club": VENUE_IMAGES[3]!,
+  "Mast Banarasi Paan": VENUE_IMAGES[4]!,
+  "Kulhar Chai": VENUE_IMAGES[5]!,
+  "Urban Theka": VENUE_IMAGES[6]!,
+  "Integrated Group": VENUE_IMAGES[9]!,
+  "Durga Cafe": VENUE_IMAGES[25]!,
+}
+
 const restaurantCards = clients.map((name, i) => ({
   name,
-  image: VENUE_IMAGES[i % VENUE_IMAGES.length]!,
+  image: CLIENT_IMAGE_BY_NAME[name] ?? VENUE_IMAGES[i % VENUE_IMAGES.length]!,
 }))
 
 /**
- * Digirestro.ai uses Divi + Swiper coverflow: centeredSlides, loop, autoplay 2s, speed 400,
- * spacing 50, cover depth 362, breakpoints 3|1|1. Image is full-bleed; title sits below (same structure as their markup).
+ * Swiper coverflow: centeredSlides, loop, autoplay; venue art is object-contain with inset
+ * so logos and mixed aspect photos are not edge-cropped.
  */
 function RestaurantPartnersCarousel() {
   const swiperRef = useRef<SwiperClass | null>(null)
@@ -160,15 +171,19 @@ function RestaurantPartnersCarousel() {
           {restaurantCards.map((item, i) => (
             <SwiperSlide key={`${item.name}-${i}`} className="!flex justify-center !bg-transparent">
               <div className="flex w-full max-w-[320px] flex-col overflow-hidden rounded-xl border border-border/90 shadow-xl">
-                <div className="relative aspect-[4/3] w-full min-h-[180px] bg-zinc-900">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 1023px) 92vw, 320px"
-                    unoptimized
-                  />
+                <div className="relative aspect-[4/3] w-full min-h-[200px] bg-zinc-950">
+                  <div className="absolute inset-2.5 sm:inset-3">
+                    <div className="relative h-full w-full">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-contain object-center"
+                        sizes="(max-width: 1023px) 92vw, 320px"
+                        unoptimized
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="bg-card px-3 py-3">
                   <p className="text-center text-sm font-semibold leading-snug text-foreground">{item.name}</p>
