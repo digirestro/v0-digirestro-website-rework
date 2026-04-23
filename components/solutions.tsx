@@ -70,7 +70,7 @@ const businessTypes: {
     id: "cloud-kitchen",
     name: "Cloud Kitchen",
     icon: ChefHat,
-    imageSrc: "/solutions/cloud-kitchen.png",
+    imageSrc: "/images/solutions/cloud-kitchen.png",
     imageAlt:
       "Professional commercial kitchen with stainless steel stations and equipment",
     topServices: [
@@ -148,7 +148,7 @@ const businessTypes: {
     id: "bar",
     name: "Bar",
     icon: Wine,
-    imageSrc: "/solutions/bar.png",
+    imageSrc: "/images/solutions/bar.png",
     imageAlt: "Classic pub bar with bottles, glassware, and bar seating",
     topServices: [
       "Point of sale and billing",
@@ -160,7 +160,7 @@ const businessTypes: {
     id: "large-chain",
     name: "Large Chain",
     icon: Building,
-    imageSrc: "/solutions/large-chain.png",
+    imageSrc: "/images/solutions/large-chain.png",
     imageAlt: "Multi-outlet and chain restaurant operation",
     topServices: [
       "Owner dashboard and alerts",
