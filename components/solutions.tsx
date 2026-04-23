@@ -311,14 +311,14 @@ export function Solutions() {
               </p>
             </div>
 
-            <ul className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto p-5 sm:p-6 sm:pr-4 min-[1100px]:min-h-0 min-[1100px]:gap-2">
+            <ul className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto px-4 py-4 sm:px-5 sm:py-5 min-[1100px]:min-h-0 min-[1100px]:gap-5">
               {platformServices.map((line) => {
                 const isTop = topSet?.has(line) ?? false
                 return (
                   <li
                     key={line}
                     className={cn(
-                      "flex min-h-0 items-center gap-3 rounded-2xl border px-4 py-4 sm:px-5 text-sm transition-all duration-200",
+                      "flex min-h-0 items-center gap-3 rounded-2xl border px-4 py-2 sm:px-5 text-sm transition-all duration-200",
                       "min-[1100px]:min-h-0 min-[1100px]:flex-1 min-[1100px]:px-4 min-[1100px]:py-0",
                       isTop
                         ? "border-primary/50 bg-primary/8 text-foreground shadow-sm dark:bg-primary/15"
@@ -342,7 +342,7 @@ export function Solutions() {
                     </span>
                     <span
                       className={cn(
-                        "font-medium leading-snug",
+                        "font-medium leading-snug text-[1.03em]",
                         isTop && "text-foreground",
                       )}
                     >
