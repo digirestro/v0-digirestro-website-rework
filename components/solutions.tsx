@@ -15,7 +15,6 @@ import {
   Sandwich,
   Check,
   Sparkles,
-  Hand,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -72,8 +71,8 @@ const businessTypes: {
     name: "Cloud Kitchen",
     icon: ChefHat,
     imageSrc:
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80",
-    imageAlt: "Commercial kitchen",
+      "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&q=80",
+    imageAlt: "Commercial food production line in a delivery kitchen",
     topServices: [
       "Online ordering and aggregators",
       "Kitchen display (KDS)",
@@ -85,8 +84,8 @@ const businessTypes: {
     name: "QSR",
     icon: Sandwich,
     imageSrc:
-      "https://images.unsplash.com/photo-1561755403-493a-eadf-3687a3f0ab7c?w=800&q=80",
-    imageAlt: "Quick service restaurant counter",
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&q=80",
+    imageAlt: "Quick service fast food on a counter",
     topServices: [
       "Point of sale and billing",
       "Online ordering and aggregators",
@@ -150,8 +149,8 @@ const businessTypes: {
     name: "Bar",
     icon: Wine,
     imageSrc:
-      "https://images.unsplash.com/photo-1470337458703-46ad1756a803?w=800&q=80",
-    imageAlt: "Bar counter and bottles",
+      "https://images.unsplash.com/photo-1525268771113-32d9e9021a97?w=1200&q=80",
+    imageAlt: "Bar with cocktails and bottles",
     topServices: [
       "Point of sale and billing",
       "Captain and floor apps",
@@ -163,8 +162,8 @@ const businessTypes: {
     name: "Large Chain",
     icon: Building,
     imageSrc:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
-    imageAlt: "Business team collaboration",
+      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&q=80",
+    imageAlt: "Food court with multiple restaurant brands and outlets",
     topServices: [
       "Owner dashboard and alerts",
       "Reports and outlet analytics",
@@ -183,14 +182,10 @@ export function Solutions() {
   return (
     <section
       id="solutions"
-      className="scroll-mt-24 pt-28 sm:pt-32 pb-20 px-4 sm:px-6 lg:px-8"
+      className="scroll-mt-24 pt-28 sm:pt-32 pb-24 sm:pb-28 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary dark:bg-primary/15">
-            <Hand className="h-4 w-4 shrink-0" aria-hidden />
-            Interactive — tap a business on the left to highlight its top services
-          </p>
+      <div className="max-w-[min(100%,90rem)] mx-auto w-full">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
             Digirestro is Made For Your Business
           </h2>
@@ -200,11 +195,11 @@ export function Solutions() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 lg:items-stretch">
+        <div className="grid gap-8 min-[1100px]:grid-cols-2 min-[1100px]:gap-10 min-[1100px]:items-stretch min-[1100px]:min-h-[min(88vh,58rem)]">
           {/* Left pane — business models */}
           <div
             className={cn(
-              "relative flex flex-col overflow-hidden rounded-3xl border-2 shadow-xl transition-shadow duration-300",
+              "relative flex min-h-0 min-[1100px]:min-h-full flex-col overflow-hidden rounded-3xl border-2 shadow-xl transition-shadow duration-300",
               selectedId === null
                 ? "border-primary/55 shadow-lg shadow-primary/15 ring-2 ring-primary/25"
                 : "border-border",
@@ -220,7 +215,7 @@ export function Solutions() {
               </span>
             )}
             <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 dark:from-black dark:via-slate-950 dark:to-black" />
-            <div className="relative z-[1] border-b border-white/10 px-6 py-5">
+            <div className="relative z-[1] border-b border-white/10 px-6 sm:px-7 py-6">
               <div className="flex items-center gap-2 text-white">
                 <Sparkles className="h-5 w-5 text-primary shrink-0" />
                 <div>
@@ -235,7 +230,7 @@ export function Solutions() {
                 </div>
               </div>
             </div>
-            <div className="relative z-[1] grid max-h-[min(70vh,720px)] grid-cols-2 gap-3 overflow-y-auto p-4 sm:p-5 sm:grid-cols-2">
+            <div className="relative z-[1] grid min-h-0 min-[1100px]:min-h-[min(82vh,52rem)] flex-1 grid-cols-2 gap-4 overflow-y-auto p-5 sm:p-6 sm:grid-cols-2">
               {businessTypes.map((type) => {
                 const isActive = type.id === selectedId
                 return (
@@ -251,13 +246,13 @@ export function Solutions() {
                         : "ring-1 ring-white/10 hover:ring-primary/40 hover:scale-[1.01]",
                     )}
                   >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-800">
+                    <div className="relative aspect-[4/3] min-h-[9.5rem] w-full overflow-hidden bg-slate-800 sm:min-h-[10.5rem]">
                       <Image
                         src={type.imageSrc}
                         alt={type.imageAlt}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        sizes="(max-width: 1100px) 50vw, 30vw"
                       />
                       <div
                         className={cn(
@@ -293,24 +288,24 @@ export function Solutions() {
           {/* Right pane — all services */}
           <div
             className={cn(
-              "relative flex flex-col overflow-hidden rounded-3xl border-2 bg-card shadow-xl transition-all duration-300",
+              "relative flex min-h-0 min-[1100px]:min-h-full flex-col overflow-hidden rounded-3xl border-2 bg-card shadow-xl transition-all duration-300",
               selectedId
                 ? "border-primary/35 shadow-primary/5"
                 : "border-dashed border-muted-foreground/30",
             )}
           >
-            <div className="border-b border-border bg-muted/40 px-6 py-5 backdrop-blur-sm">
+            <div className="border-b border-border bg-muted/40 px-6 sm:px-7 py-6 backdrop-blur-sm">
               <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-foreground">
                 Platform services
               </h3>
-              <p className="mt-1 text-sm text-muted-foreground">
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 {selected ? (
                   <>
                     Top picks for{" "}
                     <span className="font-semibold text-foreground">
                       {selected.name}
                     </span>{" "}
-                    are marked — every other capability stays on the same stack.
+                    are marked below.
                   </>
                 ) : (
                   "Select a business type to see which three capabilities are highlighted for that model."
@@ -318,14 +313,14 @@ export function Solutions() {
               </p>
             </div>
 
-            <ul className="flex flex-1 flex-col gap-2 p-4 sm:p-5">
+            <ul className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-5 sm:p-6 sm:pr-4">
               {platformServices.map((line) => {
                 const isTop = topSet?.has(line) ?? false
                 return (
                   <li
                     key={line}
                     className={cn(
-                      "flex items-center gap-3 rounded-2xl border px-4 py-3.5 text-sm transition-all duration-200",
+                      "flex items-center gap-3 rounded-2xl border px-4 py-4 sm:px-5 text-sm transition-all duration-200",
                       isTop
                         ? "border-primary/50 bg-primary/8 text-foreground shadow-sm dark:bg-primary/15"
                         : "border-border bg-background/80 text-muted-foreground",
