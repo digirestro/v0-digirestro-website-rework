@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - digirestro-2-0-live
+name: Build and deploy Node.js app to Azure Web App - digirestro-2-0-live
 
 on:
   push:
@@ -18,20 +18,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Java version
-        uses: actions/setup-java@v4
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
         with:
-          java-version: '21'
-          distribution: 'microsoft'
+          node-version: '24.x'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          name: node-app
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -39,25 +41,25 @@ jobs:
     permissions:
       id-token: write #This is required for requesting the JWT
       contents: read #This is required for actions/checkout
-  
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: java-app
+          name: node-app
       
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AF7072ACA04C44FF959263949F3A503B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0BD81264F2724E889B2AE1E10BEB21F7 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_82CABD43A93B47789A80F881AF291E01 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0925E6E055CB471EB23FD5DA70FDDE6C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4FF4242AA5134EDF886AA4EF97227E2A }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6DBEB4B6AF5147C58EB034251BBC6216 }}
 
-      - name: Deploy to Azure Web App
+      - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'digirestro-2-0-live'
           slot-name: 'Production'
-          package: '*.jar'
+          package: .
           
