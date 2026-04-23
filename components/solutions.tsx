@@ -70,9 +70,9 @@ const businessTypes: {
     id: "cloud-kitchen",
     name: "Cloud Kitchen",
     icon: ChefHat,
-    imageSrc:
-      "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200&q=80",
-    imageAlt: "Commercial food production line in a delivery kitchen",
+    imageSrc: "/solutions/cloud-kitchen.png",
+    imageAlt:
+      "Professional commercial kitchen with stainless steel stations and equipment",
     topServices: [
       "Online ordering and aggregators",
       "Kitchen display (KDS)",
@@ -148,9 +148,8 @@ const businessTypes: {
     id: "bar",
     name: "Bar",
     icon: Wine,
-    imageSrc:
-      "https://images.unsplash.com/photo-1525268771113-32d9e9021a97?w=1200&q=80",
-    imageAlt: "Bar with cocktails and bottles",
+    imageSrc: "/solutions/bar.png",
+    imageAlt: "Classic pub bar with bottles, glassware, and bar seating",
     topServices: [
       "Point of sale and billing",
       "Captain and floor apps",
@@ -161,9 +160,8 @@ const businessTypes: {
     id: "large-chain",
     name: "Large Chain",
     icon: Building,
-    imageSrc:
-      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&q=80",
-    imageAlt: "Food court with multiple restaurant brands and outlets",
+    imageSrc: "/solutions/large-chain.png",
+    imageAlt: "Multi-outlet and chain restaurant operation",
     topServices: [
       "Owner dashboard and alerts",
       "Reports and outlet analytics",
