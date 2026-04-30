@@ -39,9 +39,9 @@ function Stars() {
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="scroll-mt-24 pt-16 sm:pt-20 pb-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="testimonials" className="scroll-mt-20 pt-12 sm:pt-20 pb-14 sm:pb-20 px-3 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
             What operators say about Digirestro
           </h2>
@@ -50,11 +50,11 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 lg:gap-12 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 lg:gap-12 md:grid-cols-3">
           {testimonials.map((t) => (
             <article
               key={t.name}
-              className="relative flex min-h-[22rem] flex-col rounded-3xl border border-border bg-card p-8 shadow-sm transition-shadow hover:shadow-md sm:min-h-[24rem] sm:p-10 lg:p-11"
+              className="relative flex min-h-[22rem] flex-col rounded-3xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md sm:min-h-[24rem] sm:p-10 lg:p-11"
             >
               <Quote className="absolute right-7 top-7 h-11 w-11 text-primary/15 sm:right-9 sm:top-9" aria-hidden />
               <Stars />

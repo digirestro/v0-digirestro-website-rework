@@ -172,7 +172,7 @@ function RestaurantPartnersCarousel() {
     <div className="clients-carousel-wrapper w-full">
       <div className="partners-swiper-wrap relative mx-auto w-full max-w-7xl">
         <Swiper
-          className="partners-swiper w-full py-6"
+          className="partners-swiper w-full py-4 sm:py-6"
           modules={[EffectCoverflow, Autoplay]}
           effect="coverflow"
           grabCursor
@@ -305,9 +305,9 @@ export function Clients() {
     : "Teams worldwide rely on Digirestro — from neighbourhood favourites to busy chains."
 
   return (
-    <section className="border-y border-border bg-muted/20 py-16 px-4 sm:px-6 lg:px-8">
+    <section className="border-y border-border bg-muted/20 py-10 px-3 sm:py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 text-center lg:mx-auto lg:max-w-2xl">
+        <div className="mb-8 text-center sm:mb-12 lg:mx-auto lg:max-w-2xl">
           <h3 className="text-balance font-[family-name:var(--font-display)] text-xl font-semibold text-foreground sm:text-2xl">
             {heading}
           </h3>
@@ -318,12 +318,12 @@ export function Clients() {
 
         <RestaurantPartnersCarousel />
 
-        <div className="mt-14 mb-14">
-          <p className="mb-10 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        <div className="mt-10 mb-10 sm:mt-14 sm:mb-14">
+          <p className="mb-6 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground sm:mb-10">
             Trusted partners and integrations
           </p>
 
-          <div className="flex flex-wrap items-start justify-center gap-x-3 gap-y-4 px-2 sm:gap-x-8 sm:gap-y-7">
+          <div className="flex flex-wrap items-start justify-center gap-x-3 gap-y-3 px-1 sm:gap-x-8 sm:gap-y-7 sm:px-2">
             {grouped.flatMap((group) =>
               group.partners.map((p) => (
                 <div

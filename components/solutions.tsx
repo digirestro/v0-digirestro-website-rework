@@ -200,10 +200,10 @@ export function Solutions() {
   return (
     <section
       id="solutions"
-      className="scroll-mt-24 pt-28 sm:pt-32 pb-24 sm:pb-28 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12"
+      className="scroll-mt-20 pt-20 sm:pt-32 pb-14 sm:pb-28 px-3 sm:px-6 md:px-8 lg:px-10 xl:px-12"
     >
       <div className="max-w-[min(100%,90rem)] mx-auto w-full">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
             Digirestro is Made For Your Business
           </h2>
@@ -213,7 +213,7 @@ export function Solutions() {
           </p>
         </div>
 
-        <div className="grid gap-8 min-[1100px]:grid-cols-2 min-[1100px]:gap-10 min-[1100px]:items-stretch min-[1100px]:min-h-[min(88vh,58rem)]">
+        <div className="grid gap-5 min-[1100px]:grid-cols-2 min-[1100px]:gap-10 min-[1100px]:items-stretch min-[1100px]:min-h-[min(88vh,58rem)]">
           {/* Left pane — business models */}
           <div
             className={cn(
@@ -331,7 +331,7 @@ export function Solutions() {
               </p>
             </div>
 
-            <ul className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto px-4 py-4 sm:px-5 sm:py-5 min-[1100px]:min-h-0 min-[1100px]:gap-5">
+            <ul className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-3 py-3 sm:px-5 sm:py-5 min-[1100px]:min-h-0 min-[1100px]:gap-5">
               {platformServices.map((line) => {
                 const isTop = topSet?.has(line) ?? false
                 return (

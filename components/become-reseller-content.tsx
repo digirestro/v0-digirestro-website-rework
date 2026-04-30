@@ -19,7 +19,7 @@ const sectionHeadingClass =
 export function BecomeResellerContent() {
   return (
     <>
-      <section className="border-b border-border bg-card px-4 pb-14 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
+      <section className="border-b border-border bg-card px-3 pb-10 pt-20 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-[1080px] text-center">
           <h1 className="text-balance text-2xl font-bold leading-snug text-foreground sm:text-4xl lg:text-[42px] lg:leading-[1.25]">
             Let us help you grow your business with Digirestro&apos;s product offerings.
@@ -27,7 +27,7 @@ export function BecomeResellerContent() {
           <p className="mt-6 text-lg font-semibold text-muted-foreground sm:text-xl">
             Become a Digirestro reseller partner now!
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:mt-10 sm:flex-row sm:gap-5">
             <Link href="#contact" className={btnPrimary}>
               Get Started
             </Link>
@@ -38,7 +38,7 @@ export function BecomeResellerContent() {
         </div>
       </section>
 
-      <section className="bg-muted/30 px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+      <section className="bg-muted/30 px-3 py-9 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-[1080px]">
           <h2 className={sectionHeadingClass}>Who can become a Digirestro reseller?</h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -49,7 +49,7 @@ export function BecomeResellerContent() {
         </div>
       </section>
 
-      <section className="bg-card px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+      <section className="bg-card px-3 py-9 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-[1080px]">
           <h2 className={sectionHeadingClass}>How can I become a Digirestro reseller?</h2>
           <div className="mt-5 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -67,7 +67,7 @@ export function BecomeResellerContent() {
         </div>
       </section>
 
-      <section className="bg-muted/30 px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+      <section className="bg-muted/30 px-3 py-9 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-[1080px]">
           <h2 className={sectionHeadingClass}>Who handles onboarding and support?</h2>
           <p className="mt-5 text-lg font-semibold text-foreground sm:text-xl">We do.</p>
@@ -78,7 +78,7 @@ export function BecomeResellerContent() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-card px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+      <section className="border-t border-border bg-card px-3 py-9 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-[1080px]">
           <h2 className={sectionHeadingClass}>Benefits of the Digirestro reseller program</h2>
           <ul className="mt-8 list-none space-y-4 pl-0">

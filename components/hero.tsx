@@ -8,9 +8,9 @@ const subGray = "#5c5c5c"
 
 export function Hero() {
   return (
-    <section className="relative border-b border-neutral-200/80 bg-[#f7f8f9] pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10 xl:gap-16">
+    <section className="relative border-b border-neutral-200/80 bg-[#f7f8f9] pt-20 pb-12 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-16">
           <div className="max-w-xl lg:max-w-none">
             <h1
               className="text-balance font-semibold leading-[1.15] tracking-tight"
