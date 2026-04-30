@@ -38,7 +38,7 @@ const businessTypes: {
   icon: typeof Building2
   imageSrc: string
   imageAlt: string
-  topServices: readonly [ServiceName, ServiceName, ServiceName]
+  topServices: readonly [ServiceName, ServiceName, ServiceName, ServiceName, ServiceName]
 }[] = [
   {
     id: "hotel",
@@ -51,6 +51,8 @@ const businessTypes: {
       "Online ordering and aggregators",
       "Kitchen display (KDS)",
       "Reports and outlet analytics",
+      "Captain and floor apps",
+      "Owner dashboard and alerts",
     ],
   },
   {
@@ -64,6 +66,8 @@ const businessTypes: {
       "QR ordering and digital menus",
       "Point of sale and billing",
       "Owner dashboard and alerts",
+      "Payments and settlements",
+      "Inventory and recipes",
     ],
   },
   {
@@ -77,6 +81,8 @@ const businessTypes: {
       "Online ordering and aggregators",
       "Kitchen display (KDS)",
       "Inventory and recipes",
+      "Reports and outlet analytics",
+      "Owner dashboard and alerts",
     ],
   },
   {
@@ -90,6 +96,8 @@ const businessTypes: {
       "Point of sale and billing",
       "Online ordering and aggregators",
       "Kitchen display (KDS)",
+      "Payments and settlements",
+      "Reports and outlet analytics",
     ],
   },
   {
@@ -103,6 +111,8 @@ const businessTypes: {
       "Point of sale and billing",
       "QR ordering and digital menus",
       "Kitchen display (KDS)",
+      "Captain and floor apps",
+      "Inventory and recipes",
     ],
   },
   {
@@ -116,6 +126,8 @@ const businessTypes: {
       "Point of sale and billing",
       "Online ordering and aggregators",
       "Kitchen display (KDS)",
+      "Inventory and recipes",
+      "Payments and settlements",
     ],
   },
   {
@@ -129,6 +141,8 @@ const businessTypes: {
       "Point of sale and billing",
       "QR ordering and digital menus",
       "Inventory and recipes",
+      "Payments and settlements",
+      "Reports and outlet analytics",
     ],
   },
   {
@@ -142,6 +156,8 @@ const businessTypes: {
       "Point of sale and billing",
       "QR ordering and digital menus",
       "Payments and settlements",
+      "Online ordering and aggregators",
+      "Inventory and recipes",
     ],
   },
   {
@@ -154,6 +170,8 @@ const businessTypes: {
       "Point of sale and billing",
       "Captain and floor apps",
       "Reports and outlet analytics",
+      "Inventory and recipes",
+      "Payments and settlements",
     ],
   },
   {
@@ -166,6 +184,8 @@ const businessTypes: {
       "Owner dashboard and alerts",
       "Reports and outlet analytics",
       "Inventory and recipes",
+      "Online ordering and aggregators",
+      "Kitchen display (KDS)",
     ],
   },
 ]
@@ -189,7 +209,7 @@ export function Solutions() {
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
             Compare every business model with the full platform. The checkmarks
-            show the three capabilities teams in that segment rely on most.
+            show the five capabilities teams in that segment rely on most.
           </p>
         </div>
 
@@ -241,7 +261,7 @@ export function Solutions() {
                       "group relative flex flex-col overflow-hidden rounded-2xl text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900",
                       isActive
                         ? "ring-2 ring-primary shadow-lg shadow-primary/25 scale-[1.02] z-[2]"
-                        : "ring-1 ring-white/10 hover:ring-primary/40 hover:scale-[1.01]",
+                        : "ring-2 ring-white/70 hover:ring-primary/40 hover:scale-[1.01]",
                     )}
                   >
                     <div className="relative aspect-[4/3] min-h-[9.5rem] w-full overflow-hidden bg-slate-800 sm:min-h-[10.5rem]">
@@ -306,7 +326,7 @@ export function Solutions() {
                     are marked below.
                   </>
                 ) : (
-                  "Select a business type to see which three capabilities are highlighted for that model."
+                  "Select a business type to see which five capabilities are highlighted for that model."
                 )}
               </p>
             </div>
@@ -350,7 +370,7 @@ export function Solutions() {
                     </span>
                     {isTop && (
                       <span className="ml-auto hidden shrink-0 rounded-md bg-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary sm:inline">
-                        Top 3
+                        Top 5
                       </span>
                     )}
                   </li>

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, useMemo } from "react"
 import type { Swiper as SwiperClass } from "swiper"
 import { Autoplay, EffectCoverflow } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -69,44 +69,73 @@ const clients = [
   "Durga Cafe",
 ]
 
-const SI = "https://cdn.jsdelivr.net/npm/simple-icons@11.4.0/icons"
+const SI = "https://cdn.simpleicons.org"
 
-/** DuckDuckGo-hosted favicons — small marks when Simple Icons has no slug in v11. */
 function fav(domain: string) {
   return `https://icons.duckduckgo.com/ip3/${domain}.ico`
 }
 
-/**
- * Order matches stakeholder list. Logos: Simple Icons (SVG) where available,
- * else site favicons / official assets for crisp small marks.
- */
-const integrationPartners: { name: string; logoUrl: string }[] = [
-  { name: "Xplorpay", logoUrl: fav("xplorpay.com") },
-  { name: "Paymob", logoUrl: fav("paymob.com") },
-  { name: "Azure AI", logoUrl: `${SI}/microsoftazure.svg` },
-  { name: "Infobip", logoUrl: fav("infobip.com") },
-  { name: "Zomato", logoUrl: `${SI}/zomato.svg` },
-  { name: "Swiggy", logoUrl: `${SI}/swiggy.svg` },
-  { name: "Paytm", logoUrl: `${SI}/paytm.svg` },
-  { name: "PhonePe", logoUrl: `${SI}/phonepe.svg` },
-  { name: "Microsoft", logoUrl: `${SI}/microsoft.svg` },
-  { name: "Visa", logoUrl: `${SI}/visa.svg` },
-  { name: "Mastercard", logoUrl: `${SI}/mastercard.svg` },
-  { name: "Fiserv", logoUrl: "/images/partners/fiserv.svg" },
-  { name: "Deliverect", logoUrl: fav("deliverect.com") },
-  { name: "Lalamove", logoUrl: fav("lalamove.com") },
-  { name: "DoorDash", logoUrl: `${SI}/doordash.svg` },
-  { name: "Uber Eats", logoUrl: `${SI}/ubereats.svg` },
-  { name: "Urban Piper", logoUrl: fav("www.urbanpiper.com") },
-  { name: "ONDC", logoUrl: fav("ondc.org") },
-  { name: "Avalara", logoUrl: fav("avalara.com") },
-  { name: "Foodpanda Singapore", logoUrl: `${SI}/foodpanda.svg` },
-  { name: "Grubtech", logoUrl: fav("grubtech.com") },
-  { name: "Stripe", logoUrl: `${SI}/stripe.svg` },
-  { name: "Razorpay", logoUrl: `${SI}/razorpay.svg` },
-  { name: "Ecomnext", logoUrl: "/images/partners/ecomnext.svg" },
-  { name: "Xirify", logoUrl: fav("www.xirify.com") },
+type PartnerCategory = "delivery" | "aggregator" | "payment" | "technology"
+
+type Partner = {
+  name: string
+  logoUrl: string
+  category: PartnerCategory
+  regions: string[]
+}
+
+const CATEGORY_LABELS: Record<PartnerCategory, string> = {
+  delivery: "Delivery Services",
+  aggregator: "Aggregator Services",
+  payment: "Payment Services",
+  technology: "AI & Technology",
+}
+
+const CATEGORY_ORDER: PartnerCategory[] = ["delivery", "aggregator", "payment", "technology"]
+
+const ALL_PARTNERS: Partner[] = [
+  // Delivery
+  { name: "Zomato", logoUrl: `${SI}/zomato`, category: "delivery", regions: ["India"] },
+  { name: "Swiggy", logoUrl: `${SI}/swiggy`, category: "delivery", regions: ["India"] },
+  { name: "DoorDash", logoUrl: `${SI}/doordash`, category: "delivery", regions: ["United States of America"] },
+  { name: "Uber Eats", logoUrl: `${SI}/ubereats`, category: "delivery", regions: [] },
+  { name: "Foodpanda", logoUrl: `${SI}/foodpanda`, category: "delivery", regions: ["Singapore"] },
+  { name: "Lalamove", logoUrl: fav("lalamove.com"), category: "delivery", regions: [] },
+  // Aggregator
+  { name: "Deliverect", logoUrl: fav("deliverect.com"), category: "aggregator", regions: [] },
+  { name: "Urban Piper", logoUrl: fav("www.urbanpiper.com"), category: "aggregator", regions: ["India"] },
+  { name: "ONDC", logoUrl: fav("ondc.org"), category: "aggregator", regions: ["India"] },
+  { name: "Grubtech", logoUrl: fav("grubtech.com"), category: "aggregator", regions: ["UAE", "Oman"] },
+  { name: "Xirify", logoUrl: fav("www.xirify.com"), category: "aggregator", regions: ["India"] },
+  { name: "Ecomnext", logoUrl: "/images/partners/ecomnext.svg", category: "aggregator", regions: ["India"] },
+  // Payment
+  { name: "Paytm", logoUrl: `${SI}/paytm`, category: "payment", regions: ["India"] },
+  { name: "PhonePe", logoUrl: `${SI}/phonepe`, category: "payment", regions: ["India"] },
+  { name: "Razorpay", logoUrl: `${SI}/razorpay`, category: "payment", regions: ["India"] },
+  { name: "Stripe", logoUrl: `${SI}/stripe`, category: "payment", regions: ["United States of America"] },
+  { name: "Visa", logoUrl: `${SI}/visa`, category: "payment", regions: [] },
+  { name: "Mastercard", logoUrl: `${SI}/mastercard`, category: "payment", regions: [] },
+  { name: "Xplorpay", logoUrl: fav("xplorpay.com"), category: "payment", regions: ["India"] },
+  { name: "Paymob", logoUrl: fav("paymob.com"), category: "payment", regions: ["UAE", "Oman"] },
+  { name: "Fiserv", logoUrl: "/images/partners/fiserv.svg", category: "payment", regions: ["United States of America"] },
+  { name: "Avalara", logoUrl: fav("avalara.com"), category: "payment", regions: ["United States of America"] },
+  // AI & Technology
+  { name: "Azure AI", logoUrl: `${SI}/microsoftazure`, category: "technology", regions: [] },
+  { name: "Microsoft", logoUrl: `${SI}/microsoft`, category: "technology", regions: [] },
+  { name: "Infobip", logoUrl: fav("infobip.com"), category: "technology", regions: [] },
 ]
+
+function getGroupedPartners(country: string) {
+  return CATEGORY_ORDER.map((cat) => {
+    const partners = ALL_PARTNERS.filter((p) => p.category === cat)
+    const sorted = [...partners].sort((a, b) => {
+      const aLocal = country && a.regions.includes(country) ? 0 : 1
+      const bLocal = country && b.regions.includes(country) ? 0 : 1
+      return aLocal - bLocal
+    })
+    return { category: cat, label: CATEGORY_LABELS[cat], partners: sorted }
+  })
+}
 
 /** Explicit image per venue so carousel index always matches the right asset (avoids wrong/cropped pairings). */
 const CLIENT_IMAGE_BY_NAME: Record<string, string> = {
@@ -264,6 +293,7 @@ function useCountryLabel() {
 
 export function Clients() {
   const country = useCountryLabel()
+  const grouped = useMemo(() => getGroupedPartners(country), [country])
 
   const heading = country
     ? `Restaurant teams in ${country} and all over the world trust Digirestro.`
@@ -285,41 +315,45 @@ export function Clients() {
           </p>
         </div>
 
-
         <RestaurantPartnersCarousel />
 
-        <br />
-        <br />
-                
-        <p className="mb-6 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          Trusted partners and integrations
-        </p>
+        <div className="mt-14 mb-14">
+          <p className="mb-10 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            Trusted partners and integrations
+          </p>
 
-        <br />
-        <br />
-        <div className="mb-14 flex flex-wrap items-start justify-center gap-x-3 gap-y-4 px-2 sm:gap-x-8 sm:gap-y-7">
-          {integrationPartners.map((p) => (
-            <div
-              key={p.name}
-              className="flex w-[72px] flex-col items-center justify-start gap-1.5 sm:w-[105px]"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element -- remote brand marks (SVG/ICO/PNG) */}
-              <img
-                src={p.logoUrl}
-                alt={`${p.name} logo`}
-                width={54}
-                height={54}
-                loading="lazy"
-                decoding="async"
-                className="h-[2.1rem] w-[2.1rem] object-contain sm:h-[2.3625rem] sm:w-[2.3625rem]"
-              />
-              <span className="line-clamp-3 min-h-[3.25rem] text-center text-[13px] font-medium leading-tight text-muted-foreground sm:min-h-[3.25rem] sm:text-[15px]">
-                {p.name}
-              </span>
-            </div>
-          ))}
+          <div className="space-y-10">
+            {grouped.map((group) => (
+              <div key={group.category}>
+                <p className="mb-4 text-center text-[13px] font-semibold uppercase tracking-wide text-foreground/70 sm:text-sm">
+                  {group.label}
+                </p>
+                <div className="flex flex-wrap items-start justify-center gap-x-3 gap-y-4 px-2 sm:gap-x-8 sm:gap-y-7">
+                  {group.partners.map((p) => (
+                    <div
+                      key={p.name}
+                      className="flex w-[72px] flex-col items-center justify-start gap-1.5 sm:w-[105px]"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element -- remote brand marks */}
+                      <img
+                        src={p.logoUrl}
+                        alt={`${p.name} logo`}
+                        width={54}
+                        height={54}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-[2.1rem] w-[2.1rem] object-contain sm:h-[2.3625rem] sm:w-[2.3625rem]"
+                      />
+                      <span className="line-clamp-3 min-h-[3.25rem] text-center text-[13px] font-medium leading-tight text-muted-foreground sm:min-h-[3.25rem] sm:text-[15px]">
+                        {p.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   )
