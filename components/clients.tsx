@@ -120,8 +120,9 @@ const ALL_PARTNERS: Partner[] = [
   { name: "Fiserv", logoUrl: "/images/partners/fiserv.svg", category: "payment", regions: ["United States of America"] },
   { name: "Avalara", logoUrl: fav("avalara.com"), category: "payment", regions: ["United States of America"] },
   // AI & Technology
-  { name: "Azure AI", logoUrl: `${SI}/microsoftazure`, category: "technology", regions: [] },
-  { name: "Microsoft", logoUrl: `${SI}/microsoft`, category: "technology", regions: [] },
+  // Microsoft marks often fail on cdn.simpleicons.org (blocked / empty); favicons match other partners.
+  { name: "Azure AI", logoUrl: fav("azure.microsoft.com"), category: "technology", regions: [] },
+  { name: "Microsoft", logoUrl: fav("microsoft.com"), category: "technology", regions: [] },
   { name: "Infobip", logoUrl: fav("infobip.com"), category: "technology", regions: [] },
 ]
 
