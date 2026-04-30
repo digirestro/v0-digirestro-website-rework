@@ -78,7 +78,7 @@ export function ContactForm({
         </div>
 
         <div className="grid grid-cols-1 gap-12 max-w-6xl mx-auto lg:grid-cols-2 lg:items-start">
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10 order-2 lg:order-1">
             <div className="flex gap-4">
               <div
                 className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border bg-muted"
@@ -102,7 +102,6 @@ export function ContactForm({
               </div>
             </div>
 
-            {/* Stats align with email / social copy (icon w-12 + gap-4 = pl-16) */}
             <div className="grid w-full grid-cols-1 gap-4 pl-16 sm:grid-cols-3">
               <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-muted/25 px-4 py-6 text-center sm:min-h-[7.5rem]">
                 <div className="text-3xl font-bold text-primary font-[family-name:var(--font-display)] tabular-nums sm:text-4xl">
@@ -125,7 +124,7 @@ export function ContactForm({
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-2xl p-8">
+          <div className="bg-card border border-border rounded-2xl p-8 order-1 lg:order-2">
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center h-full py-12 text-center">
                 <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-6 border border-border">
