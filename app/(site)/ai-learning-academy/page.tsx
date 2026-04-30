@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function AiLearningPage() {
   return (
     <div className="bg-background">
-      <section className="border-b border-border bg-muted/25 px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+      <section className="border-b border-border bg-muted/25 px-3 pb-12 pt-20 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
             AI – My Learning Academy
@@ -14,7 +14,7 @@ export default function AiLearningPage() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="px-3 py-10 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="prose prose-lg mx-auto">
             <p>

@@ -82,7 +82,7 @@ export function ProductPageLayout({
     <div className="bg-background">
       <section
         className={cn(
-          "relative overflow-hidden border-b border-border px-4 pb-20 pt-28 sm:px-6 sm:pt-32 lg:px-8",
+          "relative overflow-hidden border-b border-border px-3 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8",
           isReview
             ? "bg-gradient-to-b from-violet-950/15 via-background to-background"
             : "bg-gradient-to-b from-muted/60 via-muted/20 to-background",
@@ -123,7 +123,7 @@ export function ProductPageLayout({
             {title}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground text-pretty">{lead}</p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:mt-10">
             <Button asChild size="lg" className="rounded-full px-8">
               <Link href="/contact">
                 Book free demo
@@ -136,7 +136,7 @@ export function ProductPageLayout({
           </div>
         </div>
 
-        <div className="relative mx-auto mt-14 max-w-5xl px-2">
+        <div className="relative mx-auto mt-10 max-w-5xl px-1 sm:mt-14 sm:px-2">
           <div
             className={cn(
               "relative overflow-hidden rounded-3xl border bg-card p-2 shadow-2xl ring-1 ring-black/5 dark:ring-white/10",
@@ -157,8 +157,8 @@ export function ProductPageLayout({
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl space-y-12">
+      <section className="px-3 py-10 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-4xl space-y-8 sm:space-y-12">
           <div className="space-y-6">
             {introParagraphs.map((p, i) => (
               <p
@@ -291,11 +291,11 @@ export function ProductPageLayout({
 
       <section
         className={cn(
-          "border-t px-4 py-16 sm:px-6 lg:px-8",
+          "border-t px-3 py-10 sm:px-6 sm:py-16 lg:px-8",
           isReview ? "bg-violet-950/10" : "bg-muted/40",
         )}
       >
-        <div className="mx-auto max-w-3xl rounded-3xl border bg-card p-8 text-center shadow-lg sm:p-12">
+        <div className="mx-auto max-w-3xl rounded-3xl border bg-card p-6 text-center shadow-lg sm:p-12">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold sm:text-3xl">
             Ready to grow with {isReview ? "Review Lens" : "DigiRestro"}?
           </h2>

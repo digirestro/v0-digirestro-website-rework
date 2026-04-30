@@ -13,7 +13,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-neutral-200/90 bg-white/95 backdrop-blur-md">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 py-3 md:py-4">
           <div className="flex flex-shrink-0 flex-col gap-0.5">
             <BrandLogo variant="light" className="text-xl sm:text-2xl" />

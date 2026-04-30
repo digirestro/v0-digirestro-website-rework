@@ -117,7 +117,7 @@ const red = "#d92a2a"
 export function PlatformContent() {
   return (
     <div className="bg-background">
-      <section className="border-b border-border bg-muted/25 px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+      <section className="border-b border-border bg-muted/25 px-3 pb-12 pt-20 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight text-foreground text-balance sm:text-4xl lg:text-5xl">
             Everything you need to run food service from POS to supply chain
@@ -126,7 +126,7 @@ export function PlatformContent() {
             Digirestro is a one stop platform for restaurants, cafés, bars, and chains: billing,
             payments, inventory, digital ordering, kitchen screens, and owner tools in one connected system.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:mt-10">
             <Link
               href="/contact"
               className="inline-flex rounded-lg px-8 py-3.5 text-base font-semibold text-white shadow-md transition hover:opacity-95"
@@ -144,14 +144,14 @@ export function PlatformContent() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="px-3 py-10 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
+          <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-12">
             <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl">
               Product suite
             </h2>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-8">
+          <div className="grid gap-6 md:grid-cols-2 md:gap-10 xl:grid-cols-3 xl:gap-8">
             {suite.map((item) => (
               <Link
                 key={item.title}
@@ -188,9 +188,9 @@ export function PlatformContent() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-muted/20 px-4 py-16 sm:px-6 lg:px-8">
+      <section className="border-y border-border bg-muted/20 px-3 py-10 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
+          <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-12">
             <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl">
               Billing POS that fits your operation
             </h2>
@@ -217,7 +217,7 @@ export function PlatformContent() {
 
       <section
         id="who-we-serve"
-        className="scroll-mt-24 border-t border-border bg-muted/35 px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+        className="scroll-mt-20 border-t border-border bg-muted/35 px-3 py-10 sm:px-6 sm:py-20 lg:px-8"
       >
         <div className="mx-auto max-w-5xl">
           {/* Large local image first so it always paints (no remote / fill layout surprises) */}
@@ -234,7 +234,7 @@ export function PlatformContent() {
             />
           </div>
 
-          <div className="mx-auto mt-10 max-w-3xl text-center">
+          <div className="mx-auto mt-8 max-w-3xl text-center sm:mt-10">
             <h2 className="mt-5 font-[family-name:var(--font-display)] text-2xl font-bold text-foreground sm:text-3xl lg:text-4xl">
               Who we serve
             </h2>

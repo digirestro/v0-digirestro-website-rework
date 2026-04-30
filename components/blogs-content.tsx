@@ -34,7 +34,7 @@ export function BlogsContent() {
   const [featured, ...rest] = blogPosts
 
   return (
-    <section className="relative overflow-hidden border-b border-border bg-muted/20 px-4 pb-24 pt-28 sm:px-6 sm:pt-32 lg:px-8">
+    <section className="relative overflow-hidden border-b border-border bg-muted/20 px-3 pb-16 pt-20 sm:px-6 sm:pb-24 sm:pt-32 lg:px-8">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         aria-hidden
@@ -56,9 +56,9 @@ export function BlogsContent() {
         {featured ? (
           <PostCard
             href={featured.href}
-            className="group relative mt-14 flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition hover:border-primary/35 hover:shadow-xl md:grid md:min-h-[280px] md:grid-cols-12 md:gap-0"
+            className="group relative mt-10 flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition hover:border-primary/35 hover:shadow-xl sm:mt-14 md:grid md:min-h-[280px] md:grid-cols-12 md:gap-0"
           >
-            <div className="relative flex flex-col justify-between bg-gradient-to-br from-primary/15 via-primary/5 to-transparent px-8 py-10 md:col-span-5">
+            <div className="relative flex flex-col justify-between bg-gradient-to-br from-primary/15 via-primary/5 to-transparent px-6 py-8 md:col-span-5 md:px-8 md:py-10">
               <div>
                 <span className="inline-flex items-center gap-1.5 rounded-md bg-background/80 px-2.5 py-1 text-xs font-semibold text-primary ring-1 ring-primary/20">
                   <BookOpen className="h-3.5 w-3.5" aria-hidden />
@@ -70,7 +70,7 @@ export function BlogsContent() {
                 <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Featured story</p>
               </div>
             </div>
-            <div className="flex flex-1 flex-col justify-center border-t border-border/80 px-8 py-8 md:col-span-7 md:border-l md:border-t-0 md:py-10 md:pl-10 md:pr-12">
+            <div className="flex flex-1 flex-col justify-center border-t border-border/80 px-6 py-6 md:col-span-7 md:border-l md:border-t-0 md:py-10 md:pl-10 md:pr-12">
               <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-foreground text-balance transition group-hover:text-primary sm:text-3xl">
                 {featured.title}
               </h2>
@@ -85,14 +85,14 @@ export function BlogsContent() {
           </PostCard>
         ) : null}
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((post, i) => {
             const n = i + 2
             return (
               <PostCard
                 key={post.href}
                 href={post.href}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card/90 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card/90 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md sm:p-6"
               >
                 <div className="flex items-start justify-between gap-3">
                   <span className="rounded-md bg-muted px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">

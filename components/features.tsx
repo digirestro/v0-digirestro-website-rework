@@ -103,9 +103,9 @@ function FeatureMedia({ feature }: { feature: FeatureItem }) {
 
 export function Features() {
   return (
-    <section id="features" className="scroll-mt-24 pt-28 sm:pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="features" className="scroll-mt-20 pt-20 sm:pt-32 pb-14 sm:pb-20 px-3 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
             Built for busy restaurant floors
           </h2>
@@ -114,7 +114,7 @@ export function Features() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
           {features.map((feature) => (
             <div
               key={feature.title}

@@ -42,7 +42,7 @@ export function BlogArticleView({ article }: { article: BlogArticleData }) {
         aria-hidden
       />
 
-      <div className={`relative mx-auto ${ARTICLE_MAX} px-4 pb-24 pt-24 sm:px-6 sm:pt-28 lg:px-8`}>
+      <div className={`relative mx-auto ${ARTICLE_MAX} px-3 pb-16 pt-16 sm:px-6 sm:pb-24 sm:pt-28 lg:px-8`}>
         <Link
           href="/blogs"
           className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition hover:text-primary"
@@ -51,8 +51,8 @@ export function BlogArticleView({ article }: { article: BlogArticleData }) {
           Back to journal
         </Link>
 
-        <header className="mt-10 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-          <div className="relative border-b border-border bg-gradient-to-br from-primary/[0.14] via-primary/[0.04] to-transparent px-6 py-10 sm:px-10 sm:py-12">
+        <header className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm sm:mt-10">
+          <div className="relative border-b border-border bg-gradient-to-br from-primary/[0.14] via-primary/[0.04] to-transparent px-5 py-8 sm:px-10 sm:py-12">
             <div className="flex flex-wrap items-center gap-3">
               {article.chips.map((c, i) => (
                 <span
@@ -82,7 +82,7 @@ export function BlogArticleView({ article }: { article: BlogArticleData }) {
             </div>
           </div>
 
-          <div className="px-6 py-10 sm:px-10 sm:py-12">
+          <div className="px-5 py-8 sm:px-10 sm:py-12">
             {article.lead.map((p, i) => (
               <p
                 key={i}

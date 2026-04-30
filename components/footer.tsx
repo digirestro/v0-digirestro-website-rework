@@ -13,9 +13,9 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a1a1a] text-neutral-100 py-14 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#1a1a1a] text-neutral-100 py-10 px-3 sm:py-14 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col gap-10 pb-10 border-b border-white/10 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-8 pb-8 border-b border-white/10 sm:gap-10 sm:pb-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
             <div className="mb-4">
               <BrandLogo variant="dark" className="text-2xl sm:text-[1.65rem]" />

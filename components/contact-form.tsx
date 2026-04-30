@@ -67,18 +67,18 @@ export function ContactForm({
   return (
     <section
       id="contact"
-      className={`px-4 sm:px-6 lg:px-8 relative overflow-hidden pb-20 ${pageTopPadding ? "pt-28 sm:pt-32" : "py-20"}`}
+      className={`px-3 sm:px-6 lg:px-8 relative overflow-hidden pb-14 sm:pb-20 ${pageTopPadding ? "pt-20 sm:pt-32" : "py-12 sm:py-20"}`}
     >
       <div className="max-w-7xl mx-auto relative">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
             {heading}
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">{subheading}</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 max-w-6xl mx-auto lg:grid-cols-2 lg:items-start">
-          <div className="flex flex-col gap-10 order-2 lg:order-1">
+        <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto lg:grid-cols-2 lg:gap-12 lg:items-start">
+          <div className="flex flex-col gap-8 lg:gap-10 order-2 lg:order-1">
             <div className="flex gap-4">
               <div
                 className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border bg-muted"
