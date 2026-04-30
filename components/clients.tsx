@@ -322,36 +322,29 @@ export function Clients() {
             Trusted partners and integrations
           </p>
 
-          <div className="space-y-10">
-            {grouped.map((group) => (
-              <div key={group.category}>
-                <p className="mb-4 text-center text-[13px] font-semibold uppercase tracking-wide text-foreground/70 sm:text-sm">
-                  {group.label}
-                </p>
-                <div className="flex flex-wrap items-start justify-center gap-x-3 gap-y-4 px-2 sm:gap-x-8 sm:gap-y-7">
-                  {group.partners.map((p) => (
-                    <div
-                      key={p.name}
-                      className="flex w-[72px] flex-col items-center justify-start gap-1.5 sm:w-[105px]"
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element -- remote brand marks */}
-                      <img
-                        src={p.logoUrl}
-                        alt={`${p.name} logo`}
-                        width={54}
-                        height={54}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-[2.1rem] w-[2.1rem] object-contain sm:h-[2.3625rem] sm:w-[2.3625rem]"
-                      />
-                      <span className="line-clamp-3 min-h-[3.25rem] text-center text-[13px] font-medium leading-tight text-muted-foreground sm:min-h-[3.25rem] sm:text-[15px]">
-                        {p.name}
-                      </span>
-                    </div>
-                  ))}
+          <div className="flex flex-wrap items-start justify-center gap-x-3 gap-y-4 px-2 sm:gap-x-8 sm:gap-y-7">
+            {grouped.flatMap((group) =>
+              group.partners.map((p) => (
+                <div
+                  key={p.name}
+                  className="flex w-[72px] flex-col items-center justify-start gap-1.5 sm:w-[105px]"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element -- remote brand marks */}
+                  <img
+                    src={p.logoUrl}
+                    alt={`${p.name} logo`}
+                    width={54}
+                    height={54}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-[2.1rem] w-[2.1rem] object-contain sm:h-[2.3625rem] sm:w-[2.3625rem]"
+                  />
+                  <span className="line-clamp-3 min-h-[3.25rem] text-center text-[13px] font-medium leading-tight text-muted-foreground sm:min-h-[3.25rem] sm:text-[15px]">
+                    {p.name}
+                  </span>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>
